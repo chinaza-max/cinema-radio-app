@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "slug": "treasure-island",
+  "title": "Treasure Island",
+  "synopsis": "A boy, a secret map and a cheerful cook with one leg and a parrot. Sail for buried gold, and learn who you can trust.",
+  "credit": "After Robert Louis Stevenson, 1883",
+  "genre": "Adventure",
+  "cover": {
+    "place": "sea",
+    "time": "dawn",
+    "props": ["shipfar"],
+    "fx": ["birds"],
+    "characters": [],
+    "camera": "out"
+  },
+  "cast": {
+    "jim": {
+      "name": "Jim Hawkins",
+      "role": "Cabin boy",
+      "coat": "#3f6c8f",
+      "trim": "#2a4a66",
+      "hat": "cap",
+      "hc": "#2a3a4a",
+      "skin": "#f0c8a8",
+      "sc": 0.84,
+      "pitch": 1.28,
+      "rate": 1.05
+    },
+    "bones": {
+      "name": "Billy Bones",
+      "role": "Old sea dog",
+      "coat": "#2e3d52",
+      "hat": "bandana",
+      "hc": "#8a2a2a",
+      "beard": "#9a9a9a",
+      "pitch": 0.72,
+      "rate": 0.9
+    },
+    "silver": {
+      "name": "Long John Silver",
+      "role": "Ship cook",
+      "coat": "#8f2a2a",
+      "trim": "#d8b04a",
+      "hat": "tricorn",
+      "hc": "#2a1a12",
+      "hc2": "#d8b04a",
+      "extra": "parrot",
+      "peg": true,
+      "pitch": 0.86,
+      "rate": 0.95
+    },
+    "smollett": {
+      "name": "Captain Smollett",
+      "role": "Ship captain",
+      "coat": "#1f2f4f",
+      "trim": "#c9a43a",
+      "hat": "tricorn",
+      "hc": "#1a1a2a",
+      "hc2": "#c9a43a",
+      "pitch": 0.8,
+      "rate": 0.95
+    },
+    "livesey": {
+      "name": "Dr. Livesey",
+      "role": "Doctor and magistrate",
+      "coat": "#4a3a5a",
+      "hat": "tricorn",
+      "hc": "#3a3a4a",
+      "hair": "#ececec",
+      "pitch": 1,
+      "rate": 1
+    },
+    "gunn": {
+      "name": "Ben Gunn",
+      "role": "Marooned sailor",
+      "coat": "#6a5a45",
+      "hat": "hood",
+      "hc": "#5a4a35",
+      "beard": "#7a6a55",
+      "pitch": 1.12,
+      "rate": 1.05
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Old Sea Dog",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Jim Hawkins lived at the Admiral Benbow, a lonely inn by the sea. One stormy night a tall, scarred old sailor named Billy Bones took a room, and he never really left.",
+          "place": "room",
+          "time": "night",
+          "props": ["fire", "window", "barrels"],
+          "fx": ["rain"],
+          "characters": ["bones:110", "jim:290"]
+        },
+        {
+          "speaker": "bones",
+          "text": "Jim, lad, keep a sharp eye out for a seafaring man with one leg. If he comes, you tell me at once. I'll pay you a silver fourpenny every month.",
+          "characters": ["bones:110:point", "jim:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then a blind beggar tapped his way to the door and pressed something into Billy's hand. It was the black spot, a pirate's warning of death.",
+          "characters": ["bones:140:shock", "jim:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Billy Bones fell down dead. Jim and his mother opened the old sailor's sea chest. Under the clothes lay a bundle of papers, and a map.",
+          "props": ["fire", "chest"],
+          "characters": ["jim:200:crouch"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The map showed an island, a red cross, and notes in faded ink. It had belonged to the terrible Captain Flint, and it marked the place where he buried his gold.",
+          "place": "island",
+          "time": "day",
+          "props": ["palms", "flag"],
+          "fx": [],
+          "characters": [],
+          "camera": "out"
+        },
+        {
+          "speaker": "silver",
+          "text": "Welcome aboard, young Jim! A fine ship, a fair wind and a treasure at the end of it. What more could a man want? Pieces of eight!",
+          "place": "sea",
+          "time": "dawn",
+          "props": ["ship"],
+          "fx": ["birds"],
+          "characters": ["silver:130", "jim:280"],
+          "camera": "l"
+        }
+      ]
+    },
+    {
+      "title": "The Apple Barrel",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "For weeks the Hispaniola sailed south. The wind was fair, the sea was blue, and the crew sang as they worked. Jim felt like the luckiest boy alive.",
+          "place": "sea",
+          "time": "day",
+          "props": ["ship"],
+          "fx": ["birds"],
+          "characters": ["jim:200"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "One evening Jim climbed into the big apple barrel on deck, hoping for a last apple. It was nearly empty, and he sank down inside it. Then he heard voices.",
+          "time": "dusk",
+          "props": ["ship"],
+          "fx": [],
+          "characters": ["jim:200:crouch"]
+        },
+        {
+          "speaker": "silver",
+          "text": "I sailed with Flint, lads. Wait until the gold is dug up, and then the ship is ours. Not one of those gentlemen will see England again.",
+          "time": "dusk",
+          "props": ["ship"],
+          "characters": ["silver:140:point"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Jim crept away with his heart pounding. Silver, the kind and funny cook, was the very pirate they had been warned about. Jim ran to tell his friends.",
+          "time": "dusk",
+          "props": ["ship"],
+          "characters": ["jim:330>240"]
+        },
+        {
+          "speaker": "smollett",
+          "text": "Thank you, Jim. We are outnumbered, but they do not know that we know. We will stay calm, and we will watch them closely.",
+          "characters": ["smollett:90", "livesey:170", "jim:300"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "At dawn the lookout shouted the words they had waited for. Land ho! Treasure Island rose out of the mist, green and silent. And Jim made up his mind to go ashore alone.",
+          "place": "island",
+          "time": "dawn",
+          "props": ["palms"],
+          "fx": ["fog"],
+          "characters": [],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Treasure",
+      "scenes": [
+        {
+          "speaker": "gunn",
+          "text": "Three years I've been alone, Jim. Three years without cheese! But I found Flint's treasure, and I moved it somewhere safe, all by myself.",
+          "place": "island",
+          "time": "day",
+          "props": ["palms"],
+          "fx": [],
+          "characters": ["jim:100", "gunn:300>250"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Meanwhile, the honest men held the old log fort on the hill. When the pirates attacked, Jim slipped back to fight beside his friends, and the fort did not fall.",
+          "place": "island",
+          "time": "dusk",
+          "props": ["palms", "flag"],
+          "fx": ["embers"],
+          "characters": ["smollett:90", "livesey:160", "jim:240"],
+          "camera": "in"
+        },
+        {
+          "speaker": "silver",
+          "text": "At the red cross the pirates dug and dug. They found only an empty hole. Silver's face went black. Gone! Somebody's been here before us!",
+          "place": "island",
+          "time": "day",
+          "props": ["palms"],
+          "fx": [],
+          "characters": ["silver:100>200:point"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Ben Gunn had moved it all long ago. In a cave, by torchlight, Jim and his friends opened the great chest. Gold coins, jewels and bars, more than anyone had ever seen.",
+          "place": "cave",
+          "time": "night",
+          "props": ["torch", "chest"],
+          "fx": ["glitter"],
+          "characters": ["jim:130", "gunn:230", "livesey:190"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Silver was a clever man. When he saw his chance he slipped away with a bag of coins, and he was never seen again. Perhaps he lived out his days somewhere sunny, with his parrot.",
+          "place": "sea",
+          "time": "day",
+          "props": ["shipfar"],
+          "fx": ["birds"],
+          "characters": [],
+          "camera": "out"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The Hispaniola sailed home. Jim never forgot that summer. And for the rest of his life he would still dream of a parrot crying, Pieces of eight! Pieces of eight!",
+          "place": "sea",
+          "time": "dusk",
+          "props": ["ship"],
+          "fx": ["birds"],
+          "characters": ["jim:200"],
+          "camera": "r"
+        }
+      ]
+    }
+  ]
+}

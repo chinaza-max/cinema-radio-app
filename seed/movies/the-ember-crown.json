@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "slug": "the-ember-crown",
+  "title": "The Ember Crown",
+  "synopsis": "A village lamp-keeper learns she can wield the last of the world's magic. With a wizard, an archer and a stolen crown to win back, Ada must face the Shadow Sorcerer before every light goes out.",
+  "credit": "An original story",
+  "genre": "Fantasy",
+  "cover": {
+    "place": "forest",
+    "time": "night",
+    "props": ["orb"],
+    "fx": ["magic", "fog"],
+    "characters": ["ada:200"],
+    "camera": "in"
+  },
+  "cast": {
+    "ada": {
+      "name": "Ada",
+      "role": "The Ember heir",
+      "coat": "#c8622a",
+      "trim": "#ffd36b",
+      "skin": "#8a5a3a",
+      "hat": "hairlong",
+      "hc": "#1e130e",
+      "extra": "spark",
+      "pitch": 1.2,
+      "rate": 1
+    },
+    "orrin": {
+      "name": "Master Orrin",
+      "role": "Old wizard",
+      "coat": "#3a4a8a",
+      "trim": "#ffd36b",
+      "hat": "wizard",
+      "hc": "#2a3570",
+      "beard": "#e8e8ee",
+      "extra": "staff",
+      "pitch": 0.8,
+      "rate": 0.92
+    },
+    "tomi": {
+      "name": "Tomi",
+      "role": "Forest archer",
+      "coat": "#3a6a4a",
+      "trim": "#2a4a32",
+      "skin": "#7a4a2a",
+      "hat": "cap",
+      "hc": "#2a4a32",
+      "extra": "bow",
+      "pitch": 1.1,
+      "rate": 1.08
+    },
+    "vexar": {
+      "name": "Lord Vexar",
+      "role": "The Shadow Sorcerer",
+      "coat": "#2a1a40",
+      "trim": "#7a1f4a",
+      "skin": "#5a4a68",
+      "hat": "hood",
+      "hc": "#140a22",
+      "extra": "darkstaff",
+      "pitch": 0.66,
+      "rate": 0.9,
+      "sc": 1.08
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Spark",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Every evening, the village of Dunmere lit its lamps with Ember Light, a warm golden glow that came from the Ember Crown, far away in the capital. But this autumn, the lamps had begun to dim.",
+          "place": "moor",
+          "time": "dusk",
+          "props": [],
+          "fx": ["magic"],
+          "characters": ["ada:150"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Ada, a sixteen year old lamp-keeper, did not believe in magic. Then one evening the lamp in her hands went out, and her own fingertips began to glow.",
+          "characters": ["ada:150:point"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "That night a black storm rolled over the hills, and in it marched the Hollow Knights, shadow soldiers with no faces. They had come for the village, and for the girl who could make light.",
+          "time": "storm",
+          "fx": ["rain", "flash", "gloom"],
+          "characters": ["ada:200:shock"]
+        },
+        {
+          "speaker": "ada",
+          "text": "Stay back! I do not know what I am doing, but you will not touch my village!",
+          "characters": ["ada:150:point"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "A wave of golden fire burst from her hands, and the Hollow Knights melted into smoke. Ada fell to her knees, shaking, while the whole village stared in silence.",
+          "time": "night",
+          "fx": ["burst", "magic"],
+          "characters": ["ada:150:crouch"],
+          "camera": "in"
+        },
+        {
+          "speaker": "orrin",
+          "text": "Well done, child. I am Orrin, once a master of the Star Tower. The sorcerer Vexar has stolen the Ember Crown. You are the Ember's heir, Ada, and the world needs you.",
+          "fx": ["magic"],
+          "characters": ["ada:120", "orrin:310>240"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Ada looked at her glowing hands, and at the lamps of her home, and she made her choice. At dawn she and Orrin left Dunmere together, and the quest began.",
+          "time": "dawn",
+          "fx": ["birds"],
+          "characters": ["ada:60>150", "orrin:110>210"],
+          "camera": "r"
+        }
+      ]
+    },
+    {
+      "title": "The Star Tower",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The old Star Tower stood broken on a windy cliff, but inside, its great library still glowed with tiny drifting lights. Here, Orrin began to teach.",
+          "place": "room",
+          "time": "night",
+          "props": ["shelves", "fire", "window"],
+          "fx": ["magic"],
+          "characters": ["ada:120", "orrin:300"]
+        },
+        {
+          "speaker": "orrin",
+          "text": "Magic is not a weapon, Ada. It is a conversation with the world. First you listen. Then you ask.",
+          "characters": ["ada:120", "orrin:300:point"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "For many days she trained. She lit a hundred candles without touching them. She lifted stones with a whisper. But whenever she grew angry, her fire ran wild and scorched the curtains.",
+          "fx": ["magic", "embers"],
+          "characters": ["ada:150:point", "orrin:310"]
+        },
+        {
+          "speaker": "ada",
+          "text": "I can do it when I am calm, Master. But when I think about the Hollow Knights, my fire runs away from me. How do I stop it?",
+          "fx": ["magic"],
+          "characters": ["ada:130", "orrin:300"]
+        },
+        {
+          "speaker": "orrin",
+          "text": "Fire fed by anger consumes the one who holds it. The Ember Crown was forged from hope. Remember what you are protecting, not what you fear.",
+          "characters": ["ada:130", "orrin:300:point"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Far away, in the Shadow Citadel, Lord Vexar set the stolen Ember Crown on a black altar. Its golden fire turned violet in his hands, and every light in the kingdom flickered.",
+          "place": "citadel",
+          "time": "storm",
+          "props": ["crown"],
+          "fx": ["rain", "flash", "gloom"],
+          "characters": ["vexar:300"],
+          "camera": "in"
+        },
+        {
+          "speaker": "vexar",
+          "text": "Soon every flame will answer to me. Let the girl come. A little spark has never beaten the night.",
+          "characters": ["vexar:300:point"]
+        }
+      ]
+    },
+    {
+      "title": "The Whispering Forest",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "To reach the Citadel, Ada and Orrin had to cross the Whispering Forest, where the trees remember every traveler, and whisper their secrets back to them.",
+          "place": "forest",
+          "time": "dusk",
+          "props": [],
+          "fx": ["magic", "fog"],
+          "characters": ["ada:60>150", "orrin:110>210"]
+        },
+        {
+          "speaker": "tomi",
+          "text": "Stop right there! This is my forest. Hand over your gold, or my arrow will find your hat.",
+          "characters": ["ada:130", "orrin:190", "tomi:340>280"]
+        },
+        {
+          "speaker": "orrin",
+          "text": "We have no gold, young archer, only a dangerous errand. The Ember Crown is stolen, and this girl is the last hope of the realm.",
+          "characters": ["ada:120", "orrin:200:point", "tomi:290"]
+        },
+        {
+          "speaker": "tomi",
+          "text": "The Hollow Knights burned my family's hut last winter. Fine. I know every path in these woods. I will guide you. But if you stumble, I will not carry you.",
+          "characters": ["ada:120", "orrin:190", "tomi:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "That night, the forest tested them. The trees whispered to Ada in her own voice. You are only a village girl. You will fail. You will lose everyone.",
+          "time": "night",
+          "fx": ["fog", "gloom"],
+          "characters": ["ada:200:crouch"]
+        },
+        {
+          "speaker": "ada",
+          "text": "I am afraid. But being afraid is not the same as being beaten. I am still here.",
+          "fx": ["magic"],
+          "characters": ["ada:200:point"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "A soft golden light, calm and steady, spread from her hands. The whispers fell silent, the great trees bowed their branches, and a path of glowing mushrooms opened toward the Citadel.",
+          "fx": ["burst", "magic"],
+          "characters": ["orrin:90", "ada:170", "tomi:250"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Shadow Citadel",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The Shadow Citadel rose from a lake of black glass, its towers scraping the clouds. Lightning crawled between its spires, and the air tasted of cold iron.",
+          "place": "citadel",
+          "time": "storm",
+          "props": [],
+          "fx": ["rain", "flash", "gloom"],
+          "characters": ["ada:60>130", "tomi:100>180", "orrin:140>230"]
+        },
+        {
+          "speaker": "tomi",
+          "text": "Two thousand Hollow Knights guard that gate, so we cannot fight our way in. But there is a drain tunnel under the east wall. I scouted it last winter.",
+          "characters": ["ada:120", "tomi:200:point", "orrin:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "They crept through the dripping tunnel under the walls, lit by Ada's soft glow. Blue crystals pulsed in the dark like sleeping stars.",
+          "place": "cave",
+          "time": "night",
+          "props": ["crystals"],
+          "fx": ["magic"],
+          "characters": ["tomi:60>140", "ada:110>200", "orrin:150>260"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Inside the great hall, Lord Vexar was waiting, as if he had known they were coming all along. Behind them, the Hollow Knights sealed every door.",
+          "place": "citadel",
+          "time": "storm",
+          "props": ["crown"],
+          "fx": ["gloom", "flash"],
+          "characters": ["ada:60", "tomi:110", "orrin:160", "vexar:340"],
+          "camera": "in"
+        },
+        {
+          "speaker": "vexar",
+          "text": "Hello again, Master Orrin. Did you tell the girl I was your finest student? You taught me everything. You never taught me to be satisfied.",
+          "characters": ["ada:60", "tomi:110", "orrin:160", "vexar:340:point"]
+        },
+        {
+          "speaker": "orrin",
+          "text": "Ada, the Crown is on the altar. Take it and run to the tower roof. I will hold them as long as I can.",
+          "characters": ["ada:60", "tomi:110", "orrin:160:point", "vexar:340"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Orrin slammed his staff down, and a wall of golden light split the hall in two. Ada seized the Ember Crown and, with Tomi at her side, ran for the stairs.",
+          "fx": ["burst", "magic", "flash"],
+          "characters": ["ada:110:run", "tomi:60:run", "orrin:160:point", "vexar:340"],
+          "camera": "in"
+        }
+      ]
+    },
+    {
+      "title": "The Last Light",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "On the highest roof of the Citadel, the wind howled around Ada and Tomi. Below them, the whole kingdom lay in darkness, one tiny light after another going out.",
+          "place": "citadel",
+          "time": "storm",
+          "props": [],
+          "fx": ["rain", "flash", "gloom"],
+          "characters": ["ada:150", "tomi:230"]
+        },
+        {
+          "speaker": "tomi",
+          "text": "They are coming up the stairs. Whatever you have to do, Ada, do it now. I will hold the door.",
+          "characters": ["ada:150", "tomi:230:point"]
+        },
+        {
+          "speaker": "vexar",
+          "text": "You cannot wear it, child. The Crown's fire will burn you to ash. Give it to me, and I will let your friends live.",
+          "fx": ["gloom"],
+          "characters": ["ada:120:shock", "vexar:340>290"],
+          "camera": "l"
+        },
+        {
+          "speaker": "ada",
+          "text": "Orrin taught me that fire fed by anger consumes the one who holds it. But fire fed by hope can light the whole world.",
+          "characters": ["ada:120:point", "vexar:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "She placed the Ember Crown on her own head. Golden light exploded from the roof of the Citadel and raced across the sky, like the sun rising at midnight.",
+          "fx": ["burst", "magic", "flash"],
+          "characters": ["ada:120", "vexar:290"],
+          "camera": "out"
+        },
+        {
+          "speaker": "narrator",
+          "text": "One by one, the lamps of the kingdom woke again. The Hollow Knights dissolved into mist, and Vexar's violet fire shrank to a candle flame in his trembling hands.",
+          "time": "dusk",
+          "fx": ["magic"],
+          "characters": ["ada:120", "vexar:300:crouch"],
+          "camera": "in"
+        },
+        {
+          "speaker": "vexar",
+          "text": "I only wanted the fear to stop. I thought the dark would keep me safe.",
+          "characters": ["ada:120", "vexar:300:crouch"]
+        },
+        {
+          "speaker": "ada",
+          "text": "We all fear the dark, Vexar. But you do not beat it by becoming it. You beat it with a light, and you share it.",
+          "characters": ["ada:120", "vexar:300:crouch"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Orrin was found alive, leaning on his broken staff and smiling. Vexar returned to the Star Tower to study the old books and learn the long way. And Ada carried the Crown home, so that every lamp in Dunmere would shine again.",
+          "place": "moor",
+          "time": "dawn",
+          "props": [],
+          "fx": ["magic", "birds"],
+          "characters": ["ada:150", "tomi:230", "orrin:300"],
+          "camera": "out"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Every winter, the people of the kingdom light a lamp in each window, to remember the night a village girl became the keeper of the Ember. And that is the story of Ada, and of how the lights came back.",
+          "time": "dusk",
+          "fx": ["magic"],
+          "characters": ["ada:200"],
+          "camera": "in"
+        }
+      ]
+    }
+  ]
+}

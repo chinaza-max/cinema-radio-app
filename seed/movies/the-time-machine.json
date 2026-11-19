@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "slug": "the-time-machine",
+  "title": "The Time Machine",
+  "synopsis": "A Victorian inventor rides a brass machine to the year 802,701 and finds a gentle, golden world with a secret in the dark.",
+  "credit": "After H. G. Wells, 1895",
+  "genre": "Science fiction",
+  "cover": {
+    "place": "future",
+    "time": "future",
+    "props": ["sphinx"],
+    "fx": ["birds"],
+    "characters": [],
+    "camera": "in"
+  },
+  "cast": {
+    "traveller": {
+      "name": "The Time Traveller",
+      "role": "Inventor",
+      "coat": "#6a2a3a",
+      "trim": "#3a1a22",
+      "hat": "hair",
+      "hc": "#4a3a2a",
+      "pitch": 0.92,
+      "rate": 0.97
+    },
+    "filby": {
+      "name": "Filby",
+      "role": "Dinner guest",
+      "coat": "#2a3a3a",
+      "hat": "hair",
+      "hc": "#2a2420",
+      "pitch": 0.85,
+      "rate": 1
+    },
+    "weena": {
+      "name": "Weena",
+      "role": "An Eloi",
+      "coat": "#f0b8c8",
+      "skin": "#f0d0b8",
+      "hat": "hairlong",
+      "hc": "#d8a84a",
+      "sc": 0.9,
+      "pitch": 1.35,
+      "rate": 1
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Brass Machine",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "In a London drawing room, late in Queen Victoria's reign, a man known only as the Time Traveller invited his friends to dinner, and promised them a wonder.",
+          "place": "room",
+          "time": "night",
+          "props": ["fire", "shelves", "table"],
+          "fx": [],
+          "characters": ["traveller:110", "filby:310"]
+        },
+        {
+          "speaker": "traveller",
+          "text": "Time is simply another dimension, like length, width and height. We can already move through three of them. Why not the fourth? I have built a machine that does it.",
+          "characters": ["traveller:110:point", "filby:310"]
+        },
+        {
+          "speaker": "filby",
+          "text": "Impossible! Show us, or we shall not believe a word.",
+          "characters": ["traveller:110", "filby:310"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The next day, in his workshop, he climbed onto the real machine: brass rails, glowing rods of quartz, and a saddle in the middle. He took a deep breath and pushed the lever.",
+          "place": "room",
+          "time": "day",
+          "props": ["machine", "window"],
+          "fx": [],
+          "characters": ["traveller:110"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The room began to blur. Day and night flickered like a candle in the wind. Trees grew and fell. Houses rose and crumbled. The sun became a streak of fire across the sky.",
+          "place": "warp",
+          "time": "day",
+          "props": ["machine"],
+          "fx": [],
+          "characters": ["traveller:150:crouch"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "At last he pulled the lever back, and the machine tumbled into soft grass. The Traveller looked around. The year, said the dial, was eight hundred and two thousand, seven hundred and one.",
+          "place": "future",
+          "time": "future",
+          "props": ["machine"],
+          "fx": ["birds"],
+          "characters": ["traveller:120:shock"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Golden People",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The Traveller stood in a garden of giant flowers. White statues rose between the trees. Small, gentle people in bright robes ran toward him, laughing like children.",
+          "place": "future",
+          "time": "future",
+          "props": ["sphinx"],
+          "fx": ["birds"],
+          "characters": ["traveller:100", "weena:320>210"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "They spoke a soft, simple language, and he slowly learned a few words. A young woman named Weena took his hand and showed him where the sweetest fruit grew.",
+          "props": ["sphinx"],
+          "characters": ["traveller:110", "weena:230"],
+          "camera": "r"
+        },
+        {
+          "speaker": "traveller",
+          "text": "My machine is gone. Somebody dragged it into that great white sphinx, and the bronze doors will not open. Somebody took it on purpose.",
+          "props": ["sphinx"],
+          "characters": ["traveller:120:point"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The Eloi were beautiful, kind, and terribly afraid of the dark. At sunset they huddled together to sleep. The Traveller wondered what frightened them so much.",
+          "time": "dusk",
+          "props": ["sphinx"],
+          "fx": [],
+          "characters": ["traveller:110", "weena:210"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then, one night, he saw them: pale creatures with huge eyes, creeping up out of deep wells. They shrank from the light, and they were hunting.",
+          "time": "night",
+          "props": ["eyes"],
+          "fx": ["stars"],
+          "characters": ["traveller:130:shock"],
+          "camera": "in"
+        },
+        {
+          "speaker": "traveller",
+          "text": "The Eloi live in the sun, and the Morlocks live below, in the dark. My machine must be down there with them. I shall have to go underground.",
+          "time": "night",
+          "props": ["sphinx"],
+          "fx": ["stars"],
+          "characters": ["traveller:120:point", "weena:230"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "Under the Earth",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The Traveller climbed down a well, rung after rung, into the dark. Far below he heard the thump of great engines and the shuffle of many feet.",
+          "place": "cave",
+          "time": "night",
+          "props": ["torch"],
+          "fx": [],
+          "characters": ["traveller:110"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "In the tunnels, glowing eyes closed in around him. He struck a match, and the pale Morlocks cried out and shrank back from the little flame.",
+          "props": ["eyes"],
+          "fx": [],
+          "characters": ["traveller:130:point"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Match after match, he walked on. At last, behind a panel in the sphinx's base, he found his machine, safe and unharmed.",
+          "props": ["machine", "torch"],
+          "fx": [],
+          "characters": ["traveller:90:point"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Outside, Weena was waiting. She gave him two white flowers to remember her by. The Traveller promised he would never forget her, and he never did.",
+          "place": "future",
+          "time": "dawn",
+          "props": ["sphinx"],
+          "fx": ["birds"],
+          "characters": ["traveller:100", "weena:200"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "He pulled the lever, and the world blurred again, backward this time, as the years rolled home like a tide.",
+          "place": "warp",
+          "time": "day",
+          "props": ["machine"],
+          "fx": [],
+          "characters": ["traveller:150:crouch"]
+        },
+        {
+          "speaker": "filby",
+          "text": "Remarkable! They laughed at his story, until he set the two white flowers on the table. They were of a kind no one in the room had ever seen. And where will you go next?",
+          "place": "room",
+          "time": "night",
+          "props": ["fire", "shelves", "table"],
+          "fx": [],
+          "characters": ["traveller:110", "filby:310"],
+          "camera": "out"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "slug": "the-lantern-keeper",
+  "title": "The Lantern Keeper",
+  "synopsis": "On a lonely island, a girl keeps the last lighthouse burning. One stormy night a stranger's boat is lost at sea, and only her lantern can bring it home.",
+  "credit": "An original story",
+  "genre": "Adventure",
+  "cover": {
+    "place": "sea",
+    "time": "dusk",
+    "props": ["shipfar"],
+    "fx": ["birds"],
+    "characters": ["ife:90"],
+    "camera": "in"
+  },
+  "cast": {
+    "ife": {
+      "name": "Ife",
+      "role": "Lighthouse keeper",
+      "coat": "#3f7f9a",
+      "trim": "#f2c14e",
+      "skin": "#7a4a30",
+      "hat": "headwrap",
+      "hc": "#e0643a",
+      "extra": "lantern",
+      "sc": 0.92,
+      "pitch": 1.2,
+      "rate": 1
+    },
+    "kunle": {
+      "name": "Kunle",
+      "role": "Lost sailor",
+      "coat": "#8a3a2a",
+      "skin": "#6a4228",
+      "hat": "cap",
+      "hc": "#2a2a3a",
+      "pitch": 0.85,
+      "rate": 0.95
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Storm",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "At the edge of the world stood a small island, and on the island stood a lighthouse. Every evening, a girl named Ife climbed its stairs and lit the great lamp.",
+          "place": "island",
+          "time": "dusk",
+          "props": ["palms"],
+          "fx": ["birds"],
+          "characters": ["ife:90"]
+        },
+        {
+          "speaker": "ife",
+          "text": "Tonight the sky looks angry. I had better keep the lamp burning until morning.",
+          "characters": ["ife:90:think"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The storm arrived without warning. Waves rose like walls, and far out on the water a tiny boat was thrown from side to side.",
+          "place": "sea",
+          "time": "storm",
+          "props": ["shipfar"],
+          "fx": ["rain", "flash"],
+          "characters": [],
+          "camera": "in"
+        },
+        {
+          "speaker": "kunle",
+          "text": "I cannot see the rocks! Is anyone out there? Show me the way!",
+          "characters": ["kunle:300:shock"]
+        },
+        {
+          "speaker": "ife",
+          "text": "Over here! Follow the lantern!",
+          "place": "island",
+          "time": "storm",
+          "props": ["beam"],
+          "fx": ["rain", "magic"],
+          "characters": ["ife:160:wave", "kunle:340>250:walk"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The boat reached the cove safely. Kunle jumped onto the sand and cheered with joy.",
+          "characters": ["ife:160:cheer", "kunle:250:cheer"],
+          "camera": "out"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "slug": "magic-base",
+  "title": "Magic Base",
+  "synopsis": "A castle of living light floats above the valley of Aruwa. When the Shadow King steals its heart, one young apprentice must carry the last spark across the sea and into the dark.",
+  "credit": "An original story",
+  "genre": "Fantasy",
+  "featured": true,
+  "cover": {
+    "place": "moor",
+    "time": "dawn",
+    "props": ["base", "village"],
+    "fx": ["magic", "birds"],
+    "characters": ["kemi2:150"],
+    "camera": "in"
+  },
+  "cast": {
+    "kemi": {
+      "name": "Kemi",
+      "role": "Apprentice mender",
+      "coat": "#2f8f7a",
+      "trim": "#f2c14e",
+      "skin": "#8a5a3c",
+      "hat": "headwrap",
+      "hc": "#f2a541",
+      "sc": 0.96,
+      "pitch": 1.18,
+      "rate": 1
+    },
+    "kemi2": {
+      "name": "Kemi",
+      "role": "The light-bearer",
+      "coat": "#2f8f7a",
+      "trim": "#f2c14e",
+      "skin": "#8a5a3c",
+      "hat": "headwrap",
+      "hc": "#f2a541",
+      "extra": "lightstaff",
+      "sc": 0.96,
+      "pitch": 1.18,
+      "rate": 1,
+      "hidden": true
+    },
+    "baba": {
+      "name": "Baba Oru",
+      "role": "Old guardian",
+      "coat": "#7a4a2a",
+      "trim": "#d8b04a",
+      "skin": "#6a4228",
+      "hat": "wizard",
+      "hc": "#5a3a7a",
+      "beard": "#ececec",
+      "extra": "cane",
+      "pitch": 0.74,
+      "rate": 0.92
+    },
+    "tobi": {
+      "name": "Tobi",
+      "role": "Boatman and friend",
+      "coat": "#c0553a",
+      "trim": "#7a2a1a",
+      "skin": "#7a4a30",
+      "hat": "cap",
+      "hc": "#3a2a1a",
+      "extra": "lantern",
+      "sc": 0.92,
+      "pitch": 1.08,
+      "rate": 1.05
+    },
+    "vexar": {
+      "name": "Lord Vexar",
+      "role": "The Shadow King",
+      "coat": "#241c34",
+      "coat2": "#1a1426",
+      "trim": "#8a2a5a",
+      "tag": "#c04a8a",
+      "skin": "#a99ab8",
+      "hat": "horned",
+      "hc": "#120e1c",
+      "hc2": "#cfc6dd",
+      "pitch": 0.58,
+      "rate": 0.9
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Last Light",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "In the valley of Aruwa, every morning begins the same way. Above the hills floats the Magic Base, a castle of living light, and its glow keeps the whole land safe from the dark.",
+          "place": "moor",
+          "time": "dawn",
+          "props": ["base", "village"],
+          "fx": ["birds"],
+          "characters": ["kemi:130"]
+        },
+        {
+          "speaker": "kemi",
+          "text": "Look, Baba Oru! The Base is shining brighter today. One day I will fly up there and see it with my own eyes.",
+          "time": "day",
+          "characters": ["kemi:130:point", "baba:260"]
+        },
+        {
+          "speaker": "baba",
+          "text": "Patience, Kemi. The Base is powered by the Heart Crystal, and the crystal is powered by hope. As long as one village still believes in the light, the dark cannot win.",
+          "characters": ["kemi:130", "baba:260"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "But that evening the sky turned black. A storm of shadow rolled over the mountains, and in the heart of it rode Lord Vexar, the Shadow King, who hated all light.",
+          "time": "dusk",
+          "fx": ["shadow"],
+          "characters": ["kemi:130:shock", "baba:260"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "His shadows swarmed the Magic Base, broke into its great hall, and tore out the Heart Crystal. One by one the lights of the castle went out, and the valley fell into darkness.",
+          "time": "storm",
+          "props": ["basedim", "village"],
+          "fx": ["shadow", "rain", "flash"],
+          "camera": "in"
+        },
+        {
+          "speaker": "baba",
+          "text": "Take my staff, child. It holds the last spark of the Base. Find the crystal before the final candle burns out. I am too old, but you have something Vexar can never take. You have courage.",
+          "time": "night",
+          "fx": ["shadow"],
+          "characters": ["kemi:130", "baba:260:point"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "At dawn, Kemi set out alone, the staff glowing softly in her hand. Behind her, the villagers lit a candle in every window. Ahead lay the sea, and beyond it, the Shadow King's tower.",
+          "time": "dawn",
+          "fx": ["magic"],
+          "characters": ["kemi2:80>260"],
+          "camera": "r"
+        }
+      ]
+    },
+    {
+      "title": "The Storm Sea",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The road to the Shadow Tower crossed the Storm Sea, and only one boatman dared to sail it. His name was Tobi, and he laughed at everything, even danger.",
+          "place": "sea",
+          "time": "day",
+          "props": ["ship"],
+          "fx": ["birds"],
+          "characters": ["kemi2:130", "tobi:280"]
+        },
+        {
+          "speaker": "tobi",
+          "text": "I will take you across, Kemi, but I should warn you. Nobody who sails the Storm Sea has ever come back. Also, I am afraid of fish."
+        },
+        {
+          "speaker": "narrator",
+          "text": "Halfway across, the sea began to roar. Waves as tall as houses crashed over the boat, and lightning split the sky.",
+          "time": "storm",
+          "fx": ["rain", "flash"],
+          "characters": ["kemi2:130", "tobi:280:shock"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Out of the black water rose a Shadow Serpent, with glowing eyes. Tobi dropped his oars and froze.",
+          "props": ["ship", "eyes"],
+          "camera": "in"
+        },
+        {
+          "speaker": "kemi2",
+          "text": "Hold on, Tobi! Light does not fight the dark with anger. It only has to shine.",
+          "props": ["ship"],
+          "fx": ["rain", "magic"],
+          "characters": ["kemi2:150", "tobi:280"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "A beam of gold burst from the staff. The serpent shrieked and melted into mist, and the storm fell away like a torn curtain.",
+          "time": "dawn",
+          "props": ["ship", "beam"],
+          "fx": ["magic", "birds"],
+          "camera": "out"
+        },
+        {
+          "speaker": "tobi",
+          "text": "That was the most frightening and wonderful thing I have ever seen. I am coming with you all the way, Kemi. Someone has to row, and someone has to be scared with you.",
+          "props": ["ship"],
+          "fx": ["birds"],
+          "characters": ["kemi2:130", "tobi:280"]
+        }
+      ]
+    },
+    {
+      "title": "The Hall of Echoes",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "They landed on the Isle of Echoes, where a deep cave guarded the oldest magic in the land. Kemi knew the staff would need more than a spark to face the Shadow King.",
+          "place": "island",
+          "time": "dusk",
+          "props": ["palms"],
+          "fx": [],
+          "characters": ["kemi2:100>190", "tobi:150>270"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Inside, a voice rolled from every wall. Only a true guardian may pass. Three trials await you.",
+          "place": "cave",
+          "time": "night",
+          "props": ["torch", "runes"],
+          "fx": [],
+          "characters": ["kemi2:120", "tobi:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The first trial was Courage. A floor of thin glass lay over a bottomless drop. Kemi crossed it one step at a time, and with every step her staff burned a little brighter.",
+          "characters": ["kemi2:90>250"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The second trial was Kindness. A wounded shadow creature lay whimpering in the dark. Kemi could have run past it. Instead she knelt and healed it with the light of her staff.",
+          "props": ["runes"],
+          "fx": ["magic"],
+          "characters": ["kemi2:200:crouch"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The third trial was Truth. A mirror of black water showed her deepest fear: that she was only a village girl, far too small to save anyone.",
+          "fx": [],
+          "characters": ["kemi2:200:shock"]
+        },
+        {
+          "speaker": "kemi2",
+          "text": "Maybe I am small. But a candle does not ask how small it is before it lights the room. It just needs someone brave enough to carry it.",
+          "fx": ["magic"],
+          "characters": ["kemi2:150", "tobi:290"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The cave shook, and the mountain spoke. You have passed. The staff blazed, and from its tip grew a blade of pure light. Kemi now held the Sword of the Dawn.",
+          "props": ["beam", "runes"],
+          "fx": ["magic"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Shadow Tower",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The Shadow Tower rose from the black rocks like a spear, with a single red eye burning at its peak. Thunder shook the ground with every step.",
+          "place": "moor",
+          "time": "storm",
+          "props": ["tower"],
+          "fx": ["shadow", "rain", "flash"],
+          "characters": ["kemi2:70>170", "tobi:30>120"]
+        },
+        {
+          "speaker": "tobi",
+          "text": "That is a very big tower, and a very red eye. I have just remembered that I have a mother to visit.",
+          "characters": ["kemi2:170", "tobi:120:shock"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Inside, in a hall of black stone, the Heart Crystal hung cracked and pale. Beside it stood Lord Vexar, tall and cold, with horns of bone and a smile with no warmth in it.",
+          "place": "hall",
+          "time": "night",
+          "props": ["crystaldim"],
+          "fx": ["shadow"],
+          "characters": ["kemi2:90", "vexar:320"],
+          "camera": "in"
+        },
+        {
+          "speaker": "vexar",
+          "text": "So the little candle comes to my house. Do you know why your Base fell, child? Because people forget the light the moment they are afraid. Fear is stronger than hope."
+        },
+        {
+          "speaker": "kemi2",
+          "text": "You are wrong. Fear only wins when we stand alone. Give back the crystal, Vexar."
+        },
+        {
+          "speaker": "narrator",
+          "text": "Vexar raised his hand, and a wave of darkness hurled Kemi against the wall. Her staff flew from her grasp and went dark at his feet. Tobi was dragged away in chains of shadow.",
+          "fx": ["shadow", "flash"],
+          "characters": ["kemi:130:crouch", "vexar:300:point", "tobi:40"],
+          "camera": "in"
+        },
+        {
+          "speaker": "vexar",
+          "text": "Now the light is mine, and so is your friend. Stay in the dark, little candle. It is where you belong.",
+          "characters": ["kemi:130:crouch", "vexar:300"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Magic Base",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Kemi lay alone in the dark. The staff was gone, Tobi was gone, and the crystal was broken. For the first time, she thought about giving up.",
+          "place": "hall",
+          "time": "night",
+          "props": ["crystaldim"],
+          "fx": ["shadow"],
+          "characters": ["kemi:130:crouch"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then she heard it, a tiny sound from far away, like a hundred whispers. It was the people of Aruwa, lighting candles in every window and calling her name.",
+          "place": "moor",
+          "time": "night",
+          "props": ["basedim", "village"],
+          "fx": ["candles", "stars"],
+          "characters": [],
+          "camera": "out"
+        },
+        {
+          "speaker": "baba",
+          "text": "Kemi, the power was never in the crystal. It lives in every heart that hopes. Stand up, child. All of us are behind you.",
+          "place": "hall",
+          "time": "night",
+          "props": ["crystaldim"],
+          "fx": ["magic"],
+          "characters": ["kemi:150"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Kemi stood. From the valley, a thousand candles sent a thousand beams into the sky, and they joined together into one great column of gold.",
+          "place": "moor",
+          "time": "night",
+          "props": ["basedim", "village", "beam"],
+          "fx": ["candles", "magic"],
+          "characters": ["kemi:150"],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The light tore through the Shadow Tower. The chains snapped, Tobi tumbled free, and the staff leaped back into Kemi's hand, blazing like a small sun.",
+          "place": "hall",
+          "time": "night",
+          "props": ["crystaldim"],
+          "fx": ["magic"],
+          "characters": ["kemi2:90", "tobi:40", "vexar:320:shock"],
+          "camera": "in"
+        },
+        {
+          "speaker": "vexar",
+          "text": "No! Hope is only a story! Stop shining!",
+          "characters": ["kemi2:90", "vexar:320:shock"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Kemi raised the blade of dawn, and the shadow fell from Vexar like a torn cloak. Without it he was only a frightened man. He fled from the tower and was never seen again.",
+          "fx": ["magic"],
+          "characters": ["kemi2:130", "vexar:320:crouch"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The Heart Crystal mended itself and shone brighter than ever. It rose through the tower and out into the open sky, and every light in the land came back.",
+          "props": ["crystal"],
+          "fx": ["magic"],
+          "characters": ["kemi2:150", "tobi:260"],
+          "camera": "out"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The Magic Base rose over Aruwa once more, shining like a second sun. Baba Oru wept with joy, Tobi swore he had never been scared, and Kemi, the girl who once dreamed of seeing the Base, became its youngest guardian. And the light lived on, for as long as someone dared to carry it.",
+          "place": "moor",
+          "time": "dawn",
+          "props": ["base", "village"],
+          "fx": ["magic", "birds"],
+          "characters": ["kemi2:130", "baba:230", "tobi:280"],
+          "camera": "in"
+        }
+      ]
+    }
+  ]
+}

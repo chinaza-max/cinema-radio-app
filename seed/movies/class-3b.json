@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "slug": "class-3b",
+  "title": "Class 3B",
+  "synopsis": "A completely normal school class becomes the most chaotic class in the country when their teacher announces a simple group assignment. Between cheating, conspiracy theories, a student election and one teacher who has completely lost patience, nobody gets the peaceful school day they expected.",
+  "credit": "An original story",
+  "genre": "Comedy",
+  "featured": true,
+  "published": true,
+  "cover": {
+    "place": "room",
+    "time": "day",
+    "props": ["table", "window", "shelves"],
+    "fx": ["birds"],
+    "characters": ["jay:100", "chika:220:think", "musa:340:wave"],
+    "camera": "in"
+  },
+  "cast": {
+    "jay": {
+      "name": "Jay",
+      "role": "Lazy student",
+      "coat": "#3f7f9a",
+      "trim": "#f2c14e",
+      "skin": "#7a4a30",
+      "pants": "#222222",
+      "hat": "cap",
+      "hc": "#1e130e",
+      "sc": 0.88,
+      "pitch": 1.25,
+      "rate": 1.05
+    },
+    "chika": {
+      "name": "Chika",
+      "role": "Overachieving student",
+      "coat": "#8a3a6a",
+      "trim": "#f2c14e",
+      "skin": "#805033",
+      "pants": "#222222",
+      "hat": "headwrap",
+      "hc": "#2a2a3a",
+      "sc": 0.9,
+      "pitch": 1.15,
+      "rate": 1
+    },
+    "musa": {
+      "name": "Musa",
+      "role": "Class troublemaker",
+      "coat": "#8a3a2a",
+      "trim": "#f2c14e",
+      "skin": "#6a4228",
+      "pants": "#222222",
+      "hat": "hair",
+      "hc": "#1e130e",
+      "sc": 0.92,
+      "pitch": 1.05,
+      "rate": 1
+    },
+    "teacher": {
+      "name": "Mr. Okoro",
+      "role": "Exhausted teacher",
+      "coat": "#365c72",
+      "trim": "#f2c14e",
+      "skin": "#70462d",
+      "pants": "#222222",
+      "hat": "deerstalker",
+      "hc": "#1e130e",
+      "extra": "cane",
+      "sc": 1.05,
+      "pitch": 0.72,
+      "rate": 0.85
+    },
+    "principal": {
+      "name": "Principal Ada",
+      "role": "Strict principal",
+      "coat": "#6f3f72",
+      "trim": "#f2c14e",
+      "skin": "#805033",
+      "pants": "#222222",
+      "hat": "top",
+      "hc": "#1e130e",
+      "sc": 1.08,
+      "pitch": 0.78,
+      "rate": 0.9
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Assignment",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Class 3B was not the worst class in the school. According to Mr. Okoro, that was only because Class 3C had burned down a table the previous week. On Monday morning, everything was about to become much worse.",
+          "place": "room",
+          "time": "day",
+          "props": ["table", "window", "shelves"],
+          "fx": ["birds"],
+          "characters": ["jay:100", "chika:220", "musa:340:wave", "teacher:200"],
+          "camera": "in"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Your assignment is simple. Work in groups of three, research a topic, and present it on Friday.",
+          "characters": ["teacher:200:point", "jay:100", "chika:220", "musa:340"],
+          "camera": "l"
+        },
+        {
+          "speaker": "jay",
+          "text": "Sir, can I work alone? I don't trust other people with my marks.",
+          "characters": ["jay:100>150:walk", "teacher:200"],
+          "camera": "r"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Jay, you failed your last test because you wrote your name in the answer section.",
+          "characters": ["teacher:200:angry", "jay:150:shock"],
+          "camera": "in"
+        },
+        {
+          "speaker": "musa",
+          "text": "Sir, put me with Jay. I think we can create something powerful.",
+          "characters": ["musa:340:cheer", "jay:150"],
+          "camera": "out"
+        },
+        {
+          "speaker": "chika",
+          "text": "No. If I am getting an A, I need intelligent people in my group.",
+          "characters": ["chika:220:think", "musa:340", "jay:150"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "Then why are you still talking to us?",
+          "characters": ["musa:340:laugh", "chika:220"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The groups were assigned. Jay, Musa and Chika were together. Chika immediately regretted everything. Jay immediately went to sleep. Musa immediately announced that he had a plan.",
+          "place": "room",
+          "time": "day",
+          "props": ["table", "shelves"],
+          "fx": [],
+          "characters": ["jay:100:crouch", "chika:220:think", "musa:340:cheer"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Plan",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "After school, the three students met to work on their assignment. Chika brought books. Jay brought nothing. Musa brought a strange confidence that suggested he had never completed an assignment in his life.",
+          "place": "room",
+          "time": "dusk",
+          "props": ["table", "shelves"],
+          "fx": ["birds"],
+          "characters": ["chika:120:think", "jay:250", "musa:340:wave"],
+          "camera": "in"
+        },
+        {
+          "speaker": "chika",
+          "text": "We need to choose a topic and actually research it.",
+          "characters": ["chika:120:point", "jay:250", "musa:340"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "I already have a better idea. We fake the entire thing.",
+          "characters": ["musa:340:laugh", "chika:120", "jay:250"],
+          "camera": "r"
+        },
+        {
+          "speaker": "chika",
+          "text": "No.",
+          "characters": ["chika:120:angry", "musa:340"],
+          "camera": "in"
+        },
+        {
+          "speaker": "jay",
+          "text": "I support the fake thing.",
+          "characters": ["jay:250:cheer", "chika:120", "musa:340"],
+          "camera": "out"
+        },
+        {
+          "speaker": "chika",
+          "text": "Of course you do.",
+          "characters": ["chika:120:shock", "jay:250"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "Relax. I know a guy who can make the presentation look professional.",
+          "characters": ["musa:340:wave", "chika:120", "jay:250"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The presentation was supposed to be about renewable energy. Instead, Musa accidentally hired a man who believed renewable energy meant energy that renewed itself every morning.",
+          "place": "room",
+          "time": "night",
+          "props": ["table"],
+          "fx": ["gloom"],
+          "characters": ["jay:120", "chika:250:think", "musa:340:laugh"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Election",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The next morning, Principal Ada announced that the school would hold a class representative election. Class 3B immediately became interested because nobody had ever explained what the representative actually did.",
+          "place": "room",
+          "time": "day",
+          "props": ["table", "window"],
+          "fx": ["birds"],
+          "characters": ["jay:100", "musa:270:wave", "chika:340", "teacher:200"],
+          "camera": "in"
+        },
+        {
+          "speaker": "teacher",
+          "text": "The class representative will communicate student concerns to the school.",
+          "characters": ["teacher:200:point", "jay:100", "musa:270", "chika:340"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "Does that mean power?",
+          "characters": ["musa:270:cheer", "teacher:200"],
+          "camera": "r"
+        },
+        {
+          "speaker": "teacher",
+          "text": "No.",
+          "characters": ["teacher:200:angry", "musa:270"],
+          "camera": "in"
+        },
+        {
+          "speaker": "musa",
+          "text": "Then why are we voting?",
+          "characters": ["musa:270:think", "teacher:200"],
+          "camera": "out"
+        },
+        {
+          "speaker": "chika",
+          "text": "I am running because I actually care about the class.",
+          "characters": ["chika:340:point", "musa:270", "jay:100"],
+          "camera": "l"
+        },
+        {
+          "speaker": "jay",
+          "text": "I am running because Musa said the winner gets to skip morning assembly.",
+          "characters": ["jay:100:cheer", "musa:270", "chika:340"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Musa launched his campaign five minutes later. His slogan was simple: 'Vote Musa. I will probably do something.' Nobody knew what the something was, but somehow the campaign was winning.",
+          "place": "room",
+          "time": "day",
+          "props": ["table"],
+          "fx": ["burst"],
+          "characters": ["musa:270:wave", "jay:100:cheer", "chika:340:think"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Presentation",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Friday arrived. Chika had prepared a serious presentation. Jay had memorized one sentence. Musa had brought a laptop that was not his and a presentation that was about nuclear power instead of renewable energy.",
+          "place": "room",
+          "time": "day",
+          "props": ["table", "window", "shelves"],
+          "fx": ["birds"],
+          "characters": ["teacher:100", "jay:220", "chika:340", "musa:270:wave"],
+          "camera": "in"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Group three, you may begin.",
+          "characters": ["teacher:100", "jay:220", "chika:340", "musa:270"],
+          "camera": "l"
+        },
+        {
+          "speaker": "chika",
+          "text": "Our topic is renewable energy and how it can improve communities.",
+          "characters": ["chika:340:point", "jay:220", "musa:270"],
+          "camera": "r"
+        },
+        {
+          "speaker": "jay",
+          "text": "Renewable energy is energy that comes back.",
+          "characters": ["jay:220:think", "chika:340"],
+          "camera": "in"
+        },
+        {
+          "speaker": "chika",
+          "text": "Technically, yes.",
+          "characters": ["chika:340:think", "jay:220"],
+          "camera": "out"
+        },
+        {
+          "speaker": "musa",
+          "text": "And now, nuclear weapons.",
+          "characters": ["musa:270:cheer", "chika:340:shock", "jay:220"],
+          "camera": "l"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Why are there nuclear weapons on your renewable energy presentation?",
+          "characters": ["teacher:100:shock", "musa:270", "chika:340", "jay:220"],
+          "camera": "r"
+        },
+        {
+          "speaker": "musa",
+          "text": "Because technically, sir, they are also very energetic.",
+          "characters": ["musa:270:laugh", "teacher:100:angry", "chika:340", "jay:220"],
+          "camera": "in"
+        }
+      ]
+    },
+    {
+      "title": "The Principal",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The presentation was immediately stopped. Principal Ada entered the classroom after hearing an explosion from the projector. She expected discipline. Instead, she found three students arguing about whether the explosion had improved their grade.",
+          "place": "room",
+          "time": "day",
+          "props": ["table", "window"],
+          "fx": ["fog"],
+          "characters": ["principal:80>130:walk", "teacher:220:shock", "jay:270", "musa:340"],
+          "camera": "in"
+        },
+        {
+          "speaker": "principal",
+          "text": "Who caused this?",
+          "characters": ["principal:130:angry", "teacher:220", "jay:270:crouch", "musa:340"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "The projector.",
+          "characters": ["musa:340:think", "principal:130"],
+          "camera": "r"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Musa.",
+          "characters": ["teacher:220:point", "musa:340"],
+          "camera": "in"
+        },
+        {
+          "speaker": "musa",
+          "text": "Fine. The projector and I worked together.",
+          "characters": ["musa:340:bow", "teacher:220", "principal:130:angry"],
+          "camera": "out"
+        },
+        {
+          "speaker": "principal",
+          "text": "All three of you are receiving detention.",
+          "characters": ["principal:130:point", "jay:270:shock", "chika:340:shock", "musa:220:crouch"],
+          "camera": "l"
+        },
+        {
+          "speaker": "jay",
+          "text": "Can we appeal?",
+          "characters": ["jay:270:point", "principal:130"],
+          "camera": "r"
+        },
+        {
+          "speaker": "principal",
+          "text": "You can appeal after detention.",
+          "characters": ["principal:130:angry", "jay:270"],
+          "camera": "in"
+        }
+      ]
+    },
+    {
+      "title": "The Winner",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "By lunchtime, the election results were announced. Against every reasonable expectation, Musa had won by three votes. Nobody understood how. Musa himself looked surprised.",
+          "place": "room",
+          "time": "day",
+          "props": ["table", "window"],
+          "fx": ["burst"],
+          "characters": ["musa:120:cheer", "chika:270:think", "jay:340:cheer", "teacher:200"],
+          "camera": "in"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Musa is now the class representative.",
+          "characters": ["teacher:200:point", "musa:120", "chika:270", "jay:340"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "I would like to thank everyone who voted for me, everyone who feared me, and the three people who I paid.",
+          "characters": ["musa:120:bow", "teacher:200:shock", "chika:270:shock", "jay:340:laugh"],
+          "camera": "r"
+        },
+        {
+          "speaker": "chika",
+          "text": "You admitted bribing people.",
+          "characters": ["chika:270:angry", "musa:120"],
+          "camera": "in"
+        },
+        {
+          "speaker": "musa",
+          "text": "Yes. I am very transparent.",
+          "characters": ["musa:120:wave", "chika:270:angry"],
+          "camera": "out"
+        },
+        {
+          "speaker": "teacher",
+          "text": "Your first responsibility is to report student concerns.",
+          "characters": ["teacher:200:angry", "musa:120"],
+          "camera": "l"
+        },
+        {
+          "speaker": "musa",
+          "text": "I have one concern. This school has too much school.",
+          "characters": ["musa:120:cheer", "teacher:200", "jay:340:laugh"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The class cheered. Mr. Okoro stared at the ceiling and questioned every decision that had brought him to Class 3B. Then the school bell rang, and Musa announced his first official policy: Friday was now a holiday.",
+          "place": "room",
+          "time": "day",
+          "props": ["window"],
+          "fx": ["birds"],
+          "characters": ["musa:120:cheer", "jay:270:cheer", "chika:340:cheer", "teacher:200:shock"],
+          "camera": "out"
+        }
+      ]
+    }
+  ]
+}

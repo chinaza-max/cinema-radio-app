@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "slug": "the-village-wifi-war",
+  "title": "The Village Wi-Fi War",
+  "synopsis": "When a mysterious internet signal suddenly appears in a tiny village, everyone becomes obsessed with getting the password. Two reckless friends accidentally start a war between the villagers, a local chief, and a very angry technician.",
+  "credit": "An original story",
+  "genre": "Comedy",
+  "featured": true,
+  "published": true,
+  "cover": {
+    "place": "village",
+    "time": "day",
+    "props": ["village", "table"],
+    "fx": ["birds"],
+    "characters": ["tobi:130", "emeka:270"],
+    "camera": "in"
+  },
+  "cast": {
+    "tobi": {
+      "name": "Tobi",
+      "role": "Reckless teenager",
+      "coat": "#3f7f9a",
+      "trim": "#f2c14e",
+      "skin": "#7a4a30",
+      "pants": "#222222",
+      "hat": "cap",
+      "hc": "#1e130e",
+      "sc": 0.88,
+      "pitch": 1.25,
+      "rate": 1.05
+    },
+    "emeka": {
+      "name": "Emeka",
+      "role": "Tobi's suspicious best friend",
+      "coat": "#8a3a2a",
+      "trim": "#f2c14e",
+      "skin": "#6a4228",
+      "pants": "#222222",
+      "hat": "hair",
+      "hc": "#1e130e",
+      "sc": 0.9,
+      "pitch": 1.05,
+      "rate": 0.95
+    },
+    "chief": {
+      "name": "Chief Buba",
+      "role": "Village chief",
+      "coat": "#7a3f75",
+      "trim": "#f2c14e",
+      "skin": "#6b432b",
+      "pants": "#222222",
+      "hat": "top",
+      "hc": "#2a2a3a",
+      "extra": "cane",
+      "sc": 1.08,
+      "pitch": 0.72,
+      "rate": 0.85
+    },
+    "mama": {
+      "name": "Mama Rose",
+      "role": "Village shopkeeper",
+      "coat": "#d66b32",
+      "trim": "#f2c14e",
+      "skin": "#805033",
+      "pants": "#222222",
+      "hat": "headwrap",
+      "hc": "#b33c2e",
+      "extra": "cane",
+      "sc": 0.96,
+      "pitch": 1.15,
+      "rate": 0.9
+    },
+    "kola": {
+      "name": "Kola",
+      "role": "Internet technician",
+      "coat": "#386b48",
+      "trim": "#f2c14e",
+      "skin": "#70462d",
+      "pants": "#222222",
+      "hat": "cap",
+      "hc": "#1e130e",
+      "extra": "cane",
+      "sc": 0.98,
+      "pitch": 0.8,
+      "rate": 0.9
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Signal",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "In the quiet village of Umuoba, nothing exciting had happened for years. Then one afternoon, Tobi discovered something more powerful than common sense: a mysterious Wi-Fi signal coming from the old hut near the village square.",
+          "place": "village",
+          "time": "day",
+          "props": ["village"],
+          "fx": ["birds"],
+          "characters": ["tobi:130", "emeka:270"],
+          "camera": "in"
+        },
+        {
+          "speaker": "tobi",
+          "text": "Emeka, look! My phone says there is free Wi-Fi. Free! Do you understand what this means? We can finally watch videos without begging somebody for data.",
+          "characters": ["tobi:130:point", "emeka:270"],
+          "camera": "l"
+        },
+        {
+          "speaker": "emeka",
+          "text": "Calm down. Nothing in this village is free. Last week Mama Rose charged me just to stand near her shop because I was blocking the sunlight.",
+          "characters": ["tobi:130", "emeka:270:point"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The boys approached the hut like professional spies, despite having absolutely no experience as spies. The signal was strong, the door was locked, and somebody inside was loudly snoring.",
+          "place": "room",
+          "time": "day",
+          "props": ["door", "table"],
+          "fx": [],
+          "characters": ["tobi:130", "emeka:270"],
+          "camera": "in"
+        },
+        {
+          "speaker": "tobi",
+          "text": "We need the password. Maybe it is written somewhere. Check the table. Check the wall. Check the chief's dignity. That last one might be easier.",
+          "characters": ["tobi:130:point", "emeka:270"],
+          "camera": "out"
+        },
+        {
+          "speaker": "emeka",
+          "text": "I found something. The password is written on this paper. It says: ChiefBubaIsTheBest123.",
+          "characters": ["tobi:130", "emeka:270:point"],
+          "camera": "l"
+        },
+        {
+          "speaker": "chief",
+          "text": "WHO gave you boys permission to touch my internet?",
+          "place": "village",
+          "time": "day",
+          "props": ["village"],
+          "fx": ["burst"],
+          "characters": ["tobi:120", "emeka:250", "chief:330:shock"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Password",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "By sunset, the entire village knew about the Wi-Fi. Nobody knew where it came from, but everybody had an opinion. This was now the most important political issue the village had ever seen.",
+          "place": "village",
+          "time": "dusk",
+          "props": ["village", "table"],
+          "fx": ["birds"],
+          "characters": ["chief:130", "mama:270", "tobi:330"],
+          "camera": "in"
+        },
+        {
+          "speaker": "mama",
+          "text": "Chief, I am telling you now: if that internet remains free, my shop will suffer. People are already sitting outside and buying nothing except one sachet of water.",
+          "characters": ["mama:270:point", "chief:130"],
+          "camera": "l"
+        },
+        {
+          "speaker": "chief",
+          "text": "Nobody will use my Wi-Fi without paying the village development fee. I am thinking of charging by the minute.",
+          "characters": ["chief:130:point", "mama:270"],
+          "camera": "r"
+        },
+        {
+          "speaker": "tobi",
+          "text": "That is ridiculous. The internet belongs to everybody. Also, I already changed the password, so technically I am now the Minister of Wi-Fi.",
+          "characters": ["tobi:330:point", "chief:130"],
+          "camera": "in"
+        },
+        {
+          "speaker": "emeka",
+          "text": "You changed the password? What did you change it to?",
+          "characters": ["emeka:250:shock", "tobi:330"],
+          "camera": "out"
+        },
+        {
+          "speaker": "tobi",
+          "text": "Password123. I wanted something nobody could guess.",
+          "characters": ["tobi:330", "emeka:250:shock"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Within ten minutes, every person in the village was connected. Then every phone stopped working. The mysterious signal had suddenly disappeared, and somewhere in the distance, an angry technician was walking toward the village.",
+          "place": "village",
+          "time": "night",
+          "props": ["village"],
+          "fx": ["gloom"],
+          "characters": ["tobi:120", "emeka:250", "chief:330"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "The Technician",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The next morning, Kola arrived carrying a cane and the expression of a man who had discovered that several strangers were using his internet without permission. Nobody knew who he was, but everyone immediately blamed Tobi.",
+          "place": "village",
+          "time": "day",
+          "props": ["village"],
+          "fx": ["birds"],
+          "characters": ["kola:130", "tobi:270", "emeka:330"],
+          "camera": "in"
+        },
+        {
+          "speaker": "kola",
+          "text": "Who touched my router? I installed that connection for one customer. Somehow fifty-seven people are now connected. One of them is downloading something enormous.",
+          "characters": ["kola:130:point", "tobi:270", "emeka:330"],
+          "camera": "r"
+        },
+        {
+          "speaker": "emeka",
+          "text": "It was not us. We only connected the village, changed the password, and accidentally caused the internet to disappear.",
+          "characters": ["emeka:330", "tobi:270:shock", "kola:130"],
+          "camera": "l"
+        },
+        {
+          "speaker": "tobi",
+          "text": "Why are you looking at me? You were the one who pressed the button.",
+          "characters": ["tobi:270:point", "emeka:330", "kola:130"],
+          "camera": "in"
+        },
+        {
+          "speaker": "kola",
+          "text": "Enough. The router is overloaded. Somebody has connected every phone, television, and suspicious device in this village.",
+          "characters": ["kola:130", "chief:270", "mama:330"],
+          "camera": "out"
+        },
+        {
+          "speaker": "chief",
+          "text": "Can you fix it before the village discovers that I promised free internet during my next speech?",
+          "characters": ["chief:270", "kola:130"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Kola looked at the broken connection, then at Tobi and Emeka. He had seen this kind of disaster before. But never this stupid. He made one final decision: the boys would help fix it.",
+          "place": "room",
+          "time": "day",
+          "props": ["machine", "table"],
+          "fx": ["embers"],
+          "characters": ["kola:130", "tobi:270", "emeka:330"],
+          "camera": "in"
+        }
+      ]
+    },
+    {
+      "title": "The Great Reconnection",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The repair plan was simple: reconnect the machine, restart the signal, and stop the entire village from touching anything. Unfortunately, the village had already gathered around the machine to offer advice nobody had requested.",
+          "place": "room",
+          "time": "day",
+          "props": ["machine", "table"],
+          "fx": [],
+          "characters": ["kola:130", "tobi:270", "emeka:330", "chief:80", "mama:350"],
+          "camera": "in"
+        },
+        {
+          "speaker": "mama",
+          "text": "I know what the problem is. You need to hit it three times. That works for my radio, my blender, and my husband.",
+          "characters": ["mama:350:point", "kola:130", "tobi:270", "emeka:330"],
+          "camera": "l"
+        },
+        {
+          "speaker": "kola",
+          "text": "Please do not hit the machine. This equipment costs more than this entire village.",
+          "characters": ["kola:130:shock", "mama:350"],
+          "camera": "r"
+        },
+        {
+          "speaker": "tobi",
+          "text": "What if we turn it off and on again?",
+          "characters": ["tobi:270:point", "kola:130", "emeka:330"],
+          "camera": "in"
+        },
+        {
+          "speaker": "kola",
+          "text": "That is literally the first thing I tried.",
+          "characters": ["kola:130", "tobi:270:shock", "emeka:330"],
+          "camera": "out"
+        },
+        {
+          "speaker": "chief",
+          "text": "Everybody move back. As chief, I have decided to solve this personally.",
+          "characters": ["chief:80:point", "kola:130", "tobi:270", "emeka:330"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Chief Buba reached toward the machine. Nobody breathed. Then he pressed the only button that had a warning label. The entire room went dark, followed by one enormous flash.",
+          "place": "room",
+          "time": "day",
+          "props": ["machine"],
+          "fx": ["flash", "burst"],
+          "characters": ["chief:80:shock", "kola:130", "tobi:270", "emeka:330"],
+          "camera": "out"
+        }
+      ]
+    },
+    {
+      "title": "No More Free Wi-Fi",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "When the smoke cleared, the internet was back. The village cheered. Tobi smiled proudly. Emeka looked suspiciously at the machine. Chief Buba prepared a speech. Then every phone in the village received the same message.",
+          "place": "village",
+          "time": "dusk",
+          "props": ["village", "table"],
+          "fx": ["magic"],
+          "characters": ["tobi:130", "emeka:270", "chief:330", "mama:80"],
+          "camera": "in"
+        },
+        {
+          "speaker": "emeka",
+          "text": "Guys... I think we just received a bill.",
+          "characters": ["emeka:270:shock", "tobi:130", "chief:330", "mama:80"],
+          "camera": "l"
+        },
+        {
+          "speaker": "tobi",
+          "text": "How much?",
+          "characters": ["tobi:130:shock", "emeka:270"],
+          "camera": "r"
+        },
+        {
+          "speaker": "emeka",
+          "text": "Enough to buy the village twice.",
+          "characters": ["emeka:270", "tobi:130:shock"],
+          "camera": "in"
+        },
+        {
+          "speaker": "chief",
+          "text": "Nobody panic. I have a solution. We will simply create a village internet tax.",
+          "characters": ["chief:330:point", "tobi:130", "emeka:270", "mama:80"],
+          "camera": "out"
+        },
+        {
+          "speaker": "mama",
+          "text": "You cannot tax the internet! You already taxed the market, the goats, and my chair outside the shop.",
+          "characters": ["mama:80:point", "chief:330"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Everyone began shouting at once. Tobi quietly looked at Emeka. Emeka looked back. They both smiled. Somewhere behind them, the Wi-Fi signal appeared again, stronger than ever. And this time, the password was already public.",
+          "place": "village",
+          "time": "night",
+          "props": ["village"],
+          "fx": ["stars", "birds"],
+          "characters": ["tobi:130", "emeka:270", "chief:330", "mama:80"],
+          "camera": "out"
+        }
+      ]
+    }
+  ]
+}
+

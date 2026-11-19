@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "slug": "hound-of-the-baskervilles",
+  "title": "The Hound of the Baskervilles",
+  "synopsis": "A cursed family, a monstrous hound and the fog-bound Devon moor. Holmes and Watson race to learn who, or what, is hunting the heir.",
+  "credit": "After Arthur Conan Doyle, 1902",
+  "genre": "Mystery",
+  "cover": {
+    "place": "moor",
+    "time": "night",
+    "props": ["manor", "hound"],
+    "fx": ["fog", "stars"],
+    "characters": [],
+    "camera": "in"
+  },
+  "cast": {
+    "holmes": {
+      "name": "Sherlock Holmes",
+      "role": "Consulting detective",
+      "coat": "#5b4a38",
+      "coat2": "#4a3a2b",
+      "trim": "#3a2c20",
+      "hat": "deerstalker",
+      "hc": "#8a7658",
+      "hc2": "#6b5a40",
+      "extra": "pipe",
+      "pitch": 0.78,
+      "rate": 0.95
+    },
+    "watson": {
+      "name": "Dr. Watson",
+      "role": "Holmes's friend",
+      "coat": "#2c4468",
+      "trim": "#1b2a44",
+      "hat": "bowler",
+      "hc": "#1c2638",
+      "pitch": 1,
+      "rate": 1
+    },
+    "mortimer": {
+      "name": "Dr. Mortimer",
+      "role": "Country doctor",
+      "coat": "#2a2a2e",
+      "hat": "top",
+      "hc": "#1a1a1d",
+      "extra": "cane",
+      "pitch": 0.9,
+      "rate": 0.95
+    },
+    "henry": {
+      "name": "Sir Henry",
+      "role": "The heir",
+      "coat": "#557a3f",
+      "trim": "#3a5a2c",
+      "hat": "cap",
+      "hc": "#7a6a4f",
+      "pitch": 1.12,
+      "rate": 1
+    },
+    "stapleton": {
+      "name": "Mr. Stapleton",
+      "role": "Naturalist",
+      "coat": "#9a8a4a",
+      "hat": "straw",
+      "hc": "#d8c27a",
+      "hc2": "#a0522d",
+      "extra": "net",
+      "pitch": 1.06,
+      "rate": 1.05
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Curse",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "London, on a foggy autumn night. In the rooms at 221B Baker Street, Sherlock Holmes and Dr. Watson are about to receive a most unusual visitor.",
+          "place": "room",
+          "time": "night",
+          "props": ["fire", "window", "shelves"],
+          "fx": ["fog"],
+          "characters": ["holmes:100", "watson:170"]
+        },
+        {
+          "speaker": "mortimer",
+          "text": "Mr. Holmes, I come from Devonshire, where my friend Sir Charles Baskerville has died. The villagers say an ancient curse killed him. I need your advice.",
+          "characters": ["holmes:90", "watson:160", "mortimer:330>270"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Mortimer unrolled a yellowed manuscript. Three hundred years ago, it said, a cruel squire named Hugo Baskerville chased a young woman across the moor on a stormy night.",
+          "place": "moor",
+          "time": "storm",
+          "props": ["hound"],
+          "fx": ["rain", "flash"],
+          "characters": [],
+          "flashback": true
+        },
+        {
+          "speaker": "narrator",
+          "text": "Hugo was found dead the next morning. And over his body, the shepherds swore, stood a giant black hound with eyes of fire.",
+          "props": ["hound"],
+          "fx": ["rain", "flash", "fog"],
+          "camera": "in"
+        },
+        {
+          "speaker": "mortimer",
+          "text": "Since that day the family has been haunted. Three nights ago I found Sir Charles dead on the path. Beside his body, Mr. Holmes, were the footprints of an enormous hound.",
+          "place": "room",
+          "time": "night",
+          "props": ["fire", "window", "shelves"],
+          "fx": ["fog"],
+          "characters": ["holmes:90", "watson:160", "mortimer:300:point"],
+          "flashback": false
+        },
+        {
+          "speaker": "holmes",
+          "text": "Watson, I am needed in London, but you shall go. Travel to Baskerville Hall with the new heir, Sir Henry. Watch everything, and report to me every day.",
+          "characters": ["holmes:110:point", "watson:180", "mortimer:310"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "So the next day a train carried Dr. Watson and Sir Henry west, toward a land of mist, bog and secrets.",
+          "place": "moor",
+          "time": "dusk",
+          "props": ["manor"],
+          "fx": [],
+          "characters": ["watson:60>140", "henry:100>200"],
+          "camera": "r"
+        }
+      ]
+    },
+    {
+      "title": "Baskerville Hall",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The carriage rolled across the moor as the sun sank low. Watson had never seen land so empty or so wild. Somewhere ahead stood Baskerville Hall.",
+          "place": "moor",
+          "time": "dusk",
+          "props": ["manor"],
+          "fx": [],
+          "characters": ["watson:60>150", "henry:100>210"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The driver warned them of the Grimpen Mire, a bog that could swallow a pony whole, and of Selden, a dangerous convict who had escaped from Princetown prison.",
+          "time": "dusk",
+          "props": ["manor"],
+          "fx": ["fog"],
+          "characters": ["watson:150", "henry:210"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Inside, the Hall was vast and cold. Portraits of long-dead Baskervilles stared down from the walls. That night, Watson woke to a sound he could not place.",
+          "place": "room",
+          "time": "night",
+          "props": ["portrait", "fire", "table"],
+          "fx": [],
+          "characters": ["watson:240", "henry:320"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "It was the sound of someone sobbing, quietly, somewhere deep in the house.",
+          "place": "room",
+          "time": "night",
+          "props": ["door", "table"],
+          "fx": [],
+          "characters": ["watson:200:shock"],
+          "camera": "in"
+        },
+        {
+          "speaker": "stapleton",
+          "text": "I am a naturalist, Doctor. I collect butterflies on the moor. But take care. If you ever hear a strange howling at night, do not go out to find it.",
+          "place": "moor",
+          "time": "day",
+          "props": ["manor"],
+          "fx": ["birds"],
+          "characters": ["watson:90", "stapleton:330>260"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "That night, from the mist, came a long, low howl. Watson stood frozen. It sounded like no animal he had ever heard.",
+          "place": "moor",
+          "time": "night",
+          "props": ["manor"],
+          "fx": ["fog"],
+          "characters": ["watson:150:point"],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then he saw it. A tall figure stood on a distant tor, black against the moon. Watson could not tell whether it was a friend or an enemy.",
+          "props": ["stranger"],
+          "fx": ["fog"],
+          "characters": ["watson:110"],
+          "camera": "in"
+        }
+      ]
+    },
+    {
+      "title": "The Hound",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Watson followed the figure to a stone hut among the rocks. Inside he found a bed, a lamp, and a note with his own name on it. He waited in the dark, gun in hand.",
+          "place": "moor",
+          "time": "dusk",
+          "props": [],
+          "fx": ["fog"],
+          "characters": ["watson:60>180"]
+        },
+        {
+          "speaker": "holmes",
+          "text": "Good evening, Watson. I have been on this moor for days, watching. I believe I know who sent that hound. And tonight, I mean to catch him.",
+          "place": "moor",
+          "time": "dusk",
+          "characters": ["watson:110:shock", "holmes:330>230"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Holmes had solved it. The villain was Mr. Stapleton, a secret Baskerville cousin who wanted the family fortune. His weapon was a huge dog, painted to glow in the dark.",
+          "place": "moor",
+          "time": "night",
+          "props": ["hound"],
+          "fx": ["fog", "stars"],
+          "characters": ["stapleton:120"],
+          "camera": "r"
+        },
+        {
+          "speaker": "narrator",
+          "text": "That night, as planned, Sir Henry walked home across the moor. Holmes and Watson crouched among the rocks, waiting. The fog was rolling in.",
+          "props": [],
+          "fx": ["fog"],
+          "characters": ["henry:50>170"]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then came the howl. The hound burst out of the fog, huge and burning, racing straight toward Sir Henry.",
+          "props": ["houndbig"],
+          "fx": ["fog"],
+          "characters": ["henry:300:shock"],
+          "camera": "in"
+        },
+        {
+          "speaker": "holmes",
+          "text": "Fire, Watson! Both men fired at once. The beast fell, and the glow died. It was only a dog, painted with phosphorus.",
+          "props": ["houndbig"],
+          "fx": ["fog"],
+          "characters": ["holmes:90:point", "watson:140", "henry:300:shock"],
+          "camera": "out"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Stapleton fled into the Grimpen Mire, and the bog swallowed him. The curse was broken. Back at Baker Street, Holmes lit his pipe and smiled.",
+          "place": "room",
+          "time": "night",
+          "props": ["fire", "window", "shelves"],
+          "fx": ["fog"],
+          "characters": ["holmes:90", "watson:170"],
+          "camera": "in"
+        }
+      ]
+    }
+  ]
+}
