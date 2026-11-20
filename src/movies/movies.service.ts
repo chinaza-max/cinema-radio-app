@@ -21,6 +21,9 @@ export interface MovieSummary {
   totalMinutes: number;
   cover: PlaybackCover;
   coverCast: Record<string, CastMemberInput>;
+  /** 'cinema' movies are drawn in 3D and show `poster` (an image) instead of the SVG cover. */
+  style: 'classic' | 'cinema';
+  poster: string;
 }
 
 export interface Catalog {
@@ -46,6 +49,8 @@ const CATALOG_FIELDS = {
   totalMinutes: 1,
   cover: 1,
   coverCast: 1,
+  style: 1,
+  poster: 1,
   updatedAt: 1,
 };
 
@@ -86,6 +91,8 @@ export class MoviesService {
             genre: { slug: genre.slug, name: genre.name },
             featured: input.featured ?? false,
             published: input.published ?? true,
+            style: input.style ?? 'classic',
+            poster: input.poster ?? '',
             cover: compiled.cover,
             coverCast: compiled.coverCast,
             cast: input.cast,
@@ -171,6 +178,8 @@ export class MoviesService {
         credit: movie.credit,
         genre: { slug: movie.genre.slug, name: movie.genre.name },
         totalMinutes: movie.totalMinutes,
+        style: movie.style ?? 'classic',
+        poster: movie.poster ?? '',
         cover: movie.cover,
         cast: movie.cast,
         episodes: [...movie.episodes]
@@ -224,6 +233,8 @@ export class MoviesService {
       totalMinutes: m.totalMinutes,
       cover: m.cover,
       coverCast: m.coverCast ?? {},
+      style: m.style ?? 'classic',
+      poster: m.poster ?? '',
     });
 
     const bySlug = new Map<string, MovieSummary[]>();

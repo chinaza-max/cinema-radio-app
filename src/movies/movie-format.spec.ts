@@ -74,6 +74,68 @@ describe('movie-format', () => {
     for (const key of ['places', 'times', 'props', 'fx', 'poses', 'cameras', 'hats', 'extras'] as const) {
       for (const name of VOCAB[key]) if (!doc.includes('`' + name + '`')) missing.push(`${key}: ${name}`);
     }
+    for (const key of ['places', 'times', 'props', 'fx', 'poses', 'cameras', 'models'] as const) {
+      for (const name of VOCAB.cinema[key]) if (!doc.includes('`' + name + '`')) missing.push(`cinema ${key}: ${name}`);
+    }
     expect(missing).toEqual([]);
+  });
+  describe('cinema style', () => {
+    const cinema = () => ({
+      schemaVersion: 1,
+      slug: 'test-cinema',
+      title: 'Test Cinema',
+      synopsis: 'A test.',
+      credit: 'Test',
+      genre: 'Science fiction',
+      style: 'cinema',
+      poster: '/posters/test-cinema.jpg',
+      cover: { place: 'bridge', time: 'night', characters: ['cap:200'] },
+      cast: { cap: { name: 'Captain', coat: '#aa8855', model: 'soldier', voice: 'en-US-GuyNeural' } },
+      episodes: [
+        {
+          title: 'One',
+          scenes: [
+            { speaker: 'narrator', text: 'A ship.', place: 'bridge', time: 'night', characters: ['cap:200'] },
+            { speaker: 'cap', text: 'Hello.', camera: 'close' },
+          ],
+        },
+      ],
+    });
+    const issues = (mutate: (m: any) => void) => {
+      const m: any = cinema();
+      mutate(m);
+      const r = validateMovie(m);
+      return r.ok ? '' : r.issues.join('\n');
+    };
+
+    it('accepts a valid cinema movie', () => {
+      expect(issues(() => undefined)).toBe('');
+    });
+
+    it('checks names against the cinema lists, not the classic ones', () => {
+      expect(issues((m) => (m.episodes[0].scenes[0].place = 'moor'))).toMatch(/unknown place "moor"\. Allowed: bridge, corridor/);
+      expect(issues((m) => (m.episodes[0].scenes[1].camera = 'wide'))).toBe('');
+      expect(issues((m) => (m.episodes[0].scenes[1].camera = 'sideways'))).toMatch(/unknown camera "sideways"/);
+      expect(issues((m) => (m.cover.place = 'room'))).toMatch(/cover\.place: unknown place "room"/);
+    });
+
+    it('accepts cinema poses and rejects classic-only ones', () => {
+      expect(issues((m) => (m.episodes[0].scenes[0].characters = ['cap:200:wave']))).toBe('');
+      expect(issues((m) => (m.episodes[0].scenes[0].characters = ['cap:200:crouch']))).toMatch(/unknown pose "crouch"/);
+    });
+
+    it('requires a known 3D model on every cast member', () => {
+      expect(issues((m) => delete m.cast.cap.model)).toMatch(/cast\.cap\.model: cinema movies need a model/);
+      expect(issues((m) => (m.cast.cap.model = 'dragon'))).toMatch(/unknown model "dragon"/);
+    });
+
+    it('keeps cinema-only fields out of classic movies', () => {
+      expect(issues((m) => delete m.style)).toMatch(/model is only used when the movie has style "cinema"/);
+    });
+
+    it('rejects a poster path outside /posters/ and a malformed voice id', () => {
+      expect(issues((m) => (m.poster = 'https://example.com/x.jpg'))).toMatch(/poster is a path/);
+      expect(issues((m) => (m.cast.cap.voice = 'robot'))).toMatch(/voice looks like/);
+    });
   });
 });

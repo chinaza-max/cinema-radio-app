@@ -113,5 +113,82 @@
     "lantern",
     "net",
     "parrot"
-  ]
+  ],
+  "cinema": {
+    "places": [
+      "bridge",
+      "corridor",
+      "engine",
+      "planet",
+      "space",
+      "ruins"
+    ],
+    "times": [
+      "day",
+      "dusk",
+      "night",
+      "alert",
+      "dim"
+    ],
+    "props": [
+      "hologram",
+      "monolith",
+      "beacon",
+      "pod",
+      "crates",
+      "gate"
+    ],
+    "fx": [
+      "dust",
+      "sparks",
+      "alarm",
+      "glitch",
+      "streaks",
+      "haze"
+    ],
+    "poses": [
+      "run",
+      "sneak",
+      "nod",
+      "shake",
+      "sad",
+      "point",
+      "wave",
+      "fall"
+    ],
+    "cameras": [
+      "wide",
+      "medium",
+      "close",
+      "low",
+      "high",
+      "orbit",
+      "in",
+      "out",
+      "l",
+      "r"
+    ],
+    "models": [
+      "soldier",
+      "michelle",
+      "avatar",
+      "android",
+      "robot",
+      "hologram"
+    ],
+    "narratorShots": [
+      "wide",
+      "orbit",
+      "high",
+      "wide",
+      "out"
+    ],
+    "speakerShots": [
+      "medium",
+      "close",
+      "medium",
+      "low",
+      "close"
+    ]
+  }
 }

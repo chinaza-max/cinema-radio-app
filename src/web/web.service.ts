@@ -59,7 +59,7 @@ export class WebService {
 
   private poster(m: MovieSummary): string {
     return `<a class="poster" href="/m/${esc(m.slug)}" data-link>
-  <div class="pimg" data-art="${esc(m.slug)}"></div>
+  ${m.style === 'cinema' ? `<div class="pimg still">${m.poster ? `<img src="${esc(m.poster)}" alt="" width="300" height="450" loading="lazy" decoding="async">` : ''}</div>` : `<div class="pimg" data-art="${esc(m.slug)}"></div>`}
   <b>${esc(m.title)}</b>
   <span>${m.episodeCount} ${m.episodeCount === 1 ? 'episode' : 'episodes'} · ${minutes(m)}</span>
 </a>`;
@@ -68,7 +68,8 @@ export class WebService {
   private renderHome(catalog: Catalog): string {
     const f = catalog.featured;
     const art: Record<string, { cover: MovieSummary['cover']; coverCast: MovieSummary['coverCast'] }> = {};
-    for (const g of catalog.genres) for (const m of g.movies) art[m.slug] = { cover: m.cover, coverCast: m.coverCast };
+    for (const g of catalog.genres) for (const m of g.movies) if (m.style !== 'cinema') art[m.slug] = { cover: m.cover, coverCast: m.coverCast };
+    if (f && f.style !== 'cinema') art[f.slug] = { cover: f.cover, coverCast: f.coverCast };
 
     const header = `<header class="top"><a class="logo" href="/" data-link>Cine<b>box</b></a><div class="row" style="align-items:center;gap:14px;"><a href="/admin" data-link class="note" style="color:var(--muted);font-weight:600;">Admin</a><span class="note">AI-written stories</span></div></header>`;
 
@@ -78,7 +79,7 @@ export class WebService {
     }
 
     const hero = `<section class="hero">
-  <div class="art" data-art="${esc(f.slug)}"></div>
+  ${f.style === 'cinema' ? `<div class="art">${f.poster ? `<img src="${esc(f.poster)}" alt="" fetchpriority="high" decoding="async">` : ''}</div>` : `<div class="art" data-art="${esc(f.slug)}"></div>`}
   <div class="hinfo">
     <span class="tag">Featured · ${esc(f.genre.name)}</span>
     <h2>${esc(f.title)}</h2>

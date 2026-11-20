@@ -209,6 +209,37 @@ If a story needs something that is not listed (a desert, a city street, a spaces
 
 ---
 
+---
+
+## Cinema style (3D, sci-fi)
+
+Set `"style": "cinema"` at the top level to play the movie in the Three.js engine (`public/js/cinema/`) instead of the flat SVG scenes. Real rigged characters walk, gesture and talk in lit 3D sets with bloom and camera shots. `"style"` defaults to `"classic"`; a movie is one style or the other.
+
+Extra top-level field: `"poster": "/posters/<slug>.jpg"`, the cover image shown on the home page (cinema only). Make it with `NODE_PATH=$(npm root -g) node scripts/render-poster.cjs seed/movies/<slug>.json` while the server runs.
+
+Cast changes for cinema: `model` is **required** (and forbidden in classic movies); `voice` is optional (an Edge neural voice such as `en-GB-RyanNeural`); `coat` tints the outfit; `pitch`/`rate` still apply. Hats, extras and the classic look fields are ignored.
+
+Scenes use the same fields as classic (`place`, `time`, `props`, `fx`, `characters`, `camera`, poses) with the cinema lists below. Character positions `id:x` run 0 to 400 across the set. If `camera` is omitted, narration cycles `wide, orbit, high, wide, out` and speakers cycle `medium, close, medium, low, close`.
+
+**Models** (`model`): `soldier`, `michelle`, `avatar`, `android`, `robot`, `hologram`
+- `soldier` armoured human, `michelle` woman in yellow trousers, `avatar` man in a suit (mouth moves), `android` silver android, `robot` small yellow robot, `hologram` a glowing face (mouth moves; good for a ship AI).
+
+**Places**: `bridge`, `corridor`, `engine`, `planet`, `space`, `ruins`
+
+**Times**: `day`, `dusk`, `night`, `alert`, `dim`
+
+**Props**: `hologram`, `monolith`, `beacon`, `pod`, `crates`, `gate`
+
+**Effects** (`fx`): `dust`, `sparks`, `alarm`, `glitch`, `streaks`, `haze`
+
+**Poses**: `run`, `sneak`, `nod`, `shake`, `sad`, `point`, `wave`, `fall`
+
+**Cameras**: `wide`, `medium`, `close`, `low`, `high`, `orbit`, `in`, `out`, `l`, `r`
+
+Credits for the models are in [CREDITS.md](CREDITS.md).
+
+---
+
 ## Writing for the ear
 
 The whole movie is heard. The picture supports it; it does not replace it.

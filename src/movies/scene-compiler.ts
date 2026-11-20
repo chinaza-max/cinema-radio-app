@@ -1,3 +1,4 @@
+import { VOCAB, MovieStyle } from './vocab';
 import { CastMemberInput, CoverInput, MovieInput, NARRATOR, SceneInput, parsePlacement } from './movie-format';
 
 /**
@@ -66,8 +67,16 @@ function carryPlacement(value: string): string {
  *  - if the place changes, omitted props, fx and flashback reset to empty.
  *  - characters carry over at the position they walked to.
  *  - camera: if omitted, cycles in, l, out, r by scene number so the picture keeps moving.
+ *    In cinema style narration cycles the wide shots and a spoken line cycles medium and close shots on the speaker
+ *    (vocabulary.json, cinema.narratorShots and cinema.speakerShots).
  */
-export function compileScenes(scenes: SceneInput[]): PlaybackScene[] {
+function defaultCamera(style: MovieStyle, speaker: string, i: number): string {
+  if (style !== 'cinema') return CAMERA_CYCLE[i % CAMERA_CYCLE.length];
+  const list = speaker === NARRATOR ? VOCAB.cinema.narratorShots : VOCAB.cinema.speakerShots;
+  return list[i % list.length];
+}
+
+export function compileScenes(scenes: SceneInput[], style: MovieStyle = 'classic'): PlaybackScene[] {
   let prev = { p: 'room', tm: 'night', pr: [] as string[], fx: [] as string[], c: [] as string[], fl: 0 as 0 | 1 };
   return scenes.map((s, i) => {
     const p = s.place ?? prev.p;
@@ -85,7 +94,7 @@ export function compileScenes(scenes: SceneInput[]): PlaybackScene[] {
       pr,
       fx,
       c,
-      cam: s.camera ?? CAMERA_CYCLE[i % CAMERA_CYCLE.length],
+      cam: s.camera ?? defaultCamera(style, s.speaker, i),
       fl,
     };
     prev = { p, tm, pr, fx, c: c.map(carryPlacement), fl };
@@ -93,14 +102,14 @@ export function compileScenes(scenes: SceneInput[]): PlaybackScene[] {
   });
 }
 
-export function compileCover(cover: CoverInput): PlaybackCover {
+export function compileCover(cover: CoverInput, style: MovieStyle = 'classic'): PlaybackCover {
   return {
     p: cover.place,
     tm: cover.time,
     pr: cover.props ?? [],
     fx: cover.fx ?? [],
     c: cover.characters ?? [],
-    cam: cover.camera ?? 'in',
+    cam: cover.camera ?? (style === 'cinema' ? 'wide' : 'in'),
   };
 }
 
@@ -115,9 +124,10 @@ export function pickCoverCast(cast: MovieInput['cast'], cover: PlaybackCover): R
 }
 
 export function compileMovie(movie: MovieInput): CompiledMovie {
-  const cover = compileCover(movie.cover);
+  const style: MovieStyle = movie.style ?? 'classic';
+  const cover = compileCover(movie.cover, style);
   const episodes = movie.episodes.map((ep, position) => {
-    const scenes = compileScenes(ep.scenes);
+    const scenes = compileScenes(ep.scenes, style);
     return { position, title: ep.title, scenes, sceneCount: scenes.length, minutes: minutesFor(scenes) };
   });
   return {

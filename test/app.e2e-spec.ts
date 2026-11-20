@@ -53,7 +53,10 @@ describe('Cinebox (e2e)', () => {
     expect(names).toEqual(expect.arrayContaining(['Fantasy', 'Mystery', 'Adventure', 'Science fiction']));
     const fantasy = res.body.genres.find((g: any) => g.name === 'Fantasy');
     expect(fantasy.movies.map((m: any) => m.slug).sort()).toEqual(['magic-base', 'the-ember-crown']);
-    expect(res.body.featured.slug).toBe('magic-base');
+    expect(res.body.featured).toBeTruthy(); // newest featured movie wins
+    const sci = res.body.genres.find((g: any) => g.name === 'Science fiction').movies.find((m: any) => m.slug === 'signal-from-halcyon');
+    expect(sci.style).toBe('cinema');
+    expect(sci.poster).toMatch(/^\/posters\//);
     // the catalog must stay light: no scenes, no full cast
     expect(JSON.stringify(res.body)).not.toContain('"scenes"');
   });

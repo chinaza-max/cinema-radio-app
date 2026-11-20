@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 1,
+  "slug": "signal-from-halcyon",
+  "title": "Signal from Halcyon",
+  "synopsis": "A survey ship forty years from home hears a message in human words from a dead world. Its crew must follow the signal to an alien archive before a burning ring falls, and one of them must decide who stays behind.",
+  "credit": "An original science fiction story",
+  "genre": "Science fiction",
+  "style": "cinema",
+  "poster": "/posters/signal-from-halcyon.jpg",
+  "featured": true,
+  "cover": {
+    "place": "planet",
+    "time": "dusk",
+    "props": [
+      "monolith"
+    ],
+    "fx": [
+      "dust"
+    ],
+    "characters": [
+      "amara:150",
+      "seven:245"
+    ],
+    "camera": "low"
+  },
+  "cast": {
+    "vale": {
+      "name": "Captain Vale",
+      "role": "Commander of the Meridian Dawn",
+      "coat": "#c9a24a",
+      "tag": "#e0b45a",
+      "model": "soldier",
+      "voice": "en-US-GuyNeural",
+      "pitch": 0.9
+    },
+    "amara": {
+      "name": "Dr. Amara Okoye",
+      "role": "Planetary scientist",
+      "coat": "#f2c14e",
+      "tag": "#ff9f43",
+      "model": "michelle",
+      "voice": "en-NG-EzinneNeural"
+    },
+    "kofi": {
+      "name": "Kofi Mensah",
+      "role": "Flight engineer",
+      "coat": "#2c6f8f",
+      "tag": "#4fb3d9",
+      "model": "avatar",
+      "voice": "en-NG-AbeoNeural"
+    },
+    "seven": {
+      "name": "Unit Seven",
+      "role": "Ship android",
+      "coat": "#c9d2dc",
+      "tag": "#9fb4c8",
+      "model": "android",
+      "voice": "en-GB-RyanNeural",
+      "pitch": 0.92,
+      "rate": 0.95
+    },
+    "pip": {
+      "name": "Pip",
+      "role": "Maintenance robot",
+      "coat": "#f2b632",
+      "tag": "#ffd166",
+      "model": "robot",
+      "voice": "en-US-JennyNeural",
+      "pitch": 1.7,
+      "rate": 1.08
+    },
+    "mind": {
+      "name": "MERIDIAN",
+      "role": "The ship's mind",
+      "coat": "#5fd8ff",
+      "tag": "#5fd8ff",
+      "model": "hologram",
+      "voice": "en-GB-SoniaNeural",
+      "pitch": 0.95
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Quiet Signal",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Forty years from home, the survey ship Meridian Dawn drifts through the dark between the stars. Its crew sleep in their pods. Its engines hum softly. And its mind keeps watch.",
+          "place": "space",
+          "time": "night",
+          "characters": []
+        },
+        {
+          "speaker": "narrator",
+          "text": "On the bridge, a single light glows. It is MERIDIAN, the ship's mind. And tonight she has heard something she cannot explain.",
+          "place": "bridge",
+          "time": "dim",
+          "props": [
+            "hologram"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "characters": [
+            "mind:300"
+          ]
+        },
+        {
+          "speaker": "mind",
+          "text": "Captain Vale, please wake. I am sorry to do this. A signal has reached us from a dead world, and it is repeating a message in human words.",
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Captain Idris Vale steps onto the bridge, still stiff from the long sleep. He has led this crew through eleven years of silence. He is not ready for a voice.",
+          "characters": [
+            "vale:100",
+            "mind:300"
+          ]
+        },
+        {
+          "speaker": "vale",
+          "text": "Human words? We are forty years from any human. Play it for me."
+        },
+        {
+          "speaker": "mind",
+          "text": "It says only this. Come to Halcyon. Come before the ring closes. Then the message begins again, and again, and again.",
+          "camera": "close"
+        },
+        {
+          "speaker": "vale",
+          "text": "Wake Doctor Okoye, and wake Kofi. If something out there knows our language, I want my best minds beside me before I answer.",
+          "characters": [
+            "vale:100:point",
+            "mind:300"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Far below the ship, the dead world of Halcyon turned slowly, wrapped in a ring of white fire. And somewhere on its surface, something was waiting.",
+          "place": "space",
+          "time": "night",
+          "props": [],
+          "fx": [],
+          "characters": [],
+          "camera": "high"
+        }
+      ]
+    },
+    {
+      "title": "Wake the Crew",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Hours later, three people stand around the star table. Captain Vale. The planetary scientist, Doctor Amara Okoye. And Kofi Mensah, the flight engineer who keeps the old ship alive.",
+          "place": "bridge",
+          "time": "dim",
+          "props": [
+            "hologram"
+          ],
+          "characters": [
+            "vale:70",
+            "amara:150",
+            "kofi:330"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "amara",
+          "text": "I have studied Halcyon for ten years from catalogues. It has no life, no air worth breathing, and no reason to speak. Yet that ring is not natural. Look at its pattern.",
+          "characters": [
+            "vale:70",
+            "amara:150:point",
+            "kofi:330"
+          ]
+        },
+        {
+          "speaker": "kofi",
+          "text": "My engines can reach orbit in two days, Captain. But our fuel will not carry us home afterwards. Not with that ring burning the way it is."
+        },
+        {
+          "speaker": "vale",
+          "text": "Then we go for answers, and we find fuel while we are there. Kofi, you stay with the ship. The rest of us take the lander.",
+          "characters": [
+            "vale:70:point",
+            "amara:150",
+            "kofi:330"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Down in the long corridor, the landing party gathers. Unit Seven, the ship's android, checks every seal twice. At his feet, little Pip, the maintenance robot, beeps with excitement.",
+          "place": "corridor",
+          "time": "dim",
+          "props": [],
+          "fx": [
+            "haze"
+          ],
+          "characters": [
+            "vale:70",
+            "amara:150",
+            "seven:240",
+            "pip:330"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "pip",
+          "text": "I am coming too! I have fixed three hundred and twelve broken things on this ship. I can fix a dead world as well!",
+          "characters": [
+            "vale:70",
+            "amara:150",
+            "seven:240",
+            "pip:330:wave"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "seven",
+          "text": "Pip, a dead world is not a broken machine. But your courage is noted. I will walk beside you, and I will not let you fall.",
+          "characters": [
+            "vale:70",
+            "amara:150",
+            "seven:240:nod",
+            "pip:330"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The lander fell away from the Meridian Dawn and plunged toward the burning ring. Below them, the red sands of Halcyon grew larger, and the strange signal grew louder.",
+          "place": "space",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "streaks"
+          ],
+          "characters": [],
+          "camera": "wide"
+        }
+      ]
+    },
+    {
+      "title": "The Red World",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The lander touched down on a red plain, beneath an enormous ringed planet. The air was thin and bitterly cold. Dust drifted like smoke around their boots.",
+          "place": "planet",
+          "time": "dusk",
+          "props": [],
+          "fx": [
+            "dust"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "amara",
+          "text": "The signal comes from beyond that ridge. Unit Seven, how far is it?",
+          "characters": [
+            "vale:80",
+            "amara:165:point",
+            "seven:250",
+            "pip:325"
+          ]
+        },
+        {
+          "speaker": "seven",
+          "text": "Eleven hundred metres, Doctor. I detect no living thing on this world. Only power, and a great deal of it."
+        },
+        {
+          "speaker": "narrator",
+          "text": "They walked in single file across the sand, and the dust rose behind them. Pip rolled ahead, then back, then ahead again, never able to keep still.",
+          "characters": [
+            "vale:80>150",
+            "amara:165>235",
+            "seven:250>320",
+            "pip:325>365"
+          ],
+          "camera": "orbit"
+        },
+        {
+          "speaker": "pip",
+          "text": "Captain, Captain! I found something. It is big. It is very, very big, and it is humming!",
+          "characters": [
+            "vale:100",
+            "pip:230:wave"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "At the foot of the ridge stood a black tower, taller than any building on Earth. Glowing letters crawled up its face, and every one of them belonged to a human alphabet.",
+          "props": [
+            "monolith"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ],
+          "camera": "low"
+        },
+        {
+          "speaker": "amara",
+          "text": "These are our letters. Someone copied our language, not from a book, but from our own radio voices. Whoever built this has been listening to us for a very long time.",
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The tower's base opened like a slow eye, and a stairway of light spilled across the sand. Beyond it lay a hall older than the stars.",
+          "fx": [
+            "dust",
+            "glitch"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ],
+          "camera": "in"
+        }
+      ]
+    },
+    {
+      "title": "The Archive",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Inside, the hall rose higher than the eye could follow. Columns of dark stone climbed into the shadows, and green light ran through them like blood through a living body.",
+          "place": "ruins",
+          "time": "night",
+          "props": [
+            "monolith"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "amara",
+          "text": "It is a library. The library of a whole civilisation, waiting here. Captain, if we can open it, we could learn how they crossed between the stars.",
+          "characters": [
+            "vale:80",
+            "amara:165:point",
+            "seven:250",
+            "pip:325"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Back on the Meridian Dawn, Kofi watched the ring grow brighter. On the star table, MERIDIAN's face flickered with worry.",
+          "place": "bridge",
+          "time": "alert",
+          "props": [
+            "hologram"
+          ],
+          "fx": [
+            "alarm"
+          ],
+          "characters": [
+            "kofi:110",
+            "mind:290"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "mind",
+          "text": "Kofi, the ring is collapsing faster than I predicted. In three hours it will fall upon Halcyon, and on everything beneath it. The Captain must be told.",
+          "camera": "close"
+        },
+        {
+          "speaker": "kofi",
+          "text": "Captain, come in! The ring is falling! You have three hours, maybe less. Get out of there!",
+          "characters": [
+            "kofi:110:point",
+            "mind:290"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "vale",
+          "text": "Three hours. Doctor, how long to open the archive?",
+          "place": "ruins",
+          "time": "night",
+          "props": [
+            "monolith"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ]
+        },
+        {
+          "speaker": "amara",
+          "text": "It needs power, Captain. Enormous power. A heart that gives, not a battery that takes. The inscription says: only one who stays can open the door for all who leave."
+        },
+        {
+          "speaker": "narrator",
+          "text": "No one spoke. The green light pulsed, slow and patient, like a heartbeat. And Unit Seven, the android who had never once been afraid, turned his silver head toward the glowing door.",
+          "props": [
+            "gate"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250:sad",
+            "pip:325"
+          ],
+          "camera": "close"
+        }
+      ]
+    },
+    {
+      "title": "The One Who Stays",
+      "scenes": [
+        {
+          "speaker": "seven",
+          "text": "Doctor, I understand the inscription. I am a machine, and my core holds more power than the lander and the archive together. I can open the door. I will stay.",
+          "place": "ruins",
+          "time": "night",
+          "props": [
+            "gate"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "vale",
+          "text": "No. No one is left behind, Seven. That is the rule.",
+          "characters": [
+            "vale:80:point",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ]
+        },
+        {
+          "speaker": "seven",
+          "text": "Captain, you taught me that rules exist to protect people. Tonight, this rule protects no one. The ring falls soon, and humanity needs what is inside this archive.",
+          "camera": "medium"
+        },
+        {
+          "speaker": "pip",
+          "text": "But who will fix you when you break, Seven? Who will explain the jokes to me?",
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325:sad"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "seven",
+          "text": "You will, Pip. You are braver than you know. Go with them. And whenever something breaks, remember me, and fix it anyway.",
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250:nod",
+            "pip:325"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Unit Seven laid his silver hand upon the glowing door. Light poured through his body, brighter than the ring, brighter than any sun. The great doors opened, and the whole archive woke at once.",
+          "fx": [
+            "dust",
+            "glitch",
+            "sparks"
+          ],
+          "characters": [
+            "vale:80",
+            "amara:165",
+            "seven:250",
+            "pip:325"
+          ],
+          "camera": "orbit"
+        },
+        {
+          "speaker": "narrator",
+          "text": "They ran. Across the red sand, under a sky tearing open with fire, with the archive's light chasing them like a river. Kofi brought the lander down with seconds to spare, and behind them the ring fell.",
+          "place": "planet",
+          "time": "alert",
+          "props": [],
+          "fx": [
+            "dust",
+            "alarm"
+          ],
+          "characters": [
+            "vale:60>330:run",
+            "amara:140>350:run",
+            "pip:260>380:run"
+          ],
+          "camera": "l"
+        },
+        {
+          "speaker": "narrator",
+          "text": "On the Meridian Dawn, the archive's light filled every screen. Inside it lay the cure for old sicknesses, the maps of a thousand safe worlds, and the way home. Slowly, the ship turned toward Earth.",
+          "place": "space",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "streaks"
+          ],
+          "characters": [],
+          "camera": "out"
+        },
+        {
+          "speaker": "vale",
+          "text": "Log entry, the last of this voyage. We came for a signal, and we found a gift. We lost a friend, and we gained a future. Unit Seven, wherever you are, the door stays open for you.",
+          "place": "bridge",
+          "time": "night",
+          "props": [
+            "hologram"
+          ],
+          "fx": [],
+          "characters": [
+            "vale:90",
+            "amara:170",
+            "kofi:250",
+            "pip:330"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "And far behind them, on a quiet red world, a silver figure stood in the light, keeping the door open for everyone who would ever need it. The End.",
+          "place": "planet",
+          "time": "night",
+          "props": [
+            "gate"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "characters": [
+            "seven:200"
+          ],
+          "camera": "low"
+        }
+      ]
+    }
+  ]
+}

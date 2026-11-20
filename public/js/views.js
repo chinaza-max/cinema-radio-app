@@ -23,12 +23,18 @@ export function resumeCard(last) {
 
 /** Movie page. `movie` is the /api/movies/:slug response; `progress` is saved progress or undefined. */
 export function movieView(movie, progress) {
+  const cinema = movie.style === 'cinema';
   const cast = Object.values(movie.cast)
     .filter((c) => !c.hidden)
-    .map(
-      (c) => `<div class="cm"><svg viewBox="-24 -96 48 104" aria-hidden="true">${figSvg(c, { pose: '' })}</svg><div><b>${esc(c.name)}</b>${c.role ? `<span>${esc(c.role)}</span>` : ''}</div></div>`,
-    )
+    .map((c) => {
+      // Classic movies draw each character as a small SVG; cinema characters are 3D models, so show their initial.
+      const face = cinema
+        ? `<i class="dot" style="--c:${esc(c.tag || c.coat)}" aria-hidden="true">${esc(c.name.slice(0, 1))}</i>`
+        : `<svg viewBox="-24 -96 48 104" aria-hidden="true">${figSvg(c, { pose: '' })}</svg>`;
+      return `<div class="cm">${face}<div><b>${esc(c.name)}</b>${c.role ? `<span>${esc(c.role)}</span>` : ''}</div></div>`;
+    })
     .join('');
+  const cover = cinema ? (movie.poster ? `<img src="${esc(movie.poster)}" alt="" decoding="async">` : '') : sceneSvg(movie.cover, movie.cast);
 
   const episodes = movie.episodes
     .map(
@@ -44,7 +50,7 @@ export function movieView(movie, progress) {
     : '';
 
   return `<a class="back" href="/" data-link>← Home</a>
-<div class="cover">${sceneSvg(movie.cover, movie.cast)}</div>
+<div class="cover${cinema ? ' poster-art' : ''}">${cover}</div>
 <div><h1 class="mtitle">${esc(movie.title)}</h1><p class="by">${esc(movie.credit)} · ${esc(movie.genre.name)} · ${movie.episodes.length} episodes · ~${movie.totalMinutes} min</p></div>
 <div class="hbtns"><a class="btn" href="/m/${esc(movie.slug)}/1" data-link data-play data-fresh>Watch from the start</a>${resume}</div>
 <p class="blurb">${esc(movie.synopsis)}</p>
@@ -57,7 +63,11 @@ export function movieView(movie, progress) {
 /** Player shell. The behaviour is attached by mountPlayer() in player.js. */
 export function playerView(movie, n, episode, speechAvailable, rate, voiceLabel = 'Voice') {
   return `<div class="ptop"><a class="back" href="/m/${esc(movie.slug)}" data-link>← Episodes</a><div class="ptitle"><b>${esc(movie.title)}</b><span>Episode ${n}: ${esc(episode.title)}</span></div></div>
-<div class="stage" id="stage"><div class="layer on"></div><div class="layer"></div></div>
+${
+    movie.style === 'cinema'
+      ? '<div class="stage cine" id="stage"><canvas aria-label="Animated 3D scene"></canvas><div class="ld" aria-live="polite">Preparing the scene…</div><div class="ng">The 3D picture is not available on this device. The story continues with voices and captions.</div></div>'
+      : '<div class="stage" id="stage"><div class="layer on"></div><div class="layer"></div></div>'
+  }
 <div class="seglist" id="segs">${episode.scenes.map((_, i) => `<button class="sg" data-act="seek" data-i="${i}" aria-label="Scene ${i + 1}"></button>`).join('')}</div>
 <div class="cap" id="cap" aria-live="off"></div>
 <div class="ctl"><button class="rb" data-act="prev" aria-label="Previous line">${ICON.prev}</button><button class="play" id="pp" data-act="toggle" aria-label="Play or pause">${ICON.play}</button><button class="rb" data-act="next" aria-label="Next line">${ICON.next}</button><button class="spd" id="spd" data-act="speed" aria-label="Narration speed">${rate}x</button><button class="spd voice-btn" id="vbtn" data-act="voice" aria-label="Narrator voice" title="Change voice">${esc(voiceLabel)}</button></div>
