@@ -133,6 +133,10 @@ export class MoviesService {
     return { slug, published };
   }
 
+  async hasSlug(slug: unknown): Promise<boolean> {
+    return typeof slug === 'string' && (await this.movies.exists({ slug })) !== null;
+  }
+
   countAll(): Promise<number> {
     return this.movies.countDocuments();
   }

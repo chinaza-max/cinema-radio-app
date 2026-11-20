@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { createHash } from 'crypto';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
 import { join } from 'path';
 import { spawn } from 'child_process';
 import { PUBLIC_DIR, ROOT_DIR } from '../config/paths';
@@ -28,12 +29,15 @@ export const DEFAULT_VOICE = 'en-US-ChristopherNeural';
 @Injectable()
 export class AudioService {
   private readonly log = new Logger(AudioService.name);
-  private readonly cacheDir = join(PUBLIC_DIR, 'audio', 'cache');
+  // Vercel's filesystem is read-only except /tmp.
+  private readonly cacheDir = process.env.VERCEL ? join(tmpdir(), 'cinebox-audio') : join(PUBLIC_DIR, 'audio', 'cache');
   private readonly scriptPath = join(ROOT_DIR, 'scripts', 'generate-voice.py');
 
   constructor() {
-    if (!existsSync(this.cacheDir)) {
-      mkdirSync(this.cacheDir, { recursive: true });
+    try {
+      if (!existsSync(this.cacheDir)) mkdirSync(this.cacheDir, { recursive: true });
+    } catch (err: any) {
+      this.log.warn(`Audio cache directory unavailable: ${err.message}`); // never stop the app for this
     }
   }
 
@@ -50,6 +54,8 @@ export class AudioService {
     const safeVoice = VOICES.some((v) => v.id === voice) ? voice : DEFAULT_VOICE;
 
     const hash = createHash('sha1').update(`${safeText}:${safeVoice}:${rate}:${pitch}`).digest('hex');
+    const bundled = join(PUBLIC_DIR, 'audio', 'cache', `${hash}.mp3`); // ships with the repo
+    if (existsSync(bundled)) return bundled;
     const filePath = join(this.cacheDir, `${hash}.mp3`);
 
     if (existsSync(filePath)) {
