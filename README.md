@@ -286,7 +286,7 @@ Movies with `"style": "cinema"` play in a Three.js engine (`public/js/cinema/`):
 
 ## Deploying to Vercel
 
-`vercel.json` routes every request to `api/index.js` (a serverless function that runs the Nest app from `dist/`). The build runs `npm run build` and copies three.js into `public/vendor/three` so the CDN serves it. Static files in `public/` are also served by the CDN.
+Vercel's NestJS preset runs `src/main.ts` as the function; no `vercel.json` is needed. `npm run build` also copies three.js into `public/vendor/three` (the `postbuild` script) so it can be served as a static file.
 
 Set these **Environment Variables** in the Vercel project (Settings → Environment Variables), then redeploy:
 
