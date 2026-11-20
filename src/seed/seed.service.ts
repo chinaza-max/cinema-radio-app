@@ -22,12 +22,14 @@ export class SeedService implements OnApplicationBootstrap {
     const isProd = this.config.get('NODE_ENV') === 'production';
     const enabled = this.config.get<string>('SEED_ON_BOOT', isProd ? 'false' : 'true') === 'true';
     if (!enabled || !existsSync(SEED_DIR)) return;
-    if ((await this.movies.countAll()) > 0) return;
 
     const files = readdirSync(SEED_DIR).filter((f) => f.endsWith('.json')).sort();
     for (const file of files) {
       try {
-        const result = await this.movies.importMovie(JSON.parse(readFileSync(join(SEED_DIR, file), 'utf8')));
+        const raw = JSON.parse(readFileSync(join(SEED_DIR, file), 'utf8'));
+        // Add-only: a seed movie that is already in the database is left alone, so edits and imports survive.
+        if (await this.movies.hasSlug(raw?.slug)) continue;
+        const result = await this.movies.importMovie(raw);
         this.log.log(`Seeded "${result.slug}" (${result.episodes} episodes)`);
       } catch (err) {
         this.log.error(`Could not seed ${file}: ${JSON.stringify((err as any)?.getResponse?.() ?? String(err))}`);
