@@ -283,3 +283,17 @@ Movies with `"style": "cinema"` play in a Three.js engine (`public/js/cinema/`):
 - Poster for a cinema movie (server running): `NODE_PATH=$(npm root -g) node scripts/render-poster.cjs seed/movies/<slug>.json`
 - Add a place, prop or model: edit `public/js/cinema/sets.js` / `actors.js`, `public/js/cinema/vocab.js` and `src/movies/vocabulary.json`, then `npm run check:vocab`.
 - `?q=low|medium|high` forces the quality tier.
+
+## Deploying to Vercel
+
+`vercel.json` routes every request to `api/index.js` (a serverless function that runs the Nest app from `dist/`). The build runs `npm run build` and copies three.js into `public/vendor/three` so the CDN serves it. Static files in `public/` are also served by the CDN.
+
+Set these **Environment Variables** in the Vercel project (Settings → Environment Variables), then redeploy:
+
+| Name | Value |
+| --- | --- |
+| `MONGODB_URI` | A MongoDB Atlas URI, e.g. `mongodb+srv://user:pass@cluster.mongodb.net/cinebox`. In Atlas, Network Access must allow `0.0.0.0/0` (Vercel has no fixed IPs). |
+| `ADMIN_API_KEY` | A long random key for `/api/admin/*`. |
+| `SEED_ON_BOOT` | `true` once, to add the demo movies to an empty database (it only adds missing ones). |
+
+Notes: the filesystem is read-only, so generated voice files go to `/tmp`; the Edge-TTS python script does not run on Vercel, so voices fall back to the Google fallback unless you host the app on a server (Render, Railway, Fly, a VPS) instead.

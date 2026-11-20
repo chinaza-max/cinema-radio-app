@@ -21,6 +21,7 @@ import { WebModule } from './web/web.module';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         uri: config.get<string>('MONGODB_URI', 'mongodb://127.0.0.1:27017/cinebox'),
+        retryAttempts: process.env.VERCEL ? 0 : 9, // serverless must fail fast, not retry past the function time limit
         serverSelectionTimeoutMS: 8000, // fail fast with a clear error when MongoDB is not reachable
       }),
     }),
