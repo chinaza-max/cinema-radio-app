@@ -94,6 +94,9 @@ function restyle(root, member) {
       if (/Outfit_Bottom/.test(n)) { mat.map = null; mat.color.set('#202733'); }
       if (/Footwear/.test(n)) { mat.map = null; mat.color.set('#15181e'); }
     }
+    if (member.model === 'robot') {
+      for (const m of next) if (/main/i.test(m.name)) { m.color.copy(coat); m.metalness = 0.5; m.roughness = 0.4; }
+    }
     if (member.model === 'android') {
       for (const m of next) {
         if (/HighLimbs/.test(m.name)) { m.color.copy(coat); m.metalness = 0.85; m.roughness = 0.28; m.emissive?.set('#000000'); }

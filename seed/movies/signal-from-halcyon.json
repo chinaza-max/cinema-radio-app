@@ -108,30 +108,41 @@
         {
           "speaker": "mind",
           "text": "Captain Vale, please wake. I am sorry to do this. A signal has reached us from a dead world, and it is repeating a message in human words.",
-          "camera": "close"
+          "camera": "close",
+          "characters": [
+            "mind:300"
+          ]
         },
         {
           "speaker": "narrator",
           "text": "Captain Idris Vale steps onto the bridge, still stiff from the long sleep. He has led this crew through eleven years of silence. He is not ready for a voice.",
           "characters": [
-            "vale:100",
+            "vale:100>170",
             "mind:300"
           ]
         },
         {
           "speaker": "vale",
-          "text": "Human words? We are forty years from any human. Play it for me."
+          "text": "Human words? We are forty years from any human. Play it for me.",
+          "characters": [
+            "vale:170>100",
+            "mind:300"
+          ]
         },
         {
           "speaker": "mind",
           "text": "It says only this. Come to Halcyon. Come before the ring closes. Then the message begins again, and again, and again.",
-          "camera": "close"
+          "camera": "close",
+          "characters": [
+            "vale:100>170",
+            "mind:300"
+          ]
         },
         {
           "speaker": "vale",
           "text": "Wake Doctor Okoye, and wake Kofi. If something out there knows our language, I want my best minds beside me before I answer.",
           "characters": [
-            "vale:100:point",
+            "vale:100>30:point",
             "mind:300"
           ]
         },
@@ -159,9 +170,9 @@
             "hologram"
           ],
           "characters": [
-            "vale:70",
-            "amara:150",
-            "kofi:330"
+            "vale:70>140",
+            "amara:150>80",
+            "kofi:330>370"
           ],
           "camera": "wide"
         },
@@ -169,22 +180,27 @@
           "speaker": "amara",
           "text": "I have studied Halcyon for ten years from catalogues. It has no life, no air worth breathing, and no reason to speak. Yet that ring is not natural. Look at its pattern.",
           "characters": [
-            "vale:70",
-            "amara:150:point",
-            "kofi:330"
+            "vale:70>40",
+            "amara:150>210:point",
+            "kofi:330>360"
           ]
         },
         {
           "speaker": "kofi",
-          "text": "My engines can reach orbit in two days, Captain. But our fuel will not carry us home afterwards. Not with that ring burning the way it is."
+          "text": "My engines can reach orbit in two days, Captain. But our fuel will not carry us home afterwards. Not with that ring burning the way it is.",
+          "characters": [
+            "vale:40>100",
+            "amara:210>180:point",
+            "kofi:360>280"
+          ]
         },
         {
           "speaker": "vale",
           "text": "Then we go for answers, and we find fuel while we are there. Kofi, you stay with the ship. The rest of us take the lander.",
           "characters": [
-            "vale:70:point",
-            "amara:150",
-            "kofi:330"
+            "vale:70>130:point",
+            "amara:150>180",
+            "kofi:330>360"
           ]
         },
         {
@@ -197,10 +213,10 @@
             "haze"
           ],
           "characters": [
-            "vale:70",
-            "amara:150",
-            "seven:240",
-            "pip:330"
+            "vale:70>30",
+            "amara:150>220",
+            "seven:240>170",
+            "pip:330>370"
           ],
           "camera": "wide"
         },
@@ -208,10 +224,10 @@
           "speaker": "pip",
           "text": "I am coming too! I have fixed three hundred and twelve broken things on this ship. I can fix a dead world as well!",
           "characters": [
-            "vale:70",
-            "amara:150",
-            "seven:240",
-            "pip:330:wave"
+            "vale:70>40",
+            "amara:150>120",
+            "seven:240>210",
+            "pip:330>250:wave"
           ],
           "camera": "close"
         },
@@ -219,10 +235,10 @@
           "speaker": "seven",
           "text": "Pip, a dead world is not a broken machine. But your courage is noted. I will walk beside you, and I will not let you fall.",
           "characters": [
-            "vale:70",
-            "amara:150",
-            "seven:240:nod",
-            "pip:330"
+            "vale:70>40",
+            "amara:150>120",
+            "seven:240>160:nod",
+            "pip:330>360"
           ]
         },
         {
@@ -252,10 +268,10 @@
             "dust"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>30",
+            "amara:165>235",
+            "seven:250>180",
+            "pip:325>370"
           ],
           "camera": "wide"
         },
@@ -263,15 +279,21 @@
           "speaker": "amara",
           "text": "The signal comes from beyond that ridge. Unit Seven, how far is it?",
           "characters": [
-            "vale:80",
-            "amara:165:point",
-            "seven:250",
-            "pip:325"
+            "vale:80>50",
+            "amara:165>225:point",
+            "seven:250>280",
+            "pip:325>355"
           ]
         },
         {
           "speaker": "seven",
-          "text": "Eleven hundred metres, Doctor. I detect no living thing on this world. Only power, and a great deal of it."
+          "text": "Eleven hundred metres, Doctor. I detect no living thing on this world. Only power, and a great deal of it.",
+          "characters": [
+            "vale:50>110",
+            "amara:225>195:point",
+            "seven:280>200",
+            "pip:355>295"
+          ]
         },
         {
           "speaker": "narrator",
@@ -288,8 +310,8 @@
           "speaker": "pip",
           "text": "Captain, Captain! I found something. It is big. It is very, very big, and it is humming!",
           "characters": [
-            "vale:100",
-            "pip:230:wave"
+            "vale:100>70",
+            "pip:230>170:wave"
           ],
           "camera": "close"
         },
@@ -300,10 +322,10 @@
             "monolith"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>30",
+            "amara:165>235",
+            "seven:250>180",
+            "pip:325>370"
           ],
           "camera": "low"
         },
@@ -311,10 +333,10 @@
           "speaker": "amara",
           "text": "These are our letters. Someone copied our language, not from a book, but from our own radio voices. Whoever built this has been listening to us for a very long time.",
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>50",
+            "amara:165>225",
+            "seven:250>280",
+            "pip:325>355"
           ]
         },
         {
@@ -325,10 +347,10 @@
             "glitch"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>30",
+            "amara:165>235",
+            "seven:250>180",
+            "pip:325>370"
           ],
           "camera": "in"
         }
@@ -349,10 +371,10 @@
             "dust"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>30",
+            "amara:165>235",
+            "seven:250>180",
+            "pip:325>370"
           ],
           "camera": "wide"
         },
@@ -360,10 +382,10 @@
           "speaker": "amara",
           "text": "It is a library. The library of a whole civilisation, waiting here. Captain, if we can open it, we could learn how they crossed between the stars.",
           "characters": [
-            "vale:80",
-            "amara:165:point",
-            "seven:250",
-            "pip:325"
+            "vale:80>50",
+            "amara:165>225:point",
+            "seven:250>280",
+            "pip:325>355"
           ]
         },
         {
@@ -378,7 +400,7 @@
             "alarm"
           ],
           "characters": [
-            "kofi:110",
+            "kofi:110>40",
             "mind:290"
           ],
           "camera": "wide"
@@ -386,13 +408,17 @@
         {
           "speaker": "mind",
           "text": "Kofi, the ring is collapsing faster than I predicted. In three hours it will fall upon Halcyon, and on everything beneath it. The Captain must be told.",
-          "camera": "close"
+          "camera": "close",
+          "characters": [
+            "kofi:40>110",
+            "mind:290"
+          ]
         },
         {
           "speaker": "kofi",
           "text": "Captain, come in! The ring is falling! You have three hours, maybe less. Get out of there!",
           "characters": [
-            "kofi:110:point",
+            "kofi:110>40:point",
             "mind:290"
           ],
           "camera": "medium"
@@ -409,15 +435,21 @@
             "dust"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>140",
+            "amara:165>195",
+            "seven:250>280",
+            "pip:325>355"
           ]
         },
         {
           "speaker": "amara",
-          "text": "It needs power, Captain. Enormous power. A heart that gives, not a battery that takes. The inscription says: only one who stays can open the door for all who leave."
+          "text": "It needs power, Captain. Enormous power. A heart that gives, not a battery that takes. The inscription says: only one who stays can open the door for all who leave.",
+          "characters": [
+            "vale:140>110",
+            "amara:195>255",
+            "seven:280>310",
+            "pip:355>295"
+          ]
         },
         {
           "speaker": "narrator",
@@ -426,10 +458,10 @@
             "gate"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250:sad",
-            "pip:325"
+            "vale:80>150",
+            "amara:165>95",
+            "seven:250>320:sad",
+            "pip:325>255"
           ],
           "camera": "close"
         }
@@ -450,10 +482,10 @@
             "dust"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>50",
+            "amara:165>135",
+            "seven:250>170",
+            "pip:325>355"
           ],
           "camera": "close"
         },
@@ -461,25 +493,31 @@
           "speaker": "vale",
           "text": "No. No one is left behind, Seven. That is the rule.",
           "characters": [
-            "vale:80:point",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>140:point",
+            "amara:165>195",
+            "seven:250>280",
+            "pip:325>355"
           ]
         },
         {
           "speaker": "seven",
           "text": "Captain, you taught me that rules exist to protect people. Tonight, this rule protects no one. The ring falls soon, and humanity needs what is inside this archive.",
-          "camera": "medium"
+          "camera": "medium",
+          "characters": [
+            "vale:140>110:point",
+            "amara:195>165",
+            "seven:280>210",
+            "pip:355>295"
+          ]
         },
         {
           "speaker": "pip",
           "text": "But who will fix you when you break, Seven? Who will explain the jokes to me?",
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325:sad"
+            "vale:80>50",
+            "amara:165>135",
+            "seven:250>220",
+            "pip:325>245:sad"
           ],
           "camera": "close"
         },
@@ -487,10 +525,10 @@
           "speaker": "seven",
           "text": "You will, Pip. You are braver than you know. Go with them. And whenever something breaks, remember me, and fix it anyway.",
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250:nod",
-            "pip:325"
+            "vale:80>50",
+            "amara:165>135",
+            "seven:250>170:nod",
+            "pip:325>355"
           ],
           "camera": "close"
         },
@@ -503,10 +541,10 @@
             "sparks"
           ],
           "characters": [
-            "vale:80",
-            "amara:165",
-            "seven:250",
-            "pip:325"
+            "vale:80>150",
+            "amara:165>95",
+            "seven:250>320",
+            "pip:325>255"
           ],
           "camera": "orbit"
         },
@@ -549,10 +587,10 @@
           ],
           "fx": [],
           "characters": [
-            "vale:90",
-            "amara:170",
-            "kofi:250",
-            "pip:330"
+            "vale:90>150",
+            "amara:170>200",
+            "kofi:250>280",
+            "pip:330>360"
           ],
           "camera": "close"
         },
@@ -568,7 +606,7 @@
             "dust"
           ],
           "characters": [
-            "seven:200"
+            "seven:200>270"
           ],
           "camera": "low"
         }
