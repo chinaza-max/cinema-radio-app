@@ -274,3 +274,12 @@ Be honest about these when planning work.
 6. Search, multiple genres per movie, ratings, thumbnails for sharing links.
 7. Languages other than English (the schema has no language field yet).
 # cinema-radio-app
+
+## Cinema style (3D)
+
+Movies with `"style": "cinema"` play in a Three.js engine (`public/js/cinema/`): rigged characters from `public/models/`, procedural sci-fi sets, bloom, camera shots and lip sync driven by the voice level. The engine is lazy-loaded only when such a movie plays; three.js is served from `node_modules` under `/vendor/three/` (see the import map in `views/index.html`). Format details: `docs/MOVIE_FORMAT.md`; model credits: `docs/CREDITS.md`.
+
+- Scene lab (try a set, model or shot): `/lab/index.html?place=bridge&time=dim&c=vale:150&models=vale:soldier&cam=medium`
+- Poster for a cinema movie (server running): `NODE_PATH=$(npm root -g) node scripts/render-poster.cjs seed/movies/<slug>.json`
+- Add a place, prop or model: edit `public/js/cinema/sets.js` / `actors.js`, `public/js/cinema/vocab.js` and `src/movies/vocabulary.json`, then `npm run check:vocab`.
+- `?q=low|medium|high` forces the quality tier.

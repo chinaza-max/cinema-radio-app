@@ -46,4 +46,16 @@ describe('scene compiler', () => {
     expect(minutesFor([{ t: 'one two three' }])).toBe(1);
     expect(minutesFor([{ t: Array(450).fill('w').join(' ') }])).toBe(3);
   });
+  it('chooses cinema shots from who is speaking when the camera is omitted', () => {
+    const out = compileScenes(
+      [
+        { speaker: 'narrator', text: 'a', place: 'bridge', time: 'night' },
+        { speaker: 'cap', text: 'b' },
+        { speaker: 'narrator', text: 'c' },
+        { speaker: 'cap', text: 'd', camera: 'high' },
+      ],
+      'cinema',
+    );
+    expect(out.map((s) => s.cam)).toEqual(['wide', 'close', 'high', 'high']);
+  });
 });

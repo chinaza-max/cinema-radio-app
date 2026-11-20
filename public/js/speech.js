@@ -38,7 +38,74 @@ export function cycleVoice() {
 
 let currentAudio = null;
 
+/* ---- loudness, for lip sync in the 3D player ------------------------------------------------------------------
+ * The line's audio element is routed through an AnalyserNode so the player can ask "how loud is the voice right now?".
+ * Only done when the AudioContext is already running: routing sound through a suspended context would silence it.
+ * Without an analyser (or with browser speech) getVoiceLevel() falls back to a gentle made-up pulse while speaking. */
+let audioCtx = null;
+let analyser = null;
+let levelBuf = null;
+let tap = null;
+let fallbackActive = false;
+
+function ensureContext() {
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    audioCtx = audioCtx || new Ctx();
+    return audioCtx;
+  } catch {
+    return null;
+  }
+}
+
+function attachAnalyser(audio) {
+  detachAnalyser();
+  const ctx = ensureContext();
+  if (!ctx || ctx.state !== 'running') return;
+  try {
+    const source = ctx.createMediaElementSource(audio);
+    analyser = ctx.createAnalyser();
+    analyser.fftSize = 512;
+    levelBuf = new Uint8Array(analyser.fftSize);
+    source.connect(analyser);
+    analyser.connect(ctx.destination);
+    tap = source;
+  } catch {
+    analyser = null;
+  }
+}
+
+function detachAnalyser() {
+  try {
+    tap?.disconnect();
+    analyser?.disconnect();
+  } catch {
+    /* ignore */
+  }
+  tap = null;
+  analyser = null;
+}
+
+/** 0 to 1: how loud the current line is right now. 0 when nothing is being spoken. */
+export function getVoiceLevel() {
+  const playing = currentAudio && !currentAudio.paused && currentAudio.currentTime > 0;
+  if (analyser && playing) {
+    analyser.getByteTimeDomainData(levelBuf);
+    let sum = 0;
+    for (let i = 0; i < levelBuf.length; i++) {
+      const v = (levelBuf[i] - 128) / 128;
+      sum += v * v;
+    }
+    return Math.min(1, Math.sqrt(sum / levelBuf.length) * 5);
+  }
+  if (playing || fallbackActive) return 0.3 + 0.35 * Math.abs(Math.sin(performance.now() / 95)) * (0.6 + 0.4 * Math.sin(performance.now() / 410));
+  return 0;
+}
+
 export function cancelSpeech() {
+  fallbackActive = false;
+  detachAnalyser();
   if (currentAudio) {
     try {
       currentAudio.pause();
@@ -73,12 +140,14 @@ export function speak(text, { pitch = 1, rate = 1, onboundary, onend, onerror, v
 
   const audio = new Audio(audioUrl);
   currentAudio = audio;
+  attachAnalyser(audio);
 
   let ended = false;
   const finish = () => {
     if (ended) return;
     ended = true;
     if (currentAudio === audio) currentAudio = null;
+    fallbackActive = false;
     if (onend) onend();
   };
 
@@ -115,10 +184,17 @@ function fallbackSpeechSynthesis(text, { pitch = 1, rate = 1, onboundary, onend,
   }
   try {
     const u = new SpeechSynthesisUtterance(text);
+    fallbackActive = true;
     u.pitch = Math.max(0.1, Math.min(2, pitch));
     u.rate = Math.max(0.5, Math.min(2, rate));
-    u.onend = onend;
-    u.onerror = onerror;
+    u.onend = () => {
+      fallbackActive = false;
+      onend?.();
+    };
+    u.onerror = (e) => {
+      fallbackActive = false;
+      onerror?.(e);
+    };
     u.onboundary = (e) => onboundary && onboundary(e.charIndex || 0);
     window.speechSynthesis.speak(u);
   } catch (err) {
@@ -133,6 +209,11 @@ function fallbackSpeechSynthesis(text, { pitch = 1, rate = 1, onboundary, onend,
  */
 export function unlockSpeech() {
   if (typeof window === 'undefined') return;
+  try {
+    ensureContext()?.resume(); // must happen inside the tap so later lines can be analysed
+  } catch {
+    /* ignore */
+  }
   try {
     const a = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA');
     a.volume = 0;

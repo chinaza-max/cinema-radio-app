@@ -12,7 +12,7 @@
  */
 import { prefetchEpisode } from './api.js';
 import { sceneSvg } from './scene-engine.js';
-import { cancelSpeech, cycleVoice, getSelectedVoice, HAS_TTS, speak } from './speech.js';
+import { cancelSpeech, cycleVoice, getSelectedVoice, getVoiceLevel, HAS_TTS, speak } from './speech.js';
 import { $, clearProgress, esc, saveProgress, words } from './util.js';
 import { ICON } from './views.js';
 
@@ -31,6 +31,7 @@ export function mountPlayer(root, ctx) {
   const isLastEpisode = n >= movie.episodes.length;
   const stage = $('#stage', root);
   const layers = stage.querySelectorAll('.layer');
+  const isCinema = movie.style === 'cinema';
   const cap = $('#cap', root);
   const segButtons = root.querySelectorAll('#segs .sg');
   const ac = new AbortController();
@@ -39,6 +40,34 @@ export function mountPlayer(root, ctx) {
 
   if (!isLastEpisode) prefetchEpisode(movie.slug, n + 1);
 
+  // --- 3D stage (cinema movies only). The engine and its models are downloaded on demand, never for the home page.
+  let engine = null;
+  let engineReady = Promise.resolve();
+  let gone = false;
+  if (isCinema) {
+    stage.classList.add('loading');
+    engineReady = (async () => {
+      try {
+        const { createCinema } = await import('./cinema/index.js');
+        const canvas = $('canvas', stage);
+        const made = await createCinema(canvas, { cast: movie.cast });
+        if (gone) return made.destroy();
+        engine = made;
+        // Start fetching the models for everyone who appears in this episode while the viewer reads the first line.
+        const ids = new Set();
+        for (const sc of scenes) {
+          if (sc.s !== 'N') ids.add(sc.s);
+          for (const c of sc.c) ids.add(c.split(':')[0]);
+        }
+        await engine.preload([...ids].filter((id) => movie.cast[id]));
+      } catch (err) {
+        console.warn('3D stage unavailable, continuing with audio and captions:', err);
+        stage.classList.add('nogl');
+        engine = null;
+      }
+    })();
+  }
+
   const estimateSeconds = (scene) => Math.max(4, words(scene.t) / (2.5 * sessionRate) + 1);
 
   function stop() {
@@ -46,12 +75,14 @@ export function mountPlayer(root, ctx) {
     clearTimeout(st.timer);
     clearTimeout(st.gap);
     cancelSpeech();
+    engine?.setSpeaker('', null);
   }
 
   function setPlayButton() {
     const pp = $('#pp', root);
     if (pp) pp.innerHTML = st.playing ? ICON.pause : ICON.play;
     stage.classList.toggle('paused', !st.playing);
+    engine?.setPlaying(st.playing);
   }
 
   function markProgress() {
@@ -63,7 +94,15 @@ export function mountPlayer(root, ctx) {
     if (st.userActed) saveProgress(movie.slug, { e: n - 1, i: st.i, title: movie.title, epTitle: episode.title });
   }
 
+  /** Returns a promise that resolves once the picture is on screen (immediately for the SVG engine). */
   function showScene(scene, seconds) {
+    if (isCinema) {
+      return engineReady.then(async () => {
+        if (!engine || gone) return;
+        await engine.show(scene, { seconds });
+        stage.classList.remove('loading');
+      });
+    }
     const next = layers[st.layer ^ 1];
     const current = layers[st.layer];
     stage.style.setProperty('--dur', seconds + 's');
@@ -72,6 +111,7 @@ export function mountPlayer(root, ctx) {
     current.classList.remove('on');
     st.layer ^= 1;
     stage.classList.toggle('fl', !!scene.fl);
+    return Promise.resolve();
   }
 
   function showCaption(scene) {
@@ -106,13 +146,15 @@ export function mountPlayer(root, ctx) {
     st.i = index;
     const scene = scenes[index];
     const seconds = estimateSeconds(scene);
-    showScene(scene, seconds + 1);
+    const shown = showScene(scene, seconds + 1);
     showCaption(scene);
     markProgress();
     setPlayButton();
     if (!st.playing) return;
 
     const token = ++st.token;
+    // In 3D the first scene waits for the models; the line starts when the picture is ready (never longer than 20 s).
+    const ready = isCinema ? Promise.race([shown, new Promise((r) => setTimeout(r, 20000))]) : Promise.resolve();
     const advance = () => {
       if (token !== st.token) return;
       clearTimeout(st.timer);
@@ -127,11 +169,13 @@ export function mountPlayer(root, ctx) {
     }
     const voice = movie.cast[scene.s] || NARRATOR_VOICE;
     cancelSpeech();
-    setTimeout(() => {
+    ready.then(() => setTimeout(() => {
       if (token !== st.token) return;
       st.timer = setTimeout(advance, (seconds * 2.2 + 5) * 1000); // safety net if the browser never fires onend
+      engine?.setSpeaker(scene.s === 'N' ? '' : scene.s, getVoiceLevel);
       try {
         speak(scene.t, {
+          voice: movie.cast[scene.s]?.voice, // each character can have their own voice; the narrator uses the viewer's choice
           pitch: voice.pitch ?? 1,
           rate: sessionRate * (voice.rate ?? 1),
           onboundary: (i) => token === st.token && highlight(i),
@@ -146,7 +190,7 @@ export function mountPlayer(root, ctx) {
         clearTimeout(st.timer);
         st.timer = setTimeout(advance, seconds * 1000);
       }
-    }, 60);
+    }, 60));
   }
 
   function endEpisode() {
@@ -238,9 +282,12 @@ export function mountPlayer(root, ctx) {
 
   return {
     destroy() {
+      gone = true;
       st.playing = false;
       stop();
       ac.abort();
+      engine?.destroy();
+      engine = null;
     },
   };
 }

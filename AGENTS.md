@@ -60,3 +60,8 @@ If you changed anything the viewer sees (`public/`, `views/`, `src/web/`), also 
 ## When unsure
 
 Prefer the smaller change. State assumptions in your summary. Do not rewrite working modules to match personal taste.
+
+## Cinema engine
+- `public/js/cinema/` is the 3D engine for `style: "cinema"`. The "engine is pure" rule applies only to `scene-engine.js` (classic SVG); the cinema engine may touch WebGL and the DOM canvas.
+- Keep `public/js/cinema/vocab.js` in sync with the `cinema` section of `src/movies/vocabulary.json` (`npm run check:vocab`).
+- Never import `three` statically from the main bundle; load the engine with `import('./cinema/index.js')`.

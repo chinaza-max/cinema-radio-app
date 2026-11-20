@@ -61,6 +61,14 @@ export class Movie {
   @Prop({ default: true })
   published: boolean;
 
+  /** 'classic' = SVG engine, 'cinema' = Three.js engine (see docs/MOVIE_FORMAT.md). */
+  @Prop({ default: 'classic', enum: ['classic', 'cinema'] })
+  style: 'classic' | 'cinema';
+
+  /** Poster image path for cinema movies, e.g. /posters/signal-from-halcyon.jpg. Empty for classic movies. */
+  @Prop({ default: '' })
+  poster: string;
+
   /** Playback-format cover scene, drawn as the poster. */
   @Prop({ type: Object, required: true })
   cover: PlaybackCover;
