@@ -23,6 +23,7 @@ const q = new URLSearchParams({
   c: (cover.characters || []).join(','),
   cam: cover.camera || 'wide',
   models: ids.map((id) => `${id}:${movie.cast[id].model}`).join(','),
+  look: JSON.stringify(Object.fromEntries(ids.filter((id) => movie.cast[id].model === 'toon').map((id) => [id, movie.cast[id]]))),
   size: '600x900',
   title: movie.title,
   tag: movie.genre,

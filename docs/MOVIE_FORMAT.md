@@ -224,7 +224,7 @@ Scenes use the same fields as classic (`place`, `time`, `props`, `fx`, `characte
 **Models** (`model`): `soldier`, `michelle`, `avatar`, `android`, `robot`, `hologram`, `toon`
 - `soldier` armoured human, `michelle` woman in yellow trousers, `avatar` man in a suit (mouth moves), `android` silver android, `robot` small yellow robot, `hologram` a glowing face (mouth moves; good for a ship AI), `toon` a cartoon human built in code (mouth moves, blinks) whose look comes from the cast fields below.
 
-**Toon look** (only for `model: "toon"`): `skin`, `hair` (colour), `hairstyle` (`short`, `afro`, `long`, `bun`, `bald`, `cap`, `braids`, `cowl`), `coat`, `coat2`, `pants`, `trim` (colours), `gear` (comma list of `mask`, `glasses`, `cape`, `belt`, `bolt`, `coat`, `scarf`, `headband`, `suit`), `build` (`slim`, `regular`, `stocky`), `sc` (size), `beard`.
+**Toon look** (only for `model: "toon"`): `skin`, `hair` (colour), `hairstyle` (`short`, `afro`, `long`, `bun`, `bald`, `cap`, `braids`, `cowl`), `coat`, `coat2`, `pants`, `trim` (colours), `gear` (comma list of `mask`, `glasses`, `cape`, `belt`, `bolt`, `coat`, `scarf`, `headband`, `suit`, `visor` glowing face screen, `halo` orbiting lights), `build` (`slim`, `regular`, `stocky`), `sc` (size), `beard`.
 
 **Places**: `bridge`, `corridor`, `engine`, `planet`, `space`, `ruins`, `moon`, `city` (a lit evening street)
 

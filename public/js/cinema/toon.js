@@ -48,7 +48,7 @@ function limb(radius, length, mat) {
   return g;
 }
 
-const GEAR = ['mask', 'glasses', 'cape', 'belt', 'bolt', 'coat', 'scarf', 'headband', 'suit'];
+const GEAR = ['mask', 'glasses', 'cape', 'belt', 'bolt', 'coat', 'scarf', 'headband', 'suit', 'visor', 'halo'];
 const HAIR = ['short', 'afro', 'long', 'bun', 'bald', 'cap', 'braids', 'cowl'];
 export const TOON_GEAR = GEAR;
 export const TOON_HAIR = HAIR;
@@ -272,6 +272,37 @@ export function createToon(id, member = {}) {
     head.add(bridge);
   }
 
+  // visor: a dark glass face plate; the eyes and mouth glow in the accent colour like a friendly screen
+  if (gear.has('visor')) {
+    const plate = part(new THREE.SphereGeometry(0.172, 28, 16, Math.PI * 0.14, Math.PI * 0.72, Math.PI * 0.26, Math.PI * 0.5), new THREE.MeshStandardMaterial({ color: '#141824', roughness: 0.18, metalness: 0.7 }), { grow: 1.03 });
+    plate.position.y = 0.16;
+    plate.scale.set(1, 1.06, 1);
+    head.add(plate);
+    nose.visible = false;
+    for (const e of eyes) {
+      e.position.z = 0.184;
+      e.scale.set(1.1, 1.25, 1);
+      e.children[0].material = new THREE.MeshBasicMaterial({ color: hdr(accent, 2.6) });
+      e.children[1].visible = false;
+    }
+    for (const b of brows) b.m.visible = false;
+    mouth.material = new THREE.MeshBasicMaterial({ color: hdr(accent, 2.2) });
+    mouth.position.z = 0.182;
+  }
+  // halo: little lights circling the head, a visible sign of thinking
+  const halo = [];
+  if (gear.has('halo')) {
+    const ring = new THREE.Group();
+    ring.position.set(0, 0.42, 0);
+    ring.rotation.z = 0.35;
+    head.add(ring);
+    for (let i = 0; i < 6; i++) {
+      const d = new THREE.Mesh(new THREE.SphereGeometry(0.02 + (i % 2) * 0.008, 10, 8), new THREE.MeshBasicMaterial({ color: hdr(accent, 2.8) }));
+      ring.add(d);
+      halo.push({ d, a: (i / 6) * Math.PI * 2 });
+    }
+  }
+
   // ---- dash effects (lightning trail + glow), only visible while dashing
   const fx = new THREE.Group();
   fx.visible = false;
@@ -408,6 +439,7 @@ export function createToon(id, member = {}) {
       } else {
         arms[0].elbow.rotation.z = 0;
       }
+      for (const h of halo) { const a = h.a + T * 1.4; h.d.position.set(Math.cos(a) * 0.24, Math.sin(a * 2) * 0.04, Math.sin(a) * 0.24); }
       if (cape) cape.rotation.x = 0.1 + g * (0.55 + (mode === 'dash' ? 0.5 : 0)) + Math.sin(T * 4 + st.phase) * 0.05 * (0.3 + g);
 
       // fall: topple backwards and stay down
