@@ -224,7 +224,7 @@ Scenes use the same fields as classic (`place`, `time`, `props`, `fx`, `characte
 **Models** (`model`): `soldier`, `michelle`, `avatar`, `android`, `robot`, `hologram`
 - `soldier` armoured human, `michelle` woman in yellow trousers, `avatar` man in a suit (mouth moves), `android` silver android, `robot` small yellow robot, `hologram` a glowing face (mouth moves; good for a ship AI).
 
-**Places**: `bridge`, `corridor`, `engine`, `planet`, `space`, `ruins`
+**Places**: `bridge`, `corridor`, `engine`, `planet`, `space`, `ruins`, `moon`
 
 **Times**: `day`, `dusk`, `night`, `alert`, `dim`
 

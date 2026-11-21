@@ -283,6 +283,8 @@ Movies with `"style": "cinema"` play in a Three.js engine (`public/js/cinema/`):
 - Poster for a cinema movie (server running): `NODE_PATH=$(npm root -g) node scripts/render-poster.cjs seed/movies/<slug>.json`
 - Add a place, prop or model: edit `public/js/cinema/sets.js` / `actors.js`, `public/js/cinema/vocab.js` and `src/movies/vocabulary.json`, then `npm run check:vocab`.
 - `?q=low|medium|high` forces the quality tier.
+- Skies are alive: every planet turns, stars drift and falling stars cross (`shootingStars` in `gfx.js`). Characters only gesture when a scene asks for a pose; head dips on stressed words are rare and small.
+- Loading: the characters of the first scene load first behind a progress bar (`loadProgress`), the rest in the background; a failed model download is retried twice. `/models/` is cached for a week.
 
 ## Deploying to Vercel
 

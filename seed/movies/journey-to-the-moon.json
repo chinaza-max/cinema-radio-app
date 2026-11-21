@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "slug": "journey-to-the-moon",
+  "title": "Journey to the Moon",
+  "synopsis": "A rival's bet, a cannon half a mile long, and a crew of four with one small robot. A retelling of Jules Verne's tale of the first voyage to the Moon, with a rotating Earth, falling stars and a face in the craters.",
+  "credit": "After Jules Verne (public domain). Original script.",
+  "genre": "Science fiction",
+  "style": "cinema",
+  "poster": "/posters/journey-to-the-moon.jpg",
+  "featured": true,
+  "cover": {
+    "place": "moon",
+    "time": "day",
+    "props": [],
+    "fx": [
+      "dust"
+    ],
+    "characters": [
+      "ada:130",
+      "ardan:260"
+    ],
+    "camera": "low"
+  },
+  "cast": {
+    "barbicane": {
+      "name": "Impey Barbicane",
+      "role": "President of the Gun Club",
+      "coat": "#9aa5b1",
+      "tag": "#c3cdd8",
+      "model": "soldier",
+      "voice": "en-US-GuyNeural",
+      "pitch": 0.92
+    },
+    "nicholl": {
+      "name": "Captain Nicholl",
+      "role": "Maker of armour plate",
+      "coat": "#b4bcc6",
+      "tag": "#dfe5ec",
+      "model": "android",
+      "voice": "en-GB-RyanNeural",
+      "pitch": 0.95,
+      "rate": 0.97
+    },
+    "ardan": {
+      "name": "Michel Ardan",
+      "role": "Adventurer from Paris",
+      "coat": "#c8553d",
+      "tag": "#ff8a6b",
+      "model": "avatar",
+      "voice": "en-US-ChristopherNeural"
+    },
+    "ada": {
+      "name": "Dr. Ada Laurent",
+      "role": "Flight surgeon",
+      "coat": "#f2c14e",
+      "tag": "#ffcf6b",
+      "model": "michelle",
+      "voice": "en-GB-SoniaNeural"
+    },
+    "diana": {
+      "name": "Diana",
+      "role": "Mission mascot",
+      "coat": "#4aa3df",
+      "tag": "#7fc4ee",
+      "model": "robot",
+      "voice": "en-US-JennyNeural",
+      "pitch": 1.6,
+      "rate": 1.1
+    },
+    "moonface": {
+      "name": "The Man in the Moon",
+      "role": "Keeper of the silver world",
+      "coat": "#cfe6ff",
+      "tag": "#e0f0ff",
+      "model": "hologram",
+      "voice": "en-NG-EzinneNeural"
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Great Gun",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "For as long as people have looked up, the Moon has looked back. Silver, silent, and just far enough away to seem impossible.",
+          "characters": [],
+          "place": "space",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "streaks"
+          ],
+          "camera": "orbit"
+        },
+        {
+          "speaker": "narrator",
+          "text": "After a long war, the engineers of the Baltimore Gun Club had nothing left to build. Their president, Impey Barbicane, called them together with a plan so large it frightened even them.",
+          "characters": [
+            "barbicane:60>160",
+            "nicholl:340>250"
+          ],
+          "place": "engine",
+          "time": "day",
+          "props": [
+            "crates"
+          ],
+          "fx": [
+            "sparks",
+            "haze"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "barbicane",
+          "text": "Gentlemen, we will build a cannon half a mile long, sunk into the ground. And we will fire a shell at the Moon. With people inside.",
+          "characters": [
+            "barbicane:160>200:point",
+            "nicholl:250>300"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "nicholl",
+          "text": "Impossible. I make armour. I know what metal can bear, and no shell can survive a gun like that. I will bet you three thousand dollars it cracks.",
+          "characters": [
+            "nicholl:300>230",
+            "barbicane:200>150"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "barbicane",
+          "text": "Then I will take that bet, Captain, and I will win it from the other side of the sky. Come and watch me dig the hole.",
+          "characters": [
+            "barbicane:150>250",
+            "nicholl:230>330:nod"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "They dug for a year in the sands of Florida. A shaft as deep as a mountain, lined with iron, and a shell of polished metal waiting beside it, bright as a coin.",
+          "characters": [
+            "barbicane:60>130",
+            "nicholl:300>230"
+          ],
+          "place": "planet",
+          "time": "day",
+          "props": [
+            "pod"
+          ],
+          "fx": [
+            "dust",
+            "haze"
+          ],
+          "camera": "low"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then a boat arrived with a stranger from Paris, who leapt out onto the dock before it had even stopped, and began to run.",
+          "characters": [
+            "ardan:380>180:run",
+            "barbicane:80>120"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "camera": "wide"
+        }
+      ]
+    },
+    {
+      "title": "The Stranger from Paris",
+      "scenes": [
+        {
+          "speaker": "ardan",
+          "text": "Make room, my friends! I heard that you are building a ship for the Moon, and I refuse to be left behind. Michel Ardan, at your service. One passenger. Very curious.",
+          "characters": [
+            "ardan:200>130:wave",
+            "barbicane:300>240"
+          ],
+          "place": "planet",
+          "time": "day",
+          "props": [
+            "pod"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "nicholl",
+          "text": "You are mad. The journey will take four days with no air but what we carry. There is no way home but through a cannon in reverse.",
+          "characters": [
+            "nicholl:360>290",
+            "ardan:130>210"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "ardan",
+          "text": "Captain, a man who does not believe in the impossible has never really tried to live. Besides, I brought tobacco and cheese. What else does a person need?",
+          "characters": [
+            "ardan:210>260:nod",
+            "nicholl:290>220:shake"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "barbicane",
+          "text": "He is right about one thing. This is not a trip for soldiers alone. We need a doctor, someone who understands the body in the dark between worlds.",
+          "characters": [
+            "barbicane:100>200",
+            "nicholl:300>250"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "ada",
+          "text": "Then I am your doctor. Ada Laurent. I have studied how bodies fail in the cold and the quiet. I do not intend to let any of you do it.",
+          "characters": [
+            "ada:380>270",
+            "barbicane:200>150"
+          ],
+          "camera": "low"
+        },
+        {
+          "speaker": "narrator",
+          "text": "They climbed into the shell, one by one, and sealed the hatch. Four people, one small robot called Diana, a library, and a crate of tobacco and cheese.",
+          "characters": [
+            "barbicane:60>120",
+            "ada:330>250",
+            "diana:380>300"
+          ],
+          "place": "engine",
+          "time": "dim",
+          "props": [
+            "pod"
+          ],
+          "fx": [
+            "haze"
+          ],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The countdown began. Above the sand, the whole world held its breath, and the great gun pointed at the sky.",
+          "characters": [
+            "ardan:100>180:wave",
+            "diana:300>230:run"
+          ],
+          "place": "planet",
+          "time": "dusk",
+          "props": [
+            "pod"
+          ],
+          "fx": [
+            "alarm",
+            "dust",
+            "sparks"
+          ],
+          "camera": "low"
+        }
+      ]
+    },
+    {
+      "title": "Between Two Worlds",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The gun fired, and the sound was heard on every shore. For one moment the shell was a streak of fire, and then it was silence, and then it was the stars.",
+          "characters": [],
+          "place": "space",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "streaks"
+          ],
+          "camera": "orbit"
+        },
+        {
+          "speaker": "ardan",
+          "text": "Is everyone alive? I think I am alive. I have never felt so light. Doctor, are my feet on the floor, or is the floor on my feet?",
+          "characters": [
+            "ardan:80>200",
+            "ada:340>250"
+          ],
+          "place": "bridge",
+          "time": "dim",
+          "props": [
+            "hologram"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "ada",
+          "text": "Hold on to something, Michel, and breathe slowly. Your body has nothing to push against. Diana, stay close to the hatch, please.",
+          "characters": [
+            "ada:250>170",
+            "diana:350>260"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "nicholl",
+          "text": "I owe Barbicane three thousand dollars. The shell did not crack. I have never been so pleased to lose a bet.",
+          "characters": [
+            "nicholl:360>260:nod",
+            "barbicane:80>150"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Then the window flared red. A shower of meteors was racing past the shell, tiny stones moving faster than any bullet, and every one of them aimed at the crew.",
+          "characters": [
+            "barbicane:150>260:run",
+            "ada:170>110:run"
+          ],
+          "place": "bridge",
+          "time": "alert",
+          "props": [
+            "hologram"
+          ],
+          "fx": [
+            "alarm",
+            "streaks"
+          ],
+          "camera": "in"
+        },
+        {
+          "speaker": "barbicane",
+          "text": "Everyone down! Keep clear of the glass. Nicholl, the shutters, now! If we hold our course, the Moon will catch us before the stones can.",
+          "characters": [
+            "barbicane:260>200:point",
+            "nicholl:300>230"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The stones passed. In the window, the Earth turned slowly, blue and small, and beyond it the Moon grew until it filled the sky.",
+          "characters": [
+            "ardan:150>230",
+            "ada:90>170",
+            "diana:320>260"
+          ],
+          "place": "bridge",
+          "time": "dim",
+          "props": [
+            "hologram"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "camera": "wide"
+        }
+      ]
+    },
+    {
+      "title": "The Silver World",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "The shell touched down so softly that the crew hardly felt it. Outside, the sky was black at noon, and the ground was the colour of ash.",
+          "characters": [
+            "barbicane:60>150"
+          ],
+          "place": "moon",
+          "time": "day",
+          "props": [],
+          "fx": [
+            "dust"
+          ],
+          "camera": "orbit"
+        },
+        {
+          "speaker": "ardan",
+          "text": "I will go first. I am the one who ate the cheese, so I have earned it. A small step for a man, a giant leap for his reputation.",
+          "characters": [
+            "ardan:100>230:wave",
+            "ada:330>260",
+            "diana:360>300"
+          ],
+          "camera": "low"
+        },
+        {
+          "speaker": "ada",
+          "text": "Wait, Michel. Look at the footprints, they do not blow away. And listen. There is no wind, no sound at all. This world has been waiting for us.",
+          "characters": [
+            "ada:260>160:point",
+            "ardan:230>300"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "moonface",
+          "text": "Welcome, small travellers. I am the face you have drawn in my craters for ten thousand years. You are the first to answer, and I am glad.",
+          "characters": [
+            "moonface:340",
+            "ardan:90>200",
+            "ada:160>110"
+          ],
+          "props": [],
+          "fx": [
+            "glitch"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "barbicane",
+          "text": "We came to touch you, and we have. But we left a world behind us that is waiting to hear that this was possible. May we go home?",
+          "characters": [
+            "barbicane:100>200",
+            "nicholl:360>290"
+          ],
+          "fx": [
+            "dust"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "moonface",
+          "text": "Go, and tell them that the Moon is not a wall but a door. Others will come. Look up tonight, and I will wave back.",
+          "characters": [
+            "moonface:340",
+            "nicholl:100>200:nod",
+            "ardan:230>150:wave"
+          ],
+          "fx": [
+            "glitch"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The shell fell home and splashed down in a warm blue sea, and the people who looked up that night saw the Moon in a different way, as a place with footprints in it.",
+          "characters": [],
+          "place": "space",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "streaks"
+          ],
+          "camera": "out"
+        }
+      ]
+    }
+  ]
+}
