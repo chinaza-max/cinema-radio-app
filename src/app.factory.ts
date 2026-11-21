@@ -13,6 +13,8 @@ export async function createApp(): Promise<NestExpressApplication> {
   app.disable('x-powered-by');
   app.use(compression()); // gzip for HTML, JSON, JS, CSS. Add Brotli at your reverse proxy or CDN.
   app.useBodyParser('json', { limit: '2mb' }); // movie files are posted as JSON
+  // The 3D character files rarely change and are the heaviest download, so browsers may keep them for a week.
+  app.useStaticAssets(join(PUBLIC_DIR, 'models'), { index: false, maxAge: '7d', etag: true, prefix: '/models/' });
   // Static files (css, js). index:false so "/" is rendered by WebController, not served from disk.
   app.useStaticAssets(PUBLIC_DIR, { index: false, maxAge: '1h', etag: true });
   // three.js is served from node_modules so it is never copied into the repo. Only the parts the browser imports are exposed.

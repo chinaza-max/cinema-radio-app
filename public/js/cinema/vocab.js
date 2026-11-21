@@ -3,7 +3,7 @@
  * `npm run check:vocab` compares it with src/movies/vocabulary.json (section "cinema").
  */
 export const CINEMA_VOCAB = {
-  places: ['bridge', 'corridor', 'engine', 'planet', 'space', 'ruins'],
+  places: ['bridge', 'corridor', 'engine', 'planet', 'space', 'ruins', 'moon'],
   times: ['day', 'dusk', 'night', 'alert', 'dim'],
   props: ['hologram', 'monolith', 'beacon', 'pod', 'crates', 'gate'],
   fx: ['dust', 'sparks', 'alarm', 'glitch', 'streaks', 'haze'],

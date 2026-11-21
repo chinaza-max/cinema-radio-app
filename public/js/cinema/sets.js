@@ -6,7 +6,7 @@
  *   scene.add(set.group);  // each frame: set.update(seconds, delta)  // when done: disposeTree(set.group)
  */
 import * as THREE from 'three';
-import { box, canvasTexture, disposeTree, glow, hdr, metal, particles, planetMesh, rng, starfield } from './gfx.js';
+import { box, canvasTexture, disposeTree, glow, hdr, metal, particles, planetMesh, rng, shootingStars, starfield } from './gfx.js';
 
 export { disposeTree };
 
@@ -491,6 +491,62 @@ function planetSurface(S) {
   S.keyPos = [-14, 5, -10];
 }
 
+function moonSurface(S, quality) {
+  const { group } = S;
+  const r = rng(77);
+  // Grey regolith with craters. Flat where the characters stand, rougher further out.
+  const craters = Array.from({ length: 16 }, () => ({ x: (r() - 0.5) * 90, z: -8 - r() * 52, rad: 3 + r() * 8 }));
+  const h = (x, wz) => {
+    let y = THREE.MathUtils.smoothstep(Math.hypot(x * 0.6, wz + 4), 8, 40) * (Math.sin(x * 0.11 + wz * 0.05) * 1.4 + Math.sin(wz * 0.09) * 1.2);
+    for (const c of craters) {
+      const d = Math.hypot(x - c.x, wz - c.z) / c.rad;
+      if (d < 1.35) y += d < 1 ? -(1 - d * d) * c.rad * 0.18 : Math.exp(-(((d - 1) * 6) ** 2)) * c.rad * 0.07;
+    }
+    return y;
+  };
+  const geo = new THREE.PlaneGeometry(120, 90, 130, 100);
+  geo.rotateX(-Math.PI / 2);
+  const p = geo.attributes.position;
+  const colors = new Float32Array(p.count * 3);
+  const dark = new THREE.Color('#44464c');
+  const light = new THREE.Color('#85878d');
+  for (let i = 0; i < p.count; i++) {
+    const y = h(p.getX(i), p.getZ(i) - 25);
+    p.setY(i, y);
+    const c = dark.clone().lerp(light, THREE.MathUtils.clamp(0.5 + y * 0.25 + (r() - 0.5) * 0.25, 0, 1));
+    colors.set([c.r, c.g, c.b], i * 3);
+  }
+  geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geo.computeVertexNormals();
+  const ground = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, metalness: 0 }));
+  ground.position.z = -25;
+  ground.receiveShadow = true;
+  group.add(ground);
+  const rock = new THREE.MeshStandardMaterial({ color: '#6d6f75', roughness: 1, flatShading: true });
+  for (let i = 0; i < 40; i++) {
+    const sz = 0.2 + r() * 1.2;
+    const x = (r() - 0.5) * 60;
+    const z = -4 - r() * 46;
+    if (Math.abs(x) < 4 && z > -8) continue;
+    const m = new THREE.Mesh(new THREE.IcosahedronGeometry(sz, 0), rock);
+    m.position.set(x, sz * 0.3 + h(x, z), z);
+    m.rotation.set(r() * 3, r() * 3, r() * 3);
+    m.castShadow = true;
+    group.add(m);
+  }
+  // Black sky, many hard stars, and our own Earth, turning slowly.
+  S.backdrop.add(starfield(2600, 90, 31));
+  const earth = planetMesh(11, { seed: 14, detail: quality === 'low' ? 1 : 2, spin: 0.09 });
+  earth.position.set(-16, 22, -78);
+  S.backdrop.add(earth);
+  const sun = new THREE.DirectionalLight('#ffffff', 1.5);
+  sun.position.set(14, 9, 6);
+  group.add(sun);
+  S.camHint = { y: 1.5 };
+  S.fogFar = 70;
+  S.keyPos = [8, 7, 6];
+}
+
 function space(S, quality) {
   const { group } = S;
   S.backdrop.add(starfield(2200, 90, 12));
@@ -597,7 +653,7 @@ function ruins(S) {
   S.fogFar = 30;
 }
 
-const PLACES = { bridge, corridor, engine, planet: planetSurface, space, ruins };
+const PLACES = { bridge, corridor, engine, planet: planetSurface, space, ruins, moon: moonSurface };
 
 /* ------------------------------------------------------------------ public */
 
@@ -653,7 +709,19 @@ export function buildSet(name, { time = 'night', props = [], fx = [], quality = 
   }
   if (time === 'alert') S.anims.push((t) => (L.key.intensity = mood.keyI * (0.55 + 0.45 * Math.abs(Math.sin(t * 3.2)))));
 
-  const open = name === 'bridge' || name === 'space';
+  // A living sky: every world turns, the stars drift, and falling stars cross now and then.
+  const sky = [];
+  S.backdrop.traverse((o) => { if (o.userData.spin) sky.push(o); });
+  const starLayers = S.backdrop.children.filter((c) => c.isPoints);
+  if (starLayers.length) {
+    const falling = shootingStars({ count: quality === 'low' ? 3 : 7, seed: name.length * 7 });
+    S.backdrop.add(falling.object);
+    S.anims.push((t) => falling.update(t));
+    S.anims.push((t, dt) => { for (const l of starLayers) l.rotation.y += (dt || 0.016) * 0.012; });
+  }
+  S.anims.push((t, dt) => { for (const w of sky) w.userData.body.rotation.y += (dt || 0.016) * w.userData.spin; });
+
+  const open = name === 'bridge' || name === 'space' || name === 'moon';
   const background = new THREE.Color(open ? '#02030a' : S.skyTint ? (time === 'night' ? '#05070f' : time === 'day' ? '#e8a77a' : '#6a3a3a') : mood.bg);
   return {
     group: S.group,

@@ -93,7 +93,7 @@ const rgbOf = (hex) => [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5),
 /** A planet: continents and clouds (or gas bands), a lit side, and a soft atmosphere shell. */
 const planetTextures = new Map();
 
-export function planetMesh(radius, { colors = ['#1d4f86', '#2f7d4f', '#8a7a52', '#f4f7fb'], seed = 3, atmosphere = '#7fc8ff', bands = false, clouds = true, detail = 1 } = {}) {
+export function planetMesh(radius, { colors = ['#1d4f86', '#2f7d4f', '#8a7a52', '#f4f7fb'], seed = 3, atmosphere = '#7fc8ff', bands = false, clouds = true, detail = 1, spin = 0.07 } = {}) {
   const W = 512 * detail, H = 256 * detail;
   const cacheKey = [seed, bands, clouds, detail, ...colors].join('|');
   const land = planetTextures.has(cacheKey) ? null : fbm(W, H, { seed, octaves: 6, scale: 3 });
@@ -147,6 +147,7 @@ export function planetMesh(radius, { colors = ['#1d4f86', '#2f7d4f', '#8a7a52', 
   );
   group.add(atmo);
   group.userData.body = body;
+  group.userData.spin = spin; // rad/s around its own axis, applied by the set so the world visibly turns
   return group;
 }
 
@@ -190,4 +191,53 @@ export function disposeTree(root) {
       m.dispose();
     }
   });
+}
+
+/**
+ * Falling stars: short bright streaks that cross the sky now and then, each on its own timer.
+ * Lives in the backdrop (which follows the camera), so they always cross the visible sky.
+ */
+export function shootingStars({ count = 7, radius = 70, seed = 21, color = '#cfeaff' } = {}) {
+  const r = rng(seed);
+  const pos = new Float32Array(count * 6);
+  const col = new Float32Array(count * 6);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const lines = new THREE.LineSegments(g, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, fog: false }));
+  lines.frustumCulled = false;
+  const c = new THREE.Color(color);
+  const stars = Array.from({ length: count }, (_, i) => ({
+    period: 2.2 + r() * 3.5,
+    offset: r() * 8,
+    // each star: a start point in the upper forward sky (inside the camera's view), a fall direction, a length
+    z: -radius * (0.45 + r() * 0.35),
+    x: (r() - 0.5) * radius * 0.7,
+    y: radius * (0.05 + r() * 0.2),
+    dx: (r() < 0.5 ? -1 : 1) * (0.25 + r() * 0.5),
+    len: 2.2 + r() * 3.2,
+    fresh: i,
+  }));
+  return {
+    object: lines,
+    update(t) {
+      stars.forEach((s, i) => {
+        const k = ((t + s.offset) % s.period) / s.period; // 0..1 over its cycle
+        const run = k < 0.22 ? k / 0.22 : -1; // only visible for the first 22% of the cycle
+        const o = i * 6;
+        if (run < 0) {
+          col.fill(0, o, o + 6);
+          return;
+        }
+        const speed = 18;
+        const hx = s.x + s.dx * run * speed, hy = s.y - run * speed, hz = s.z;
+        const tail = Math.max(0, run - 0.35);
+        pos.set([hx - s.dx * s.len * Math.min(1, run * 4), hy + s.len * Math.min(1, run * 4), hz, hx, hy, hz], o);
+        const fade = Math.sin(run * Math.PI);
+        col.set([c.r * 0.1, c.g * 0.1, c.b * 0.1, c.r * 3 * fade, c.g * 3 * fade, c.b * 3 * fade], o);
+      });
+      g.attributes.position.needsUpdate = true;
+      g.attributes.color.needsUpdate = true;
+    },
+  };
 }
