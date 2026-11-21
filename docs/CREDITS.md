@@ -11,3 +11,6 @@
 | `hologram.glb` | facecap (Face Cap / Bannaflak) |
 
 **Licences were not verified individually. Check each one before a commercial release.** Three.js itself is MIT and is served from `node_modules`.
+
+## Toon characters
+The `toon` model and the Lagos city set are built in code for this project; no outside assets.

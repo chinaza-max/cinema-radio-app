@@ -15,6 +15,7 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 import { hdr } from './gfx.js';
+import { createToon } from './toon.js';
 
 export const MODELS = {
   soldier: { url: '/models/soldier.glb', bytes: 2160468, height: 1.85, flip: true, clips: { idle: 'Idle', walk: 'Walk', run: 'Run' } },
@@ -23,6 +24,8 @@ export const MODELS = {
   android: { url: '/models/android.glb', bytes: 2930032, height: 1.88, clips: { idle: 'idle', walk: 'walk', run: 'run', nod: 'agree', shake: 'headShake', sad: 'sad_pose', sneak: 'sneak_pose' } },
   robot: { url: '/models/robot.glb', bytes: 463988, height: 1.05, clips: { idle: 'Idle', walk: 'Walking', run: 'Running', wave: 'Wave', nod: 'Yes', shake: 'No', fall: 'Death' } },
   hologram: { url: '/models/hologram.glb', bytes: 332808, height: 0.6, face: true },
+  // Built in code from the cast fields (skin, hair, hairstyle, coat, coat2, pants, trim, gear, build, sc): no download.
+  toon: { bytes: 0, height: 1.75, toon: true },
 };
 
 /* ------------------------------------------------------------------ loading */
@@ -151,6 +154,7 @@ const spin = (bone, x = 0, y = 0, z = 0) => {
 const ease = (t) => t * t * (3 - 2 * t);
 
 export async function createActor(id, member, renderer) {
+  if (member.model === 'toon') return createToon(id, member);
   const spec = MODELS[member.model] ?? MODELS.soldier;
   const src = await loadModel(member.model in MODELS ? member.model : 'soldier', renderer);
   const root = cloneSkinned(src.scene);
@@ -302,7 +306,7 @@ export async function createActor(id, member, renderer) {
       if (holo) st.yawTarget = -Math.sign(x || 1) * Math.min(0.4, Math.abs(x) * 0.08);
       if (pose === 'fall') st.fall = 0.0001;
       else st.fall = 0;
-      const motion = st.moving ? (pose === 'run' ? 'run' : pose === 'sneak' && actions.sneak ? 'sneak' : 'walk') : pose && actions[pose] ? pose : 'idle';
+      const motion = st.moving ? (pose === 'run' || pose === 'dash' ? 'run' : pose === 'sneak' && actions.sneak ? 'sneak' : 'walk') : pose && actions[pose] ? pose : 'idle';
       play(motion, { speed: pose === 'sneak' && !actions.sneak && st.moving ? 0.6 : 1 });
       if (pose === 'fall' && actions.fall) {
         actions.fall.setLoop(THREE.LoopOnce, 1);

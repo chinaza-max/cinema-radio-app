@@ -221,18 +221,20 @@ Cast changes for cinema: `model` is **required** (and forbidden in classic movie
 
 Scenes use the same fields as classic (`place`, `time`, `props`, `fx`, `characters`, `camera`, poses) with the cinema lists below. Character positions `id:x` run 0 to 400 across the set. If `camera` is omitted, narration cycles `wide, orbit, high, wide, out` and speakers cycle `medium, close, medium, low, close`.
 
-**Models** (`model`): `soldier`, `michelle`, `avatar`, `android`, `robot`, `hologram`
-- `soldier` armoured human, `michelle` woman in yellow trousers, `avatar` man in a suit (mouth moves), `android` silver android, `robot` small yellow robot, `hologram` a glowing face (mouth moves; good for a ship AI).
+**Models** (`model`): `soldier`, `michelle`, `avatar`, `android`, `robot`, `hologram`, `toon`
+- `soldier` armoured human, `michelle` woman in yellow trousers, `avatar` man in a suit (mouth moves), `android` silver android, `robot` small yellow robot, `hologram` a glowing face (mouth moves; good for a ship AI), `toon` a cartoon human built in code (mouth moves, blinks) whose look comes from the cast fields below.
 
-**Places**: `bridge`, `corridor`, `engine`, `planet`, `space`, `ruins`, `moon`
+**Toon look** (only for `model: "toon"`): `skin`, `hair` (colour), `hairstyle` (`short`, `afro`, `long`, `bun`, `bald`, `cap`, `braids`, `cowl`), `coat`, `coat2`, `pants`, `trim` (colours), `gear` (comma list of `mask`, `glasses`, `cape`, `belt`, `bolt`, `coat`, `scarf`, `headband`, `suit`), `build` (`slim`, `regular`, `stocky`), `sc` (size), `beard`.
+
+**Places**: `bridge`, `corridor`, `engine`, `planet`, `space`, `ruins`, `moon`, `city` (a lit evening street)
 
 **Times**: `day`, `dusk`, `night`, `alert`, `dim`
 
-**Props**: `hologram`, `monolith`, `beacon`, `pod`, `crates`, `gate`
+**Props**: `hologram`, `monolith`, `beacon`, `pod`, `crates`, `gate`, `pylon` (crackling transformer), `bus` (yellow danfo)
 
 **Effects** (`fx`): `dust`, `sparks`, `alarm`, `glitch`, `streaks`, `haze`
 
-**Poses**: `run`, `sneak`, `nod`, `shake`, `sad`, `point`, `wave`, `fall`
+**Poses**: `run`, `sneak`, `nod`, `shake`, `sad`, `point`, `wave`, `fall`, `dash` (super-speed burst; toon shows lightning, other models run)
 
 **Cameras**: `wide`, `medium`, `close`, `low`, `high`, `orbit`, `in`, `out`, `l`, `r`
 

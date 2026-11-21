@@ -75,6 +75,10 @@ const CastMember = z
     rate: z.number().min(0.5).max(2).optional(),
     /** Cinema style only: which 3D model plays this character (see cinema.models in vocabulary.json). */
     model: z.string().optional(),
+    /** Toon model only: hair style, extras worn (comma list) and body build. */
+    hairstyle: z.enum(['short', 'afro', 'long', 'bun', 'bald', 'cap', 'braids', 'cowl']).optional(),
+    gear: z.string().regex(/^(mask|glasses|cape|belt|bolt|coat|scarf|headband|suit)(,(mask|glasses|cape|belt|bolt|coat|scarf|headband|suit))*$/, 'gear is a comma list of: mask, glasses, cape, belt, bolt, coat, scarf, headband, suit').optional(),
+    build: z.enum(['slim', 'regular', 'stocky']).optional(),
     /** Narration voice id for this character, e.g. "en-NG-EzinneNeural". Narrator lines use the viewer's chosen voice. */
     voice: z.string().regex(/^[a-z]{2}-[A-Z]{2}-[A-Za-z]+Neural$/, 'voice looks like "en-GB-RyanNeural"').optional(),
     /** Hidden characters exist only to be drawn (for example a second look); they are not listed in the cast. */

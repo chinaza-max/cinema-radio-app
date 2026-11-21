@@ -122,7 +122,8 @@
       "planet",
       "space",
       "ruins",
-      "moon"
+      "moon",
+      "city"
     ],
     "times": [
       "day",
@@ -137,7 +138,9 @@
       "beacon",
       "pod",
       "crates",
-      "gate"
+      "gate",
+      "pylon",
+      "bus"
     ],
     "fx": [
       "dust",
@@ -155,7 +158,8 @@
       "sad",
       "point",
       "wave",
-      "fall"
+      "fall",
+      "dash"
     ],
     "cameras": [
       "wide",
@@ -175,7 +179,8 @@
       "avatar",
       "android",
       "robot",
-      "hologram"
+      "hologram",
+      "toon"
     ],
     "narratorShots": [
       "wide",

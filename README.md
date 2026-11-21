@@ -299,3 +299,7 @@ Set these **Environment Variables** in the Vercel project (Settings → Environm
 | `SEED_ON_BOOT` | `true` once, to add the demo movies to an empty database (it only adds missing ones). |
 
 Notes: the filesystem is read-only, so generated voice files go to `/tmp`; the Edge-TTS python script does not run on Vercel, so voices fall back to the Google fallback unless you host the app on a server (Render, Railway, Fly, a VPS) instead.
+
+
+## Toon characters
+`model: "toon"` builds a cartoon human in code (`public/js/cinema/toon.js`), so every character can look different without downloads. See `docs/MOVIE_FORMAT.md` and `docs/ADDING_CHARACTERS.md`. The sample movie `lightning-rider` uses it with the `city` set and the `dash` pose.

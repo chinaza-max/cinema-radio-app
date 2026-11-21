@@ -124,6 +124,15 @@ describe('movie-format', () => {
       expect(issues((m) => (m.episodes[0].scenes[0].characters = ['cap:200:crouch']))).toMatch(/unknown pose "crouch"/);
     });
 
+    it('accepts toon looks and rejects bad toon fields', () => {
+      const toon = (extra: object) => (m: any) => Object.assign(m.cast.cap, { model: 'toon', ...extra });
+      expect(issues(toon({ hairstyle: 'afro', gear: 'cape,bolt', build: 'stocky', skin: '#8d5a3b' }))).toBe('');
+      expect(issues(toon({ hairstyle: 'mohawk' }))).toMatch(/hairstyle/);
+      expect(issues(toon({ gear: 'jetpack' }))).toMatch(/gear/);
+      expect(issues((m) => (m.episodes[0].scenes[0].characters = ['cap:100>300:dash']))).toBe('');
+      expect(issues((m) => (m.episodes[0].scenes[0].place = 'city'))).toBe('');
+    });
+
     it('requires a known 3D model on every cast member', () => {
       expect(issues((m) => delete m.cast.cap.model)).toMatch(/cast\.cap\.model: cinema movies need a model/);
       expect(issues((m) => (m.cast.cap.model = 'dragon'))).toMatch(/unknown model "dragon"/);

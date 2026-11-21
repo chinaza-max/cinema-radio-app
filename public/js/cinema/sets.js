@@ -226,6 +226,48 @@ function gateProp() {
   return g;
 }
 
+function pylonProp() {
+  const g = new THREE.Group();
+  const m = new THREE.MeshStandardMaterial({ color: '#3a3f47', metalness: 0.5, roughness: 0.6 });
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.14, 5.6, 8), m);
+  pole.position.y = 2.8;
+  g.add(pole, box(1.5, 0.1, 0.1, m, 0, 5.2, 0));
+  for (const dx of [-0.45, 0.45]) {
+    const can = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.55, 12), metal('#7d848c', 0.7, 0.35));
+    can.position.set(dx, 4.7, 0.18);
+    g.add(can);
+  }
+  const arc = new THREE.PointLight('#8be9ff', 0, 9);
+  arc.position.set(0, 4.6, 0.8);
+  g.add(arc);
+  const ball = new THREE.Mesh(new THREE.IcosahedronGeometry(0.16, 1), glow('#bff3ff', 3));
+  ball.position.set(0, 4.7, 0.5);
+  g.add(ball);
+  g.userData.anim = (t) => {
+    const f = Math.sin(t * 17) * Math.sin(t * 7.3) > 0.2 ? 1 : 0.15; // crackle
+    arc.intensity = 16 * f;
+    ball.scale.setScalar(0.5 + f * 1.2);
+    ball.rotation.set(t * 3, t * 4, 0);
+  };
+  return g;
+}
+
+function busProp() {
+  const g = new THREE.Group();
+  const yellow = new THREE.MeshStandardMaterial({ color: '#f2c230', roughness: 0.5, metalness: 0.2 });
+  const dark = new THREE.MeshStandardMaterial({ color: '#15171c', roughness: 0.6 });
+  g.add(box(3.9, 1.35, 1.7, yellow, 0, 1.05, 0), box(3.92, 0.28, 1.72, dark, 0, 0.9, 0), box(3.0, 0.55, 1.74, dark, -0.15, 1.5, 0));
+  g.add(box(0.1, 0.2, 0.5, glow('#fff3c4', 3), 1.96, 0.8, 0.5), box(0.1, 0.2, 0.5, glow('#fff3c4', 3), 1.96, 0.8, -0.5));
+  for (const [wx, wz] of [[-1.2, 0.85], [-1.2, -0.85], [1.2, 0.85], [1.2, -0.85]]) {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.22, 16), dark);
+    w.rotation.x = Math.PI / 2;
+    w.position.set(wx, 0.36, wz);
+    g.add(w);
+  }
+  g.rotation.y = 0.18;
+  return g;
+}
+
 const PROP_BUILDERS = {
   hologram: () => [hologramProp(), [0, 0, -2.4]],
   monolith: () => [monolithProp(), [0, 0, -5]],
@@ -233,6 +275,8 @@ const PROP_BUILDERS = {
   pod: () => [podProp(), [4.6, 0, -3.4]],
   crates: () => [cratesProp(), [-5, 0, -3.2]],
   gate: () => [gateProp(), [0, 0, -7]],
+  pylon: () => [pylonProp(), [1.6, 0, -2.8]],
+  bus: () => [busProp(), [-4.4, 0, -4.2]],
 };
 
 /* ------------------------------------------------------------------ places */
@@ -547,6 +591,103 @@ function moonSurface(S, quality) {
   S.keyPos = [8, 7, 6];
 }
 
+function cityStreet(S, quality) {
+  const { group } = S;
+  const r = rng(404);
+  const asphalt = new THREE.MeshStandardMaterial({ color: '#2b2e35', roughness: 0.92 });
+  const road = new THREE.Mesh(new THREE.PlaneGeometry(60, 26), asphalt);
+  road.rotation.x = -Math.PI / 2;
+  road.position.set(0, 0, 12);
+  road.receiveShadow = true;
+  group.add(road);
+  const pave = new THREE.Mesh(new THREE.PlaneGeometry(60, 9), new THREE.MeshStandardMaterial({ color: '#8a8478', roughness: 0.95 }));
+  pave.rotation.x = -Math.PI / 2;
+  pave.position.set(0, 0.004, -3);
+  pave.receiveShadow = true;
+  group.add(pave);
+  group.add(box(60, 0.07, 0.25, new THREE.MeshStandardMaterial({ color: '#b9b2a2', roughness: 0.9 }), 0, 0.03, 1.55));
+  const white = new THREE.MeshStandardMaterial({ color: '#e8e4d8', roughness: 0.8 });
+  for (let i = -12; i < 13; i++) group.add(box(1.4, 0.01, 0.12, white, i * 2.4, 0.01, 7));
+
+  // Buildings: painted walls with lit windows, two rows deep.
+  const walls = ['#e9b44c', '#d96b5f', '#5fa8a0', '#c9d5e8', '#e8d6b0', '#8c9be0', '#e58fb0', '#9fc27a'];
+  const windowTex = (wall, seed) => {
+    const lit = canvasTexture(128, 256, (g, w, h) => {
+      const q = rng(seed);
+      g.fillStyle = '#000';
+      g.fillRect(0, 0, w, h);
+      for (let y = 14; y < h - 20; y += 38) for (let x = 12; x < w - 16; x += 30) if (q() < 0.5) { g.fillStyle = q() < 0.7 ? '#ffd58a' : '#bfe6ff'; g.fillRect(x, y, 16, 22); }
+    });
+    const map = canvasTexture(128, 256, (g, w, h) => {
+      const q = rng(seed);
+      g.fillStyle = wall;
+      g.fillRect(0, 0, w, h);
+      g.fillStyle = 'rgba(0,0,0,.08)';
+      for (let i = 0; i < 40; i++) g.fillRect(q() * w, q() * h, 2 + q() * 18, 1);
+      for (let y = 14; y < h - 20; y += 38) for (let x = 12; x < w - 16; x += 30) { g.fillStyle = '#2a2f3a'; g.fillRect(x, y, 16, 22); q(); q(); }
+    });
+    return { lit, map };
+  };
+  let x = -26;
+  let n = 0;
+  while (x < 26) {
+    const w = 3 + r() * 2.6;
+    const h = 5 + r() * 9;
+    const wall = walls[n++ % walls.length];
+    const { lit, map } = windowTex(wall, 100 + n);
+    const mat = new THREE.MeshStandardMaterial({ map, emissiveMap: lit, emissive: new THREE.Color('#ffffff'), emissiveIntensity: 1.1, roughness: 0.9 });
+    const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 3), mat);
+    b.position.set(x + w / 2, h / 2, -8.5 - r() * 1.2);
+    b.castShadow = true;
+    group.add(b);
+    // rooftop water tank
+    if (r() < 0.5) group.add(box(0.9, 0.8, 0.9, metal('#4a5058', 0.6, 0.4), b.position.x + (r() - 0.5) * w * 0.5, h + 0.4, b.position.z));
+    // shop front at street level
+    if (r() < 0.65) {
+      const sign = new THREE.Mesh(new THREE.BoxGeometry(Math.min(w - 0.4, 2.8), 0.5, 0.08), glow(['#ff6a3d', '#42f0d0', '#ffd23f', '#ff5ca8'][n % 4], 1.6));
+      sign.position.set(b.position.x, 2.6, b.position.z + 1.55);
+      group.add(sign);
+      group.add(box(Math.min(w - 0.4, 2.8), 0.12, 0.7, new THREE.MeshStandardMaterial({ color: walls[(n + 3) % walls.length], roughness: 0.8 }), b.position.x, 2.2, b.position.z + 1.8));
+    }
+    x += w + 0.25 + r() * 0.5;
+  }
+  const far = new THREE.MeshStandardMaterial({ color: '#2d3140', roughness: 1 });
+  for (let i = 0; i < 16; i++) group.add(box(3 + r() * 3, 9 + r() * 14, 3, far, -30 + i * 4, 8, -18 - r() * 6));
+
+  // Street lamps with a warm pool of light, and power lines slung between poles.
+  const lampM = new THREE.MeshStandardMaterial({ color: '#30343c', metalness: 0.6, roughness: 0.5 });
+  const poleXs = [-9, -3.4, 4.2, 10];
+  poleXs.forEach((px, i) => {
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.1, 6.2, 8), lampM);
+    pole.position.set(px, 3.1, -1.4);
+    group.add(pole);
+    group.add(box(1.6, 0.08, 0.08, lampM, px, 5.9, -1.4));
+    if (i % 2 === 0) {
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10), glow('#ffcf8a', 3));
+      head.position.set(px + 0.55, 5.75, -1.4);
+      group.add(head);
+      if (quality !== 'low') {
+        const pl = new THREE.PointLight('#ffcf8a', 9, 11);
+        pl.position.set(px + 0.55, 5.4, -0.6);
+        group.add(pl);
+      }
+    }
+  });
+  for (let i = 0; i < poleXs.length - 1; i++) {
+    for (const dz of [-0.6, 0.6]) {
+      const a = new THREE.Vector3(poleXs[i] + dz * 0.8, 5.9, -1.4 + dz * 0.2);
+      const b = new THREE.Vector3(poleXs[i + 1] + dz * 0.8, 5.9, -1.4 + dz * 0.2);
+      const mid = a.clone().lerp(b, 0.5);
+      mid.y -= 0.55;
+      const curve = new THREE.QuadraticBezierCurve3(a, mid, b);
+      group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(18)), new THREE.LineBasicMaterial({ color: '#0d0f14' })));
+    }
+  }
+  S.fogFar = 55;
+  S.camHint = { y: 1.5 };
+  S.keyPos = [-5, 7, 6];
+}
+
 function space(S, quality) {
   const { group } = S;
   S.backdrop.add(starfield(2200, 90, 12));
@@ -653,7 +794,7 @@ function ruins(S) {
   S.fogFar = 30;
 }
 
-const PLACES = { bridge, corridor, engine, planet: planetSurface, space, ruins, moon: moonSurface };
+const PLACES = { bridge, corridor, engine, planet: planetSurface, space, ruins, moon: moonSurface, city: cityStreet };
 
 /* ------------------------------------------------------------------ public */
 

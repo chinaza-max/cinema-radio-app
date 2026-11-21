@@ -11,6 +11,8 @@ const models = Object.fromEntries(list('models').map((x) => x.split(':')));
 if (q.get('flip')) { const [m, v] = q.get('flip').split(':'); MODELS[m].flip = v === '1'; }
 const cast = {};
 for (const [id, model] of Object.entries(models)) cast[id] = { name: id, model };
+// &look=<json> merges extra cast fields per character, e.g. {"zed":{"coat":"#2a6","gear":"cape,bolt"}}
+try { for (const [id, f] of Object.entries(JSON.parse(q.get('look') || '{}'))) Object.assign(cast[id] ??= { name: id, model: 'toon' }, f); } catch {}
 if (q.get('size')) {
   const [w, h] = q.get('size').split('x');
   Object.assign(document.getElementById('st').style, { width: w + 'px', height: h + 'px', aspectRatio: 'auto' });
