@@ -15,14 +15,17 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 import { hdr } from './gfx.js';
+import { createToon } from './toon.js';
 
 export const MODELS = {
-  soldier: { url: '/models/soldier.glb', height: 1.85, flip: true, clips: { idle: 'Idle', walk: 'Walk', run: 'Run' } },
-  michelle: { url: '/models/michelle.glb', height: 1.7, borrow: 'soldier' },
-  avatar: { url: '/models/avatar.glb', height: 1.78, mouth: ['mouthOpen'], clips: {} },
-  android: { url: '/models/android.glb', height: 1.88, clips: { idle: 'idle', walk: 'walk', run: 'run', nod: 'agree', shake: 'headShake', sad: 'sad_pose', sneak: 'sneak_pose' } },
-  robot: { url: '/models/robot.glb', height: 1.05, clips: { idle: 'Idle', walk: 'Walking', run: 'Running', wave: 'Wave', nod: 'Yes', shake: 'No', fall: 'Death' } },
-  hologram: { url: '/models/hologram.glb', height: 0.6, face: true },
+  soldier: { url: '/models/soldier.glb', bytes: 2160468, height: 1.85, flip: true, clips: { idle: 'Idle', walk: 'Walk', run: 'Run' } },
+  michelle: { url: '/models/michelle.glb', bytes: 3276888, height: 1.7, borrow: 'soldier' },
+  avatar: { url: '/models/avatar.glb', bytes: 1838884, height: 1.78, mouth: ['mouthOpen'], clips: {} },
+  android: { url: '/models/android.glb', bytes: 2930032, height: 1.88, clips: { idle: 'idle', walk: 'walk', run: 'run', nod: 'agree', shake: 'headShake', sad: 'sad_pose', sneak: 'sneak_pose' } },
+  robot: { url: '/models/robot.glb', bytes: 463988, height: 1.05, clips: { idle: 'Idle', walk: 'Walking', run: 'Running', wave: 'Wave', nod: 'Yes', shake: 'No', fall: 'Death' } },
+  hologram: { url: '/models/hologram.glb', bytes: 332808, height: 0.6, face: true },
+  // Built in code from the cast fields (skin, hair, hairstyle, coat, coat2, pants, trim, gear, build, sc): no download.
+  toon: { bytes: 0, height: 1.75, toon: true },
 };
 
 /* ------------------------------------------------------------------ loading */
@@ -38,16 +41,49 @@ function getLoader(renderer) {
   return loader;
 }
 
-/** Load (once) and return { scene, animations } for a model key. */
+/** Bytes received so far per model key, so the loading bar can show real progress. */
+const received = new Map();
+
+/** Fraction 0..1 of the download of these model keys (a model counts as done once it has arrived). */
+export function loadProgress(keys) {
+  let have = 0, total = 0;
+  for (const k of new Set(keys)) {
+    const size = MODELS[k]?.bytes ?? 1e6;
+    total += size;
+    have += Math.min(size, received.get(k) ?? 0);
+  }
+  return total ? have / total : 1;
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** Load (once) and return { scene, animations } for a model key. A failed download is retried twice before giving up. */
 export function loadModel(key, renderer) {
   if (!cache.has(key)) {
-    cache.set(
-      key,
-      new Promise((resolve, reject) => getLoader(renderer).load(MODELS[key].url, resolve, undefined, reject)).catch((e) => {
-        cache.delete(key);
-        throw e;
-      }),
-    );
+    const spec = MODELS[key];
+    const once = () =>
+      new Promise((resolve, reject) =>
+        getLoader(renderer).load(
+          spec.url,
+          (g) => { received.set(key, spec.bytes ?? 1e6); resolve(g); },
+          (e) => received.set(key, Math.min((spec.bytes ?? 1e6) * 0.97, e.lengthComputable && e.total ? (e.loaded / e.total) * (spec.bytes ?? 1e6) : e.loaded)),
+          reject,
+        ),
+      );
+    const attempt = async () => {
+      let err;
+      for (let i = 0; i < 3; i++) {
+        try {
+          return await once();
+        } catch (e) {
+          err = e;
+          received.set(key, 0);
+          await sleep(600 * (i + 1));
+        }
+      }
+      throw err;
+    };
+    cache.set(key, attempt().catch((e) => { cache.delete(key); throw e; }));
   }
   return cache.get(key);
 }
@@ -118,6 +154,7 @@ const spin = (bone, x = 0, y = 0, z = 0) => {
 const ease = (t) => t * t * (3 - 2 * t);
 
 export async function createActor(id, member, renderer) {
+  if (member.model === 'toon') return createToon(id, member);
   const spec = MODELS[member.model] ?? MODELS.soldier;
   const src = await loadModel(member.model in MODELS ? member.model : 'soldier', renderer);
   const root = cloneSkinned(src.scene);
@@ -234,7 +271,7 @@ export async function createActor(id, member, renderer) {
   // --- state
   const st = {
     from: 0, to: 0, z: 0, t0: 0, dur: 1, moving: false,
-    pose: '', motion: '', yaw: 0, fall: 0, mouth: 0, mouthSmooth: 0, time: 0, talk: 0,
+    pose: '', motion: '', yaw: 0, fall: 0, mouth: 0, mouthSmooth: 0, time: 0, talk: 0, beat: 0, prevMouth: 0, lastBeat: -9,
   };
 
   function play(name, { speed = 1, fade = 0.3 } = {}) {
@@ -269,7 +306,7 @@ export async function createActor(id, member, renderer) {
       if (holo) st.yawTarget = -Math.sign(x || 1) * Math.min(0.4, Math.abs(x) * 0.08);
       if (pose === 'fall') st.fall = 0.0001;
       else st.fall = 0;
-      const motion = st.moving ? (pose === 'run' ? 'run' : pose === 'sneak' && actions.sneak ? 'sneak' : 'walk') : pose && actions[pose] ? pose : 'idle';
+      const motion = st.moving ? (pose === 'run' || pose === 'dash' ? 'run' : pose === 'sneak' && actions.sneak ? 'sneak' : 'walk') : pose && actions[pose] ? pose : 'idle';
       play(motion, { speed: pose === 'sneak' && !actions.sneak && st.moving ? 0.6 : 1 });
       if (pose === 'fall' && actions.fall) {
         actions.fall.setLoop(THREE.LoopOnce, 1);
@@ -317,8 +354,13 @@ export async function createActor(id, member, renderer) {
       const nod = pose === 'nod' && !actions.nod ? Math.sin(T * 5) * 0.16 * Math.max(0, 1 - ((now - st.t0) / 3)) : 0;
       const shake = pose === 'shake' && !actions.shake ? Math.sin(T * 6) * 0.35 * Math.max(0, 1 - ((now - st.t0) / 3)) : 0;
       const sad = pose === 'sad' && !actions.sad ? 1 : 0;
-      const bob = st.talk * (Math.sin(T * 7.3) * 0.03 + Math.sin(T * 3.1) * 0.025);
-      spin(bones.head, nod + bob + sad * 0.35, shake + Math.sin(T * 2.1) * 0.03 * st.talk, 0);
+      // Gestures are rare on purpose: a small head dip when the voice stresses a word (at most every ~1.8 s),
+      // plus a barely visible sway while talking. Big gestures only come from poses the author asked for.
+      if (m > 0.6 && st.prevMouth < 0.3 && now - st.lastBeat > 1.8) { st.lastBeat = now; st.beat = 1; }
+      st.prevMouth = m;
+      st.beat = Math.max(0, st.beat - dt * 2.2);
+      const bob = st.talk * Math.sin(T * 3.1) * 0.008 - Math.sin(st.beat * Math.PI) * 0.07;
+      spin(bones.head, nod + bob + sad * 0.35, shake + Math.sin(T * 2.1) * 0.012 * st.talk, 0);
       if (armsDown) {
         const br = Math.sin(T * 1.6) * 0.012;
         spin(bones.lArm, 0, 0, -1.05 + br);

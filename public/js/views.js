@@ -65,7 +65,7 @@ export function playerView(movie, n, episode, speechAvailable, rate, voiceLabel 
   return `<div class="ptop"><a class="back" href="/m/${esc(movie.slug)}" data-link>← Episodes</a><div class="ptitle"><b>${esc(movie.title)}</b><span>Episode ${n}: ${esc(episode.title)}</span></div></div>
 ${
     movie.style === 'cinema'
-      ? '<div class="stage cine" id="stage"><canvas aria-label="Animated 3D scene"></canvas><div class="ld" aria-live="polite">Preparing the scene…</div><div class="ng">The 3D picture is not available on this device. The story continues with voices and captions.</div></div>'
+      ? '<div class="stage cine" id="stage"><canvas aria-label="Animated 3D scene"></canvas><div class="ld" aria-live="polite"><div class="lw"><span>Preparing the scene…</span><b class="lb"><i></i></b></div></div><div class="ng">The 3D picture is not available on this device. The story continues with voices and captions.</div></div>'
       : '<div class="stage" id="stage"><div class="layer on"></div><div class="layer"></div></div>'
   }
 <div class="seglist" id="segs">${episode.scenes.map((_, i) => `<button class="sg" data-act="seek" data-i="${i}" aria-label="Scene ${i + 1}"></button>`).join('')}</div>

@@ -17,7 +17,7 @@ import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { createActor, disposeModels } from './actors.js';
+import { createActor, disposeModels, loadProgress } from './actors.js';
 import { buildSet, disposeTree } from './sets.js';
 
 export function parsePlacement(value) {
@@ -277,8 +277,17 @@ export async function createCinema(canvas, { cast = {}, quality = pickQuality() 
     resize,
     quality,
     /** Load every model the cast uses before play starts, so the first scene does not stutter. */
-    async preload(ids) {
-      await Promise.all(ids.map((id) => actorFor(id).catch(() => null)));
+    async preload(ids, onProgress = () => {}) {
+      const keys = ids.map((id) => cast[id]?.model ?? 'soldier');
+      const tick = setInterval(() => onProgress(loadProgress(keys)), 120);
+      onProgress(loadProgress(keys));
+      try {
+        const results = await Promise.all(ids.map((id) => actorFor(id).then(() => true, () => false)));
+        onProgress(1);
+        return results.every(Boolean);
+      } finally {
+        clearInterval(tick);
+      }
     },
     /** For tests and the scene lab. */
     debug: { scene, camera, renderer, actors },

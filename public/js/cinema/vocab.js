@@ -3,13 +3,13 @@
  * `npm run check:vocab` compares it with src/movies/vocabulary.json (section "cinema").
  */
 export const CINEMA_VOCAB = {
-  places: ['bridge', 'corridor', 'engine', 'planet', 'space', 'ruins'],
+  places: ['bridge', 'corridor', 'engine', 'planet', 'space', 'ruins', 'moon', 'city'],
   times: ['day', 'dusk', 'night', 'alert', 'dim'],
-  props: ['hologram', 'monolith', 'beacon', 'pod', 'crates', 'gate'],
+  props: ['hologram', 'monolith', 'beacon', 'pod', 'crates', 'gate', 'pylon', 'bus'],
   fx: ['dust', 'sparks', 'alarm', 'glitch', 'streaks', 'haze'],
-  poses: ['run', 'sneak', 'nod', 'shake', 'sad', 'point', 'wave', 'fall'],
+  poses: ['run', 'sneak', 'nod', 'shake', 'sad', 'point', 'wave', 'fall', 'dash'],
   cameras: ['wide', 'medium', 'close', 'low', 'high', 'orbit', 'in', 'out', 'l', 'r'],
-  models: ['soldier', 'michelle', 'avatar', 'android', 'robot', 'hologram'],
+  models: ['soldier', 'michelle', 'avatar', 'android', 'robot', 'hologram', 'toon'],
 };
 
 /** Shots used when a scene does not choose one: narration is wide, dialogue alternates medium and close. */

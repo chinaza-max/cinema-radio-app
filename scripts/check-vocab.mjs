@@ -47,7 +47,7 @@ const setsSource = readFileSync(join(root, 'public/js/cinema/sets.js'), 'utf8');
 for (const place of CINEMA_VOCAB.places) if (!new RegExp(`\\b${place}\\b`).test(setsSource.slice(setsSource.indexOf('const PLACES')))) fail(`cinema place "${place}" is not registered in PLACES (public/js/cinema/sets.js)`);
 for (const prop of CINEMA_VOCAB.props) if (!setsSource.includes(`${prop}: () =>`)) fail(`cinema prop "${prop}" has no builder in PROP_BUILDERS (public/js/cinema/sets.js)`);
 const actorsSource = readFileSync(join(root, 'public/js/cinema/actors.js'), 'utf8');
-for (const model of CINEMA_VOCAB.models) if (!new RegExp(`^  ${model}: \\{ url`, 'm').test(actorsSource)) fail(`cinema model "${model}" is not in MODELS (public/js/cinema/actors.js)`);
+for (const model of CINEMA_VOCAB.models) if (!new RegExp(`^  ${model}: \\{ (url|bytes)`, 'm').test(actorsSource)) fail(`cinema model "${model}" is not in MODELS (public/js/cinema/actors.js)`);
 
 if (problems) process.exit(1);
 console.log(`✓ cinema vocabulary in sync: ${json.cinema.places.length} places, ${json.cinema.models.length} models`);

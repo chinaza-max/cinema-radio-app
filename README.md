@@ -283,6 +283,8 @@ Movies with `"style": "cinema"` play in a Three.js engine (`public/js/cinema/`):
 - Poster for a cinema movie (server running): `NODE_PATH=$(npm root -g) node scripts/render-poster.cjs seed/movies/<slug>.json`
 - Add a place, prop or model: edit `public/js/cinema/sets.js` / `actors.js`, `public/js/cinema/vocab.js` and `src/movies/vocabulary.json`, then `npm run check:vocab`.
 - `?q=low|medium|high` forces the quality tier.
+- Skies are alive: every planet turns, stars drift and falling stars cross (`shootingStars` in `gfx.js`). Characters only gesture when a scene asks for a pose; head dips on stressed words are rare and small.
+- Loading: the characters of the first scene load first behind a progress bar (`loadProgress`), the rest in the background; a failed model download is retried twice. `/models/` is cached for a week.
 
 ## Deploying to Vercel
 
@@ -297,3 +299,7 @@ Set these **Environment Variables** in the Vercel project (Settings → Environm
 | `SEED_ON_BOOT` | `true` once, to add the demo movies to an empty database (it only adds missing ones). |
 
 Notes: the filesystem is read-only, so generated voice files go to `/tmp`; the Edge-TTS python script does not run on Vercel, so voices fall back to the Google fallback unless you host the app on a server (Render, Railway, Fly, a VPS) instead.
+
+
+## Toon characters
+`model: "toon"` builds a cartoon human in code (`public/js/cinema/toon.js`), so every character can look different without downloads. See `docs/MOVIE_FORMAT.md` and `docs/ADDING_CHARACTERS.md`. The sample movie `lightning-rider` uses it with the `city` set and the `dash` pose.

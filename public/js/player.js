@@ -53,13 +53,20 @@ export function mountPlayer(root, ctx) {
         const made = await createCinema(canvas, { cast: movie.cast });
         if (gone) return made.destroy();
         engine = made;
-        // Start fetching the models for everyone who appears in this episode while the viewer reads the first line.
-        const ids = new Set();
-        for (const sc of scenes) {
-          if (sc.s !== 'N') ids.add(sc.s);
-          for (const c of sc.c) ids.add(c.split(':')[0]);
-        }
-        await engine.preload([...ids].filter((id) => movie.cast[id]));
+        // The characters of the first scene block the screen (with a real progress bar). Everyone else in the
+        // episode downloads in the background while the viewer watches.
+        const inScene = (sc) => [...(sc.s !== 'N' ? [sc.s] : []), ...sc.c.map((c) => c.split(':')[0])].filter((id) => movie.cast[id]);
+        const first = [...new Set(inScene(scenes[st.i] ?? scenes[0]))];
+        const everyone = [...new Set(scenes.flatMap(inScene))];
+        const bar = $('.ld i', stage);
+        const label = $('.ld span', stage);
+        const paint = (f) => {
+          if (bar) bar.style.width = Math.round(f * 100) + '%';
+          if (label) label.textContent = f >= 1 ? 'Starting…' : `Loading the cast… ${Math.round(f * 100)}%`;
+        };
+        const okFirst = await engine.preload(first, paint);
+        if (!okFirst && label) label.textContent = 'Some characters could not be loaded. Continuing.';
+        engine.preload(everyone.filter((id) => !first.includes(id))); // background, not awaited
       } catch (err) {
         console.warn('3D stage unavailable, continuing with audio and captions:', err);
         stage.classList.add('nogl');
