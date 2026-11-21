@@ -145,8 +145,8 @@
           "speaker": "chidi",
           "text": "Tobi! You are late again. The jollof is cold, the customer is angry, and your grandmother called me twice. Twice!",
           "characters": [
-            "chidi:300>240:point",
-            "tobi:200>150"
+            "chidi:240:point",
+            "tobi:150"
           ],
           "camera": "medium"
         },
@@ -154,8 +154,8 @@
           "speaker": "tobi",
           "text": "Traffic, Chidi. The whole city is in traffic. If I could only go faster than all of it, I would be a rich man by Friday.",
           "characters": [
-            "tobi:150>190:shake",
-            "chidi:240>280"
+            "tobi:190:shake",
+            "chidi:280"
           ],
           "camera": "close"
         },
@@ -164,7 +164,7 @@
           "text": "My boy, a rich man is not the one who arrives first. He is the one who arrives, and is welcome. Now eat something before the lights go out.",
           "characters": [
             "ife:380>260",
-            "tobi:190>140:nod"
+            "tobi:140:nod"
           ],
           "camera": "medium"
         },
@@ -172,8 +172,8 @@
           "speaker": "narrator",
           "text": "Mama Ife was right about the lights. All week, the city had been dimming, street by street, as if something out there was drinking the power.",
           "characters": [
-            "ife:260>200",
-            "tobi:140>90"
+            "ife:200",
+            "tobi:90"
           ],
           "place": "city",
           "time": "night",
@@ -199,7 +199,7 @@
           "text": "Then I will deliver my last order there. I was going that way anyway. Chidi, keep the bus warm.",
           "characters": [
             "tobi:100>300:run",
-            "kemi:270>230"
+            "kemi:230"
           ],
           "camera": "wide"
         }
@@ -229,7 +229,7 @@
           "speaker": "tobi",
           "text": "Hello? Delivery for the thief. Cash on arrival. Extra pepper.",
           "characters": [
-            "tobi:180>230",
+            "tobi:230",
             "spark:370>300"
           ],
           "camera": "medium"
@@ -239,7 +239,7 @@
           "text": "Beep. Warning. Storm cell overhead. Please step away from the transformer. Please. Please step away.",
           "characters": [
             "spark:300>250:run",
-            "tobi:230>200"
+            "tobi:200"
           ],
           "camera": "close"
         },
@@ -247,7 +247,7 @@
           "speaker": "narrator",
           "text": "The sky split open. A single bolt of lightning fell straight onto the pylon, and the pylon threw it straight into Tobi.",
           "characters": [
-            "tobi:200>150:fall",
+            "tobi:150:fall",
             "spark:250>330:run"
           ],
           "place": "city",
@@ -266,7 +266,7 @@
           "speaker": "narrator",
           "text": "When he opened his eyes, the rain had stopped, in mid air. Every drop hung glittering around him like tiny lamps, and Tobi was standing quite still in the middle of it.",
           "characters": [
-            "tobi:150>190"
+            "tobi:190"
           ],
           "place": "city",
           "time": "night",
@@ -340,8 +340,8 @@
           "speaker": "tobi",
           "text": "So I run faster than he drains. Easy. Chidi, I will need a mask and a cape. Something with a bolt on it, something proud.",
           "characters": [
-            "tobi:180>230:point",
-            "kemi:260>200"
+            "tobi:230:point",
+            "kemi:200"
           ],
           "camera": "close"
         },
@@ -350,7 +350,7 @@
           "text": "I made it from your grandfather's red coat, and a little yellow cloth. Do not tear it, my boy. And do not forget to eat.",
           "characters": [
             "ife:380>290",
-            "tobi:230>150:nod",
+            "tobi:150:nod",
             "chidi:60>120"
           ],
           "camera": "medium"
@@ -376,7 +376,7 @@
           "speaker": "surge",
           "text": "Ah. The city is so bright, and so wasteful. All these lamps burning for nobody. I will drink them, and I will be brighter than all of you.",
           "characters": [
-            "surge:250>200:point",
+            "surge:200:point",
             "kemi:80>130"
           ],
           "camera": "close"
@@ -385,8 +385,8 @@
           "speaker": "kemi",
           "text": "Surge, stop. You will burn out the whole grid. Hospitals, schools, everything. There are people who need those lights.",
           "characters": [
-            "kemi:130>170",
-            "surge:200>260"
+            "kemi:170",
+            "surge:260"
           ],
           "camera": "medium"
         },
@@ -395,7 +395,7 @@
           "text": "And then a red streak crossed the hall, so fast that the air cracked behind it. A rider in a cape stood in front of the machine, panting, and not at all late.",
           "characters": [
             "tobi:60>200:dash",
-            "surge:260>320"
+            "surge:320"
           ],
           "place": "engine",
           "time": "alert",
@@ -500,7 +500,7 @@
           "speaker": "surge",
           "text": "No. No, stop. It is too bright. I cannot hold it. I only wanted to be seen. I only wanted... the lights to look at me.",
           "characters": [
-            "surge:230>260:sad",
+            "surge:260:sad",
             "kemi:300>240"
           ],
           "place": "city",
@@ -518,8 +518,8 @@
           "speaker": "kemi",
           "text": "We see you, Surge. But not like this. Let me help you take the machine off, and I promise we will still be here in the morning.",
           "characters": [
-            "kemi:240>290",
-            "surge:260>320:nod"
+            "kemi:290",
+            "surge:320:nod"
           ],
           "camera": "medium"
         },

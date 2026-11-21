@@ -48,7 +48,7 @@ function limb(radius, length, mat) {
   return g;
 }
 
-const GEAR = ['mask', 'glasses', 'cape', 'belt', 'bolt', 'coat', 'scarf', 'headband', 'suit'];
+const GEAR = ['mask', 'glasses', 'cape', 'belt', 'bolt', 'coat', 'scarf', 'headband', 'suit', 'visor', 'halo'];
 const HAIR = ['short', 'afro', 'long', 'bun', 'bald', 'cap', 'braids', 'cowl'];
 export const TOON_GEAR = GEAR;
 export const TOON_HAIR = HAIR;
@@ -62,7 +62,7 @@ export function createToon(id, member = {}) {
   const topC = member.coat ?? '#3b82f6';
   const accent = member.coat2 ?? '#7fe8ff';
   const pantsC = member.pants ?? '#273046';
-  const shoeC = member.trim ?? '#1b1b22';
+  const shoeC = '#24242b';
   const hairC = member.hair ?? '#1a1a1a';
   const style = HAIR.includes(member.hairstyle) ? member.hairstyle : 'short';
 
@@ -74,19 +74,26 @@ export function createToon(id, member = {}) {
   holder.scale.setScalar(k);
 
   const skinM = toon(skin), topM = toon(topC), pantsM = toon(pantsC), shoeM = toon(shoeC), hairM = toon(hairC);
-  const accentM = new THREE.MeshBasicMaterial({ color: hdr(accent, 2.2) });
+  const accentM = new THREE.MeshBasicMaterial({ color: hdr(accent, 2.2) }); // only for glowing emblems
+  const trimM = toon(member.trim ?? '#e8e8ee'), accentT = toon(accent), soleM = toon('#e9e6df'), beltM = toon('#2b2420');
 
   // ---- legs
   const legs = [];
   for (const sx of [1, -1]) {
     const hip = new THREE.Group();
     hip.position.set(sx * 0.1 * buildW, 0.93, 0);
-    const thigh = limb(0.078 * buildW, 0.36, pantsM);
+    const thigh = limb(0.088 * buildW, 0.34, pantsM);
     const knee = new THREE.Group();
     knee.position.y = -0.46;
-    const shin = limb(0.066 * buildW, 0.34, suit ? pantsM : pantsM);
-    const foot = part(new THREE.BoxGeometry(0.11, 0.07, 0.23), shoeM);
-    foot.position.set(0, -0.5, 0.05);
+    const shin = limb(0.07 * buildW, 0.34, pantsM);
+    const foot = new THREE.Group();
+    const shoe = part(new THREE.CapsuleGeometry(0.055 * buildW, 0.11, 4, 10), shoeM);
+    shoe.rotation.x = Math.PI / 2;
+    shoe.scale.set(1.05, 1, 0.78);
+    const sole = new THREE.Mesh(new THREE.BoxGeometry(0.12 * buildW, 0.022, 0.24), soleM);
+    sole.position.set(0, -0.035, 0.0);
+    foot.add(shoe, sole);
+    foot.position.set(0, -0.485, 0.06);
     knee.add(shin, foot);
     hip.add(thigh, knee);
     body.add(hip);
@@ -97,13 +104,26 @@ export function createToon(id, member = {}) {
   const torso = new THREE.Group();
   torso.position.y = 0.93;
   body.add(torso);
-  const chest = part(new THREE.CapsuleGeometry(0.15 * buildW, 0.3, 6, 14), topM);
-  chest.position.y = 0.27;
-  chest.scale.z = 0.78;
+  // shirt: broad at the shoulders, narrower at the waist, over a pelvis in trouser colour
+  const chest = part(new THREE.CapsuleGeometry(0.16 * buildW, 0.22, 6, 16), topM);
+  chest.position.y = 0.33;
+  chest.scale.set(1.08, 1, 0.74);
   torso.add(chest);
+  const waist = part(new THREE.CylinderGeometry(0.15 * buildW, 0.135 * buildW, 0.16, 18), topM);
+  waist.position.y = 0.12;
+  waist.scale.z = 0.76;
+  torso.add(waist);
+  const pelvis = part(new THREE.SphereGeometry(0.15 * buildW, 18, 12), pantsM);
+  pelvis.position.y = 0.01;
+  pelvis.scale.set(1, 0.72, 0.78);
+  torso.add(pelvis);
+  const collar = part(new THREE.TorusGeometry(0.075, 0.022, 8, 18), trimM, { outline: false });
+  collar.rotation.x = Math.PI / 2;
+  collar.position.set(0, 0.58, 0.005);
+  torso.add(collar);
   if (gear.has('belt')) {
-    const belt = part(new THREE.CylinderGeometry(0.168 * buildW, 0.168 * buildW, 0.06, 20), accentM, { outline: false });
-    belt.position.y = 0.06;
+    const belt = part(new THREE.CylinderGeometry(0.152 * buildW, 0.148 * buildW, 0.05, 20), beltM, { outline: false });
+    belt.position.y = 0.075;
     belt.scale.z = 0.82;
     torso.add(belt);
   }
@@ -122,7 +142,7 @@ export function createToon(id, member = {}) {
     torso.add(skirt);
   }
   if (gear.has('scarf')) {
-    const scarf = part(new THREE.TorusGeometry(0.1, 0.034, 8, 18), accentM, { outline: false });
+    const scarf = part(new THREE.TorusGeometry(0.1, 0.036, 8, 18), accentT, { outline: false });
     scarf.rotation.x = Math.PI / 2;
     scarf.position.y = 0.58;
     torso.add(scarf);
@@ -141,12 +161,22 @@ export function createToon(id, member = {}) {
   for (const sx of [1, -1]) {
     const shoulder = new THREE.Group();
     shoulder.position.set(sx * (0.2 * buildW + 0.04), 0.5, 0);
-    const upper = limb(0.052 * buildW, 0.24, topM);
+    const cap = new THREE.Mesh(new THREE.SphereGeometry(0.066 * buildW, 14, 10), topM);
+    cap.castShadow = true;
+    const upper = limb(0.058 * buildW, 0.24, topM);
+    upper.add(cap);
     const elbow = new THREE.Group();
     elbow.position.y = -0.33;
-    const fore = limb(0.046 * buildW, 0.22, suit ? topM : skinM);
-    const hand = part(new THREE.SphereGeometry(0.058, 12, 10), suit ? accentM : skinM, { outline: !suit });
-    hand.position.y = -0.37;
+    const fore = limb(0.05 * buildW, 0.22, suit ? topM : skinM);
+    const hand = new THREE.Group();
+    const palm = part(new THREE.CapsuleGeometry(0.036, 0.05, 4, 10), suit ? trimM : skinM);
+    palm.scale.set(1.2, 1, 0.7);
+    palm.position.y = -0.03;
+    const thumb = part(new THREE.CapsuleGeometry(0.014, 0.03, 3, 6), suit ? trimM : skinM, { outline: false });
+    thumb.position.set(sx * -0.04, -0.015, 0.018);
+    thumb.rotation.z = sx * 0.5;
+    hand.add(palm, thumb);
+    hand.position.y = -0.375;
     elbow.add(fore, hand);
     shoulder.add(upper, elbow);
     torso.add(shoulder);
@@ -169,8 +199,9 @@ export function createToon(id, member = {}) {
     ear.position.set(sx * 0.163, 0.15, 0);
     head.add(ear);
   }
-  const nose = part(new THREE.SphereGeometry(0.02, 10, 8), skinM, { outline: false });
-  nose.position.set(0, 0.135, 0.165);
+  const nose = part(new THREE.SphereGeometry(0.026, 10, 8), skinM, { outline: false });
+  nose.position.set(0, 0.125, 0.165);
+  nose.scale.set(0.9, 1, 1.1);
   head.add(nose);
 
   // face
@@ -181,9 +212,14 @@ export function createToon(id, member = {}) {
     e.position.set(sx * 0.063, 0.19, 0.148);
     const w = new THREE.Mesh(new THREE.SphereGeometry(0.036, 14, 10), eyeWhite);
     w.scale.z = 0.5;
-    const p = new THREE.Mesh(new THREE.SphereGeometry(0.019, 10, 8), pupil);
-    p.position.z = 0.014;
-    e.add(w, p);
+    const iris = new THREE.Mesh(new THREE.SphereGeometry(0.024, 12, 10), flat('#4a2d1c'));
+    iris.position.z = 0.009;
+    iris.scale.z = 0.6;
+    const p = new THREE.Mesh(new THREE.SphereGeometry(0.0125, 10, 8), pupil);
+    p.position.z = 0.016;
+    const gl = new THREE.Mesh(new THREE.SphereGeometry(0.005, 6, 6), flat('#ffffff'));
+    gl.position.set(0.008, 0.008, 0.021);
+    e.add(w, iris, p, gl);
     head.add(e);
     eyes.push(e);
   }
@@ -194,7 +230,7 @@ export function createToon(id, member = {}) {
     head.add(b);
     brows.push({ m: b, sx, y: 0.245 });
   }
-  const mouth = new THREE.Mesh(new THREE.SphereGeometry(0.036, 14, 10), flat('#3a0f12'));
+  const mouth = new THREE.Mesh(new THREE.SphereGeometry(0.036, 14, 10), flat('#7d2f33'));
   mouth.position.set(0, 0.085, member.beard ? 0.172 : 0.153);
   mouth.scale.set(1, 0.2, 0.35);
   head.add(mouth);
@@ -270,6 +306,37 @@ export function createToon(id, member = {}) {
     const bridge = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.007, 0.007), rm);
     bridge.position.set(0, 0.195, 0.16);
     head.add(bridge);
+  }
+
+  // visor: a dark glass face plate; the eyes and mouth glow in the accent colour like a friendly screen
+  if (gear.has('visor')) {
+    const plate = part(new THREE.SphereGeometry(0.172, 28, 16, Math.PI * 0.14, Math.PI * 0.72, Math.PI * 0.26, Math.PI * 0.5), new THREE.MeshStandardMaterial({ color: '#141824', roughness: 0.18, metalness: 0.7 }), { grow: 1.03 });
+    plate.position.y = 0.16;
+    plate.scale.set(1, 1.06, 1);
+    head.add(plate);
+    nose.visible = false;
+    for (const e of eyes) {
+      e.position.z = 0.184;
+      e.scale.set(1.1, 1.25, 1);
+      e.children[0].material = new THREE.MeshBasicMaterial({ color: hdr(accent, 2.6) });
+      for (const c of e.children.slice(1)) c.visible = false;
+    }
+    for (const b of brows) b.m.visible = false;
+    mouth.material = new THREE.MeshBasicMaterial({ color: hdr(accent, 2.2) });
+    mouth.position.z = 0.182;
+  }
+  // halo: little lights circling the head, a visible sign of thinking
+  const halo = [];
+  if (gear.has('halo')) {
+    const ring = new THREE.Group();
+    ring.position.set(0, 0.42, 0);
+    ring.rotation.z = 0.35;
+    head.add(ring);
+    for (let i = 0; i < 6; i++) {
+      const d = new THREE.Mesh(new THREE.SphereGeometry(0.02 + (i % 2) * 0.008, 10, 8), new THREE.MeshBasicMaterial({ color: hdr(accent, 2.8) }));
+      ring.add(d);
+      halo.push({ d, a: (i / 6) * Math.PI * 2 });
+    }
   }
 
   // ---- dash effects (lightning trail + glow), only visible while dashing
@@ -408,6 +475,7 @@ export function createToon(id, member = {}) {
       } else {
         arms[0].elbow.rotation.z = 0;
       }
+      for (const h of halo) { const a = h.a + T * 1.4; h.d.position.set(Math.cos(a) * 0.24, Math.sin(a * 2) * 0.04, Math.sin(a) * 0.24); }
       if (cape) cape.rotation.x = 0.1 + g * (0.55 + (mode === 'dash' ? 0.5 : 0)) + Math.sin(T * 4 + st.phase) * 0.05 * (0.3 + g);
 
       // fall: topple backwards and stay down

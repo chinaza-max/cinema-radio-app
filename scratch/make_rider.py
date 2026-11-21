@@ -57,6 +57,23 @@ eps=[
  S(N,"The next evening, the lights of Lagos came on, all of them at once, brighter than anyone could remember. And somewhere above the traffic, a boy in a red cape was delivering dinner exactly on time.",["tobi:60>340:dash","ife:380>300","chidi:100>160:wave"],"city","dusk",["bus"],["dust","sparks"],"wide"),
 ]),
 ]
+# Walk only with a reason: a character entering the scene, or a run/dash. Everyone else just stands where they end up.
+def calm(eps):
+    for _,scenes in eps:
+        prev=set()
+        for sc in scenes:
+            out=[];now=set()
+            for c in sc["characters"]:
+                parts=c.split(':');cid=parts[0];now.add(cid)
+                if len(parts)>1 and '>' in parts[1]:
+                    a,b=parts[1].split('>')
+                    pose=parts[2] if len(parts)>2 else ''
+                    if cid not in prev or pose in('run','dash'):
+                        out.append(c);continue
+                    c=':'.join([cid,b]+parts[2:])
+                out.append(c)
+            sc["characters"]=out;prev=now
+calm(eps)
 m={"schemaVersion":1,"slug":"lightning-rider","title":"Lightning Rider",
  "synopsis":"A late delivery rider in Lagos is struck by lightning and becomes the fastest person in the city, just as a stranger starts drinking the power grid. An original cartoon superhero story with a different look for every character.",
  "credit":"Original story and characters.",

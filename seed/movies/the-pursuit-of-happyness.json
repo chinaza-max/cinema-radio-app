@@ -1,0 +1,489 @@
+{
+  "schemaVersion": 1,
+  "slug": "the-pursuit-of-happyness",
+  "title": "The Pursuit of Happyness",
+  "synopsis": "The true-life story of Chris Gardner, a San Francisco salesman who, with his young son and no home, wins the only permanent place at the end of an unpaid stockbroker internship.",
+  "credit": "Retold from the true story of Chris Gardner. Our own scenes and wording.",
+  "genre": "Drama",
+  "style": "cinema",
+  "poster": "/posters/the-pursuit-of-happyness.jpg",
+  "featured": true,
+  "cover": {
+    "place": "city",
+    "time": "dusk",
+    "props": [],
+    "fx": [
+      "dust"
+    ],
+    "characters": [
+      "christopher:170",
+      "chris:230"
+    ],
+    "camera": "wide"
+  },
+  "cast": {
+    "chris": {
+      "name": "Chris Gardner",
+      "role": "Salesman, later stockbroker",
+      "model": "toon",
+      "skin": "#6b4428",
+      "hair": "#161412",
+      "hairstyle": "short",
+      "coat": "#6b7a8f",
+      "coat2": "#e0e1dd",
+      "pants": "#2f3640",
+      "trim": "#9aa5b1",
+      "gear": "belt",
+      "build": "regular",
+      "tag": "#9db4d3",
+      "voice": "en-US-GuyNeural"
+    },
+    "christopher": {
+      "name": "Christopher",
+      "role": "His young son",
+      "model": "toon",
+      "skin": "#7a4c2e",
+      "hair": "#0f0d0c",
+      "hairstyle": "short",
+      "coat": "#ffb703",
+      "coat2": "#fb8500",
+      "pants": "#264653",
+      "trim": "#ffffff",
+      "build": "slim",
+      "sc": 0.62,
+      "tag": "#ffd166",
+      "voice": "en-US-AnaNeural",
+      "pitch": 1.5
+    },
+    "linda": {
+      "name": "Linda",
+      "role": "His wife",
+      "model": "toon",
+      "skin": "#8a5a3a",
+      "hair": "#1a1210",
+      "hairstyle": "long",
+      "coat": "#c9184a",
+      "coat2": "#ff758f",
+      "pants": "#3a3a46",
+      "trim": "#ffe5ec",
+      "gear": "scarf",
+      "build": "slim",
+      "tag": "#ff8fa3",
+      "voice": "en-US-JennyNeural"
+    },
+    "broker": {
+      "name": "The stockbroker",
+      "role": "Man from the sports car",
+      "model": "toon",
+      "skin": "#e0b99b",
+      "hair": "#3a2a1c",
+      "hairstyle": "short",
+      "coat": "#1d3557",
+      "coat2": "#a8dadc",
+      "pants": "#14213d",
+      "trim": "#ffd166",
+      "gear": "coat",
+      "build": "regular",
+      "tag": "#7aa2d6",
+      "voice": "en-US-DavisNeural"
+    },
+    "manager": {
+      "name": "The manager",
+      "role": "Head of the internship",
+      "model": "toon",
+      "skin": "#c99b7a",
+      "hair": "#cfcfd6",
+      "hairstyle": "bun",
+      "coat": "#6a4c93",
+      "coat2": "#c8b6ff",
+      "pants": "#2b2d42",
+      "trim": "#c8b6ff",
+      "gear": "glasses,coat",
+      "build": "stocky",
+      "tag": "#c8b6ff",
+      "voice": "en-US-AriaNeural"
+    },
+    "doctor": {
+      "name": "The doctor",
+      "role": "Potential customer",
+      "model": "toon",
+      "skin": "#d9b8a3",
+      "hair": "#2b2b2b",
+      "hairstyle": "bald",
+      "coat": "#f4f1ea",
+      "coat2": "#4cc9f0",
+      "pants": "#3a3f58",
+      "trim": "#4cc9f0",
+      "gear": "coat,glasses",
+      "build": "regular",
+      "tag": "#8ee3ff",
+      "voice": "en-GB-RyanNeural"
+    }
+  },
+  "episodes": [
+    {
+      "title": "Bone-Density Scanners",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Chris Gardner is a hardworking salesman in San Francisco, living with his wife, Linda, and their young son, Christopher. He has put almost all of his savings into portable bone-density scanners.",
+          "characters": [
+            "chris:60>200",
+            "christopher:340"
+          ],
+          "place": "city",
+          "time": "day",
+          "props": [],
+          "fx": [
+            "dust"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "narrator",
+          "text": "He believes that selling them to medical professionals will make his family secure. But the scanners are expensive, and the hospitals are slow to buy.",
+          "characters": [
+            "chris:200",
+            "doctor:320"
+          ],
+          "place": "corridor",
+          "time": "day",
+          "props": [],
+          "fx": [],
+          "camera": "medium"
+        },
+        {
+          "speaker": "chris",
+          "text": "This one is lighter and faster than the old equipment. Give me ten minutes of your day, and let me show you.",
+          "characters": [
+            "chris:200",
+            "doctor:320"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "linda",
+          "text": "Chris, I am working long hours to hold this house together, and you keep chasing a sale that never comes. I cannot do this much longer.",
+          "characters": [
+            "linda:310",
+            "chris:150"
+          ],
+          "place": "city",
+          "time": "dusk",
+          "props": [],
+          "fx": [
+            "haze"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The arguments grow more frequent, and the marriage slowly falls apart. Linda decides she can no longer cope, and leaves San Francisco for a job in New York. Christopher stays with his father.",
+          "characters": [
+            "linda:310>380:run",
+            "christopher:200",
+            "chris:150"
+          ],
+          "place": "city",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "haze"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "narrator",
+          "text": "One day, Chris sees a wealthy man step out of an expensive sports car. Curious, he walks over and asks him what he does for a living.",
+          "characters": [
+            "broker:320",
+            "chris:80>200:run"
+          ],
+          "place": "city",
+          "time": "day",
+          "props": [],
+          "fx": [
+            "dust"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "broker",
+          "text": "I am a stockbroker. I help people invest in the stock market, and that is how I make my money.",
+          "characters": [
+            "broker:320",
+            "chris:200"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The answer changes everything. Chris begins to believe that becoming a stockbroker could give him the stability he is desperate for.",
+          "characters": [
+            "chris:200"
+          ],
+          "camera": "close"
+        }
+      ]
+    },
+    {
+      "title": "The Internship",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "He decides to apply for an internship at Dean Witter Reynolds, a major brokerage firm. But many candidates are competing for it, and most have better money and better qualifications.",
+          "characters": [
+            "chris:60>200",
+            "manager:330"
+          ],
+          "place": "corridor",
+          "time": "day",
+          "props": [],
+          "fx": [],
+          "camera": "wide"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Chris finally gets an interview with the management. But just before it, he is arrested for failing to pay his parking tickets, and he spends the night in jail.",
+          "characters": [
+            "chris:200"
+          ],
+          "place": "corridor",
+          "time": "night",
+          "props": [],
+          "fx": [],
+          "camera": "low"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The next morning, he has no time to prepare, and he arrives looking untidy.",
+          "characters": [
+            "chris:60>190:run"
+          ],
+          "place": "city",
+          "time": "day",
+          "props": [],
+          "fx": [
+            "dust"
+          ],
+          "camera": "wide"
+        },
+        {
+          "speaker": "manager",
+          "text": "You are not exactly dressed for an interview. Tell us why we should take you seriously.",
+          "characters": [
+            "manager:320",
+            "chris:190"
+          ],
+          "place": "corridor",
+          "time": "day",
+          "props": [],
+          "fx": [],
+          "camera": "medium"
+        },
+        {
+          "speaker": "chris",
+          "text": "I am honest about where I am, and I learn fast. Give me a chance, and I will work harder than anyone here.",
+          "characters": [
+            "chris:190",
+            "manager:320"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Despite his appearance, he impresses the interviewers with his intelligence, his confidence and his honesty. He is selected for a six-month training programme.",
+          "characters": [
+            "chris:190",
+            "manager:320:nod"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "There is one major problem. The internship is unpaid, and only one trainee will receive a permanent job at the end.",
+          "characters": [
+            "chris:190"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now Chris must raise his young son alone, attend the internship, and keep selling his scanners.",
+          "characters": [
+            "chris:190",
+            "christopher:250"
+          ],
+          "place": "city",
+          "time": "dusk",
+          "props": [],
+          "fx": [
+            "haze"
+          ],
+          "camera": "medium"
+        }
+      ]
+    },
+    {
+      "title": "Nowhere to Sleep",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "His finances become desperate. He falls behind on rent, and he and Christopher are forced to leave their apartment.",
+          "characters": [
+            "chris:190",
+            "christopher:250"
+          ],
+          "place": "city",
+          "time": "day",
+          "props": [],
+          "fx": [
+            "dust"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Father and son move from place to place, looking for somewhere to sleep. Some nights they stay in homeless shelters. Other nights they have nowhere to go.",
+          "characters": [
+            "chris:190",
+            "christopher:250"
+          ],
+          "place": "city",
+          "time": "night",
+          "props": [],
+          "fx": [
+            "haze"
+          ],
+          "camera": "low"
+        },
+        {
+          "speaker": "narrator",
+          "text": "In one heartbreaking moment, they spend the night inside a public restroom at a subway station. Chris locks the door and sits on the floor to protect his sleeping son, fighting back tears.",
+          "characters": [
+            "chris:190",
+            "christopher:250"
+          ],
+          "place": "corridor",
+          "time": "night",
+          "props": [],
+          "fx": [],
+          "camera": "low"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Despite everything, he refuses to let his son lose hope.",
+          "characters": [
+            "chris:190",
+            "christopher:250"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Every morning, he attends the internship in his best clothes. He learns to talk to clients, make investment calls and understand the market.",
+          "characters": [
+            "chris:60>200:run"
+          ],
+          "place": "corridor",
+          "time": "day",
+          "props": [],
+          "fx": [],
+          "camera": "wide"
+        },
+        {
+          "speaker": "narrator",
+          "text": "With no time and no money to spare, he becomes extremely efficient. He makes calls continuously, takes no unnecessary breaks, and works to attract clients.",
+          "characters": [
+            "chris:200"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "He also keeps selling his remaining scanners. At one point, a doctor who had shown interest finally buys one, giving him a little relief, though his bigger problems remain.",
+          "characters": [
+            "chris:200",
+            "doctor:320"
+          ],
+          "place": "corridor",
+          "time": "day",
+          "props": [],
+          "fx": [],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Throughout the internship, he earns a reputation for being hardworking, intelligent and determined, and his supervisor begins to notice.",
+          "characters": [
+            "chris:200",
+            "manager:320"
+          ],
+          "camera": "medium"
+        },
+        {
+          "speaker": "narrator",
+          "text": "But he knows that hard work may not be enough. As the final day approaches, he becomes anxious. He has sacrificed almost everything, and failure would mean returning to the same difficult circumstances.",
+          "characters": [
+            "chris:200"
+          ],
+          "place": "corridor",
+          "time": "night",
+          "props": [],
+          "fx": [],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Eventually, Chris is called into his manager's office.",
+          "characters": [
+            "chris:60>190",
+            "manager:320"
+          ],
+          "place": "corridor",
+          "time": "day",
+          "props": [],
+          "fx": [],
+          "camera": "wide"
+        },
+        {
+          "speaker": "manager",
+          "text": "You have successfully completed the internship. We are offering you the full-time position.",
+          "characters": [
+            "manager:320",
+            "chris:190"
+          ],
+          "camera": "close"
+        },
+        {
+          "speaker": "narrator",
+          "text": "For a moment, Chris struggles to contain his emotions. He thanks the management, leaves the office, and walks into the street. Overwhelmed with happiness, he begins clapping as tears fill his eyes.",
+          "characters": [
+            "chris:190>260",
+            "christopher:340"
+          ],
+          "place": "city",
+          "time": "dusk",
+          "props": [],
+          "fx": [
+            "dust",
+            "sparks"
+          ],
+          "camera": "orbit"
+        },
+        {
+          "speaker": "narrator",
+          "text": "He later becomes a successful stockbroker, and eventually establishes his own investment firm. Circumstances do not have to decide a person's future. Success is not about having the best starting point. It is about refusing to give up when everything around you seems to be falling apart.",
+          "characters": [],
+          "place": "city",
+          "time": "dusk",
+          "props": [],
+          "fx": [
+            "haze"
+          ],
+          "camera": "out"
+        }
+      ]
+    }
+  ]
+}

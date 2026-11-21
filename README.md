@@ -302,4 +302,4 @@ Notes: the filesystem is read-only, so generated voice files go to `/tmp`; the E
 
 
 ## Toon characters
-`model: "toon"` builds a cartoon human in code (`public/js/cinema/toon.js`), so every character can look different without downloads. See `docs/MOVIE_FORMAT.md` and `docs/ADDING_CHARACTERS.md`. The sample movie `lightning-rider` uses it with the `city` set and the `dash` pose.
+`model: "toon"` builds a cartoon human in code (`public/js/cinema/toon.js`), so every character can look different without downloads. See `docs/MOVIE_FORMAT.md` and `docs/ADDING_CHARACTERS.md`. Extras `visor` (glowing face screen) and `halo` (orbiting lights) make an AI character; see `the-lantern-keepers`. The sample movie `lightning-rider` uses it with the `city` set and the `dash` pose.

@@ -77,7 +77,7 @@ const CastMember = z
     model: z.string().optional(),
     /** Toon model only: hair style, extras worn (comma list) and body build. */
     hairstyle: z.enum(['short', 'afro', 'long', 'bun', 'bald', 'cap', 'braids', 'cowl']).optional(),
-    gear: z.string().regex(/^(mask|glasses|cape|belt|bolt|coat|scarf|headband|suit)(,(mask|glasses|cape|belt|bolt|coat|scarf|headband|suit))*$/, 'gear is a comma list of: mask, glasses, cape, belt, bolt, coat, scarf, headband, suit').optional(),
+    gear: z.string().regex(/^(mask|glasses|cape|belt|bolt|coat|scarf|headband|suit|visor|halo)(,(mask|glasses|cape|belt|bolt|coat|scarf|headband|suit|visor|halo))*$/, 'gear is a comma list of: mask, glasses, cape, belt, bolt, coat, scarf, headband, suit, visor, halo').optional(),
     build: z.enum(['slim', 'regular', 'stocky']).optional(),
     /** Narration voice id for this character, e.g. "en-NG-EzinneNeural". Narrator lines use the viewer's chosen voice. */
     voice: z.string().regex(/^[a-z]{2}-[A-Z]{2}-[A-Za-z]+Neural$/, 'voice looks like "en-GB-RyanNeural"').optional(),
