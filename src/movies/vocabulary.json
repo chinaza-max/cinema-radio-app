@@ -15,7 +15,11 @@
     "street",
     "office",
     "apartment",
-    "restroom"
+    "restroom",
+    "workshop",
+    "clinic",
+    "floodedRoad",
+    "servicePath"
   ],
   "times": [
     "day",
@@ -63,7 +67,10 @@
     "briefcase",
     "papers",
     "phone",
-    "restroomDoor"
+    "medbox",
+    "bridgeSign",
+    "map",
+    "bike"
   ],
   "fx": [
     "birds",
