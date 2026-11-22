@@ -60,16 +60,16 @@ function fig(c,o){
   return `<g class="pz ${o.pose||''}"><g class="fg ${o.talk?'talk':''}">
   <ellipse cx="0" cy="0" rx="15" ry="3.2" fill="#000" opacity=".28"/>
   <rect class="leg l1" x="-7" y="-20" width="5.5" height="20" rx="2" fill="${c.pants||ink}"/>${leg2}
-  <path d="M-11.5 -17 L-9.5 -47 Q0 -52 9.5 -47 L11.5 -17Z" fill="${c.coat}"/>
+  <path d="M-12 -18 Q-13 -36 -9 -46 Q0 -52 9 -46 Q13 -36 12 -18 Q0 -13 -12 -18Z" fill="${c.coat}"/><path d="M-5 -49 Q0 -53 5 -49 L3 -45 L-3 -45Z" fill="${c.coat2||c.coat}" opacity=".85"/>
   <rect x="-1" y="-48" width="2" height="31" fill="${c.trim||'#00000040'}"/>
   ${pick('body')}
-  <g class="head"><circle cx="0" cy="-57" r="8.2" fill="${skin}"/>
+  <g class="head"><rect x="-3" y="-51" width="6" height="5" rx="2" fill="${skin}"/><circle cx="0" cy="-57" r="10.2" fill="${skin}"/>
    ${c.hair?`<path d="M-8.4 -58 Q-10.4 -64 -7 -67 L-3 -64 Q-6 -58 -5.4 -52Z" fill="${c.hair}"/>`:''}
    ${c.beard?`<path d="M-6 -54 Q0 -44 6.5 -54Z" fill="${c.beard}"/>`:''}
-   <circle cx="3" cy="-58" r="1" fill="#1a1410"/><circle cx="6.6" cy="-58" r="1" fill="#1a1410"/>
+   <ellipse cx="-3.5" cy="-58" rx="2.1" ry="2.4" fill="#fff"/><ellipse cx="3.5" cy="-58" rx="2.1" ry="2.4" fill="#fff"/><circle cx="-3.2" cy="-58" r="1" fill="#1a1410"/><circle cx="3.8" cy="-58" r="1" fill="#1a1410"/><path d="M0 -59 L-1.2 -55.5 L1.2 -55.5" stroke="#a16d55" stroke-width=".7" fill="none"/>
    <rect class="mouth" x="3.8" y="-53.6" width="3.4" height="1.4" rx=".7" fill="#7a3a2a"/>
    ${hatf?hatf(c):''}${pick('head')}</g>
-  <g class="arm"><rect x="5" y="-46" width="6" height="20" rx="3" fill="${c.coat2||c.coat}"/><circle cx="8" cy="-25" r="3.2" fill="${skin}"/>${pick('hand')}</g>
+  <g class="arm left"><rect x="-11" y="-45" width="6" height="20" rx="3" fill="${c.coat2||c.coat}" transform="rotate(12 -8 -25)"/><circle cx="-9" cy="-25" r="3.2" fill="${skin}"/></g><g class="arm right"><rect x="5" y="-46" width="6" height="20" rx="3" fill="${c.coat2||c.coat}" transform="rotate(-12 8 -25)"/><circle cx="8" cy="-25" r="3.2" fill="${skin}"/>${pick('hand')}</g>
   </g></g>`;
 }
 
