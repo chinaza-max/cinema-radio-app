@@ -16,7 +16,7 @@
     "characters": [
       "sam:130:think"
     ],
-    "camera": "wide"
+    "camera": "in"
   },
   "cast": {
     "sam": {
@@ -84,7 +84,7 @@
           "characters": [
             "sam:140:think"
           ],
-          "camera": "wide",
+          "camera": "in",
           "fx": [
             "rain"
           ]
@@ -141,7 +141,7 @@
           "fx": [
             "rain"
           ],
-          "camera": "wide"
+          "camera": "in"
         },
         {
           "speaker": "sam",
@@ -219,7 +219,7 @@
           "characters": [
             "sam:130>260:run"
           ],
-          "camera": "wide",
+          "camera": "in",
           "fx": [
             "rain"
           ]
@@ -249,7 +249,7 @@
             "daniel:345:crouch",
             "sam:80>190:run"
           ],
-          "camera": "wide",
+          "camera": "in",
           "fx": []
         },
         {
