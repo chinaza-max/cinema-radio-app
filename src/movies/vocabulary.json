@@ -11,7 +11,15 @@
     "cave",
     "future",
     "warp",
-    "village"
+    "village",
+    "street",
+    "office",
+    "apartment",
+    "restroom",
+    "workshop",
+    "clinic",
+    "floodedRoad",
+    "servicePath"
   ],
   "times": [
     "day",
@@ -52,7 +60,17 @@
     "ship",
     "shipfar",
     "palms",
-    "flag"
+    "flag",
+    "scanner",
+    "car",
+    "boxes",
+    "briefcase",
+    "papers",
+    "phone",
+    "medbox",
+    "bridgeSign",
+    "map",
+    "bike"
   ],
   "fx": [
     "birds",
@@ -174,13 +192,14 @@
       "r"
     ],
     "models": [
+      "human",
+      "toon",
       "soldier",
       "michelle",
       "avatar",
       "android",
       "robot",
-      "hologram",
-      "toon"
+      "hologram"
     ],
     "narratorShots": [
       "wide",

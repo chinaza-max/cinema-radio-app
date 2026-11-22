@@ -21,7 +21,7 @@ const SKY={
  future:{t:'#3a2a6c',b:'#f5a0b2',far:'#8a6aa8',mid:'#c887a1',gr:'#ebbba8',ink:'#3a2450',sun:'#fff1d2',s1:'#c07090',s2:'#6a4a8a',sand:'#f0d0c0'}
 };
 const DARK=tm=>tm==='night'||tm==='dusk'||tm==='storm';
-export const GY={hall:218,forest:216,citadel:216,room:218,moor:214,sea:216,island:216,cave:216,future:216,warp:214,village:216};
+export const GY={hall:218,forest:216,citadel:216,room:218,moor:214,sea:216,island:216,cave:216,future:216,warp:214,village:216,street:218,office:218,apartment:218,restroom:218,workshop:218,clinic:218,floodedRoad:218,servicePath:216};
 
 /* ---------- characters ---------- */
 const HATS={
@@ -60,16 +60,16 @@ function fig(c,o){
   return `<g class="pz ${o.pose||''}"><g class="fg ${o.talk?'talk':''}">
   <ellipse cx="0" cy="0" rx="15" ry="3.2" fill="#000" opacity=".28"/>
   <rect class="leg l1" x="-7" y="-20" width="5.5" height="20" rx="2" fill="${c.pants||ink}"/>${leg2}
-  <path d="M-11.5 -17 L-9.5 -47 Q0 -52 9.5 -47 L11.5 -17Z" fill="${c.coat}"/>
+  <path d="M-12 -18 Q-13 -36 -9 -46 Q0 -52 9 -46 Q13 -36 12 -18 Q0 -13 -12 -18Z" fill="${c.coat}"/><path d="M-5 -49 Q0 -53 5 -49 L3 -45 L-3 -45Z" fill="${c.coat2||c.coat}" opacity=".85"/>
   <rect x="-1" y="-48" width="2" height="31" fill="${c.trim||'#00000040'}"/>
   ${pick('body')}
-  <g class="head"><circle cx="0" cy="-57" r="8.2" fill="${skin}"/>
+  <g class="head"><rect x="-3" y="-51" width="6" height="5" rx="2" fill="${skin}"/><circle cx="0" cy="-57" r="10.2" fill="${skin}"/>
    ${c.hair?`<path d="M-8.4 -58 Q-10.4 -64 -7 -67 L-3 -64 Q-6 -58 -5.4 -52Z" fill="${c.hair}"/>`:''}
    ${c.beard?`<path d="M-6 -54 Q0 -44 6.5 -54Z" fill="${c.beard}"/>`:''}
-   <circle cx="3" cy="-58" r="1" fill="#1a1410"/><circle cx="6.6" cy="-58" r="1" fill="#1a1410"/>
+   <ellipse cx="-3.5" cy="-58" rx="2.1" ry="2.4" fill="#fff"/><ellipse cx="3.5" cy="-58" rx="2.1" ry="2.4" fill="#fff"/><circle cx="-3.2" cy="-58" r="1" fill="#1a1410"/><circle cx="3.8" cy="-58" r="1" fill="#1a1410"/><path d="M0 -59 L-1.2 -55.5 L1.2 -55.5" stroke="#a16d55" stroke-width=".7" fill="none"/>
    <rect class="mouth" x="3.8" y="-53.6" width="3.4" height="1.4" rx=".7" fill="#7a3a2a"/>
    ${hatf?hatf(c):''}${pick('head')}</g>
-  <g class="arm"><rect x="5" y="-46" width="6" height="20" rx="3" fill="${c.coat2||c.coat}"/><circle cx="8" cy="-25" r="3.2" fill="${skin}"/>${pick('hand')}</g>
+  <g class="arm left"><rect x="-11" y="-45" width="6" height="20" rx="3" fill="${c.coat2||c.coat}" transform="rotate(12 -8 -25)"/><circle cx="-9" cy="-25" r="3.2" fill="${skin}"/></g><g class="arm right"><rect x="5" y="-46" width="6" height="20" rx="3" fill="${c.coat2||c.coat}" transform="rotate(-12 8 -25)"/><circle cx="8" cy="-25" r="3.2" fill="${skin}"/>${pick('hand')}</g>
   </g></g>`;
 }
 
@@ -192,7 +192,15 @@ const PLACES={
   s+=`<path d="M60 250 Q160 216 220 206 Q280 202 340 250Z" fill="${lit?'#221a14':'#b88a52'}" opacity=".6"/>`;
   for(let i=0;i<20;i++){const x=R()*400,y=206+R()*40;s+=`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(0.8+R()*1.2).toFixed(1)}" fill="${P.ink}" opacity=".25"/>`}
   return s;
- }
+ },
+ street(P,id,R,sc){const n=DARK(sc.tm);return `<rect width="400" height="250" fill="${n?'#172337':'#9bb6c5'}"/><path d="M0 150 Q80 130 160 150 T320 145 T400 150 V250 H0Z" fill="${n?'#253447':'#778b91'}"/><rect y="182" width="400" height="68" fill="#3d4145"/><path d="M0 210 H400" stroke="#e7d8a2" stroke-width="3" stroke-dasharray="28 24"/><rect x="24" y="84" width="86" height="98" fill="#6c554b"/><path d="M18 84 L67 52 L116 84Z" fill="#473b38"/><rect x="42" y="104" width="18" height="26" fill="#f3c879"/><rect x="75" y="104" width="18" height="26" fill="#f3c879"/><rect x="285" y="72" width="88" height="110" fill="#5a514b"/><path d="M278 72 L329 40 L380 72Z" fill="#403a37"/><rect x="305" y="95" width="20" height="28" fill="#e8c58a"/><rect x="340" y="95" width="20" height="28" fill="#e8c58a"/>`;},
+ office(P,id,R,sc){return `<rect width="400" height="250" fill="#e7e0d4"/><rect y="190" width="400" height="60" fill="#8b725b"/><rect x="34" y="42" width="108" height="94" fill="#b8d7ee" stroke="#57473b" stroke-width="5"/><line x1="88" y1="42" x2="88" y2="136" stroke="#57473b" stroke-width="3"/><line x1="34" y1="89" x2="142" y2="89" stroke="#57473b" stroke-width="3"/><rect x="224" y="64" width="112" height="82" rx="2" fill="#5a4636"/><rect x="232" y="72" width="96" height="58" fill="#d9e1e7"/>`;},
+ apartment(P,id,R,sc){return `<rect width="400" height="250" fill="#b9a69a"/><rect y="190" width="400" height="60" fill="#725b4b"/><rect x="24" y="34" width="110" height="95" fill="#9dc3d7" stroke="#614a3b" stroke-width="6"/><path d="M79 34 V129 M24 81 H134" stroke="#614a3b" stroke-width="3"/><rect x="168" y="140" width="130" height="46" rx="7" fill="#775b65"/><rect x="178" y="124" width="48" height="25" rx="6" fill="#a77f88"/><rect x="235" y="124" width="48" height="25" rx="6" fill="#a77f88"/><rect x="326" y="58" width="48" height="132" fill="#5c4030"/><circle cx="361" cy="128" r="3" fill="#e4c16c"/>`;},
+ workshop(P,id,R,sc){return `<rect width="400" height="250" fill="#625d59"/><rect y="190" width="400" height="60" fill="#423c38"/><rect x="24" y="38" width="110" height="92" fill="#253b4b" stroke="#302b28" stroke-width="6"/><path d="M79 38 V130 M24 84 H134" stroke="#302b28" stroke-width="3"/><rect x="205" y="126" width="150" height="12" fill="#6b4630"/><rect x="216" y="138" width="8" height="54" fill="#35291f"/><rect x="337" y="138" width="8" height="54" fill="#35291f"/><path d="M232 120 L260 82 L288 120" stroke="#a98a5b" stroke-width="5" fill="none"/><circle cx="260" cy="82" r="6" fill="#d7b36a"/>`;},
+ clinic(P,id,R,sc){return `<rect width="400" height="250" fill="#dce8e7"/><rect y="190" width="400" height="60" fill="#9aa9a7"/><rect x="40" y="32" width="320" height="42" rx="5" fill="#f7fbf8"/><rect x="176" y="38" width="48" height="30" fill="#4c9b83"/><path d="M200 43 V63 M190 53 H210" stroke="#fff" stroke-width="6"/><rect x="42" y="94" width="95" height="80" fill="#b7d7e1" stroke="#fff" stroke-width="5"/><rect x="270" y="90" width="80" height="100" fill="#f8fbfa" stroke="#9caeaa" stroke-width="4"/><rect x="290" y="116" width="40" height="10" fill="#74a99b"/>`;},
+ floodedRoad(P,id,R,sc){return `<rect width="400" height="250" fill="#202c3e"/><path d="M0 0 H400 V125 Q300 110 200 132 T0 125Z" fill="#374b62"/><path d="M0 132 Q70 110 140 134 T280 130 T400 138 V250 H0Z" fill="#32647a"/><path d="M0 160 Q60 145 120 160 T240 158 T400 164 M0 198 Q70 182 140 198 T280 196 T400 202" stroke="#9ed0dc" stroke-width="3" fill="none" opacity=".65"/><path d="M0 126 L400 126" stroke="#7c858b" stroke-width="8"/><rect x="260" y="95" width="12" height="55" fill="#6b4a36" transform="rotate(28 266 122)"/><path d="M250 98 L295 120" stroke="#d5b66a" stroke-width="7"/>`;},
+ servicePath(P,id,R,sc){return `<rect width="400" height="250" fill="#152431"/><path d="M0 0 H400 V250 H0Z" fill="#1e3b35"/><path d="M0 250 Q70 196 130 172 Q210 144 270 180 Q330 202 400 250Z" fill="#9a8965"/><path d="M0 224 Q80 174 150 164 M250 165 Q320 180 400 224" stroke="#c4b48a" stroke-width="3" fill="none"/><g fill="#315d45"><circle cx="42" cy="80" r="48"/><circle cx="112" cy="66" r="40"/><circle cx="332" cy="72" r="55"/><circle cx="390" cy="128" r="44"/></g><path d="M44 0 V180 M110 0 V156 M334 0 V180 M390 0 V200" stroke="#493c2d" stroke-width="10"/>`;},
+ restroom(P,id,R,sc){return `<rect width="400" height="250" fill="#cbd0d2"/><path d="M0 0 H400 M0 45 H400 M0 90 H400 M0 135 H400 M0 180 H400" stroke="#a9afb3" stroke-width="2"/><path d="M40 0 V180 M80 0 V180 M120 0 V180 M160 0 V180 M200 0 V180 M240 0 V180 M280 0 V180 M320 0 V180 M360 0 V180" stroke="#b3b8bb" stroke-width="2"/><rect y="180" width="400" height="70" fill="#6b7075"/><rect x="16" y="58" width="82" height="112" fill="#d8dadd" stroke="#71767a" stroke-width="3"/><rect x="28" y="70" width="58" height="76" fill="#bfc3c6"/><rect x="318" y="62" width="52" height="84" rx="3" fill="#f0f1f1"/>`;}
 };
 
 /* props: all drawn between the backdrop and the characters unless listed in FG */
@@ -295,7 +303,17 @@ const PROPS={
   return `<g transform="translate(262 132)"><path d="M-22 0 L22 0 L16 8 L-16 8Z" fill="${P.ink}"/><rect x="-1" y="-30" width="2" height="30" fill="${P.ink}"/><path d="M-14 -26 L14 -26 L12 -6 L-12 -6Z" fill="${P.ink}" opacity=".85"/></g>`;
  },
  palms(sc,P,id){return palm(54,214,1.15,1)+palm(352,218,1.3,-1)},
- flag(sc,P,id){return `<line x1="206" y1="84" x2="206" y2="58" stroke="${P.ink}" stroke-width="1.6"/><path d="M206 58 L226 62 L206 68Z" fill="#0a0a0a"/><circle cx="213" cy="62.4" r="1.4" fill="#fff"/>`}
+ flag(sc,P,id){return `<line x1="206" y1="84" x2="206" y2="58" stroke="${P.ink}" stroke-width="1.6"/><path d="M206 58 L226 62 L206 68Z" fill="#0a0a0a"/><circle cx="213" cy="62.4" r="1.4" fill="#fff"/>`},
+ scanner(sc,P,id){return `<g transform="translate(195 190)"><rect x="-17" y="-16" width="34" height="25" rx="4" fill="#e8eef0" stroke="#53616b" stroke-width="2"/><rect x="-11" y="-11" width="22" height="11" rx="2" fill="#83b7ca"/><path d="M-12 9 Q0 18 12 9" fill="none" stroke="#53616b" stroke-width="3"/></g>`},
+ car(sc,P,id){return `<g transform="translate(292 178)"><path d="M-62 12 Q-54 -10 -30 -14 L28 -14 Q52 -10 62 12Z" fill="#7c1f2a"/><path d="M-30 -13 L-17 -34 L21 -34 L36 -13Z" fill="#b8d6e8"/><circle cx="-35" cy="13" r="11" fill="#17191c"/><circle cx="37" cy="13" r="11" fill="#17191c"/></g>`},
+ boxes(sc,P,id){return `<g><rect x="35" y="164" width="38" height="36" fill="#a87945" stroke="#5f3e23" stroke-width="2"/><path d="M54 164 V200 M35 178 H73" stroke="#6b4728" stroke-width="2"/><rect x="79" y="180" width="34" height="24" fill="#bc8c50" stroke="#6b4728" stroke-width="2"/></g>`},
+ briefcase(sc,P,id){return `<g transform="translate(200 192)"><rect x="-22" y="-16" width="44" height="30" rx="3" fill="#3b2b24"/><path d="M-9 -16 V-22 Q0 -26 9 -22 V-16" fill="none" stroke="#3b2b24" stroke-width="3"/><rect x="-22" y="-5" width="44" height="3" fill="#b28a45"/></g>`},
+ papers(sc,P,id){return `<g transform="translate(200 188) rotate(-5)"><rect x="-24" y="-15" width="42" height="29" fill="#f5f0df"/><path d="M-17 -7 H12 M-17 0 H14 M-17 7 H7" stroke="#8d8b83" stroke-width="1.4"/></g>`},
+ phone(sc,P,id){return `<g transform="translate(199 190)"><rect x="-7" y="-14" width="14" height="25" rx="3" fill="#242a31"/><rect x="-5" y="-11" width="10" height="17" fill="#8db4c7"/></g>`},
+ medbox(sc,P,id){return `<g transform="translate(198 188)"><rect x="-13" y="-12" width="26" height="22" rx="2" fill="#f7f5e9" stroke="#76928b" stroke-width="1.5"/><path d="M0 -8 V6 M-7 -1 H7" stroke="#d34f52" stroke-width="3"/></g>`},
+ bridgeSign(sc,P,id){return `<g transform="translate(300 116) rotate(18)"><rect x="-3" y="-28" width="6" height="70" fill="#62472e"/><rect x="-34" y="-32" width="68" height="26" rx="2" fill="#d5b45f" stroke="#59472f" stroke-width="2"/><path d="M-22 -19 H22" stroke="#493a28" stroke-width="3"/></g>`},
+ map(sc,P,id){return `<g transform="translate(198 158)"><rect x="-40" y="-20" width="80" height="44" fill="#e8dfc4" stroke="#7a674b" stroke-width="2"/><path d="M-30 10 L-10 -8 L8 5 L29 -12" stroke="#6b986c" stroke-width="3" fill="none"/><path d="M-28 -13 L28 14" stroke="#c58c58" stroke-width="2" fill="none"/></g>`},
+ bike(sc,P,id){return `<g transform="translate(160 181)" stroke="#27343b" stroke-width="3" fill="none"><circle cx="-30" cy="10" r="20"/><circle cx="34" cy="10" r="20"/><path d="M-30 10 L-7 -20 L10 10 L-30 10 M-7 -20 L34 10 L10 10 M-13 -24 H0 M-7 -20 L-10 -30"/></g>`}
 };
 const FG=['houndbig'];
 const OUTDOOR=['moor','sea','island','village'];
