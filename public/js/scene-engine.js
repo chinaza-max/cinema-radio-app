@@ -21,7 +21,7 @@ const SKY={
  future:{t:'#3a2a6c',b:'#f5a0b2',far:'#8a6aa8',mid:'#c887a1',gr:'#ebbba8',ink:'#3a2450',sun:'#fff1d2',s1:'#c07090',s2:'#6a4a8a',sand:'#f0d0c0'}
 };
 const DARK=tm=>tm==='night'||tm==='dusk'||tm==='storm';
-export const GY={hall:218,forest:216,citadel:216,room:218,moor:214,sea:216,island:216,cave:216,future:216,warp:214,village:216};
+export const GY={hall:218,forest:216,citadel:216,room:218,moor:214,sea:216,island:216,cave:216,future:216,warp:214,village:216,street:218,office:218,apartment:218,restroom:218};
 
 /* ---------- characters ---------- */
 const HATS={
@@ -295,7 +295,14 @@ const PROPS={
   return `<g transform="translate(262 132)"><path d="M-22 0 L22 0 L16 8 L-16 8Z" fill="${P.ink}"/><rect x="-1" y="-30" width="2" height="30" fill="${P.ink}"/><path d="M-14 -26 L14 -26 L12 -6 L-12 -6Z" fill="${P.ink}" opacity=".85"/></g>`;
  },
  palms(sc,P,id){return palm(54,214,1.15,1)+palm(352,218,1.3,-1)},
- flag(sc,P,id){return `<line x1="206" y1="84" x2="206" y2="58" stroke="${P.ink}" stroke-width="1.6"/><path d="M206 58 L226 62 L206 68Z" fill="#0a0a0a"/><circle cx="213" cy="62.4" r="1.4" fill="#fff"/>`}
+ flag(sc,P,id){return `<line x1="206" y1="84" x2="206" y2="58" stroke="${P.ink}" stroke-width="1.6"/><path d="M206 58 L226 62 L206 68Z" fill="#0a0a0a"/><circle cx="213" cy="62.4" r="1.4" fill="#fff"/>`}  scanner(sc,P,id){return `<g transform="translate(166 144)"><rect x="-22" y="-16" width="44" height="32" rx="5" fill="#eef1f3" stroke="#53616b" stroke-width="2"/><rect x="-15" y="-10" width="30" height="15" rx="2" fill="#9fc6d8"/><path d="M-18 16 Q0 28 18 16" fill="none" stroke="#53616b" stroke-width="3"/><rect x="14" y="-4" width="18" height="5" rx="2" fill="#53616b"/></g>`},
+ car(sc,P,id){return `<g transform="translate(286 166)"><path d="M-58 18 Q-52 -5 -28 -10 L28 -10 Q52 -5 58 18Z" fill="#7c1f2a"/><path d="M-30 -9 L-18 -31 L20 -31 L34 -9Z" fill="#b8d6e8"/><circle cx="-34" cy="18" r="11" fill="#17191c"/><circle cx="36" cy="18" r="11" fill="#17191c"/><circle cx="-34" cy="18" r="5" fill="#b7bdc2"/><circle cx="36" cy="18" r="5" fill="#b7bdc2"/></g>`},
+ boxes(sc,P,id){return `<g><rect x="42" y="168" width="36" height="32" fill="#a87945" stroke="#5f3e23" stroke-width="2"/><line x1="60" y1="168" x2="60" y2="200" stroke="#6b4728" stroke-width="2"/><rect x="82" y="181" width="30" height="25" fill="#bc8c50" stroke="#6b4728" stroke-width="2"/><rect x="116" y="157" width="42" height="38" fill="#9e7040" stroke="#5f3e23" stroke-width="2"/></g>`},
+ briefcase(sc,P,id){return `<g transform="translate(205 185)"><rect x="-25" y="-20" width="50" height="35" rx="3" fill="#3b2b24"/><path d="M-10 -20 V-27 Q0 -31 10 -27 V-20" fill="none" stroke="#3b2b24" stroke-width="4"/><rect x="-25" y="-8" width="50" height="4" fill="#b28a45"/></g>`},
+ papers(sc,P,id){return `<g transform="translate(205 174) rotate(-5)"><rect x="-28" y="-18" width="48" height="34" fill="#f5f0df"/><line x1="-20" y1="-9" x2="12" y2="-9" stroke="#8d8b83" stroke-width="1.5"/><line x1="-20" y1="-2" x2="15" y2="-2" stroke="#8d8b83" stroke-width="1.5"/><line x1="-20" y1="5" x2="7" y2="5" stroke="#8d8b83" stroke-width="1.5"/></g>`},
+ phone(sc,P,id){return `<g transform="translate(206 155)"><rect x="-9" y="-16" width="18" height="30" rx="3" fill="#242a31"/><rect x="-6" y="-12" width="12" height="21" fill="#8db4c7"/><circle cx="0" cy="11" r="1.5" fill="#d5d8d9"/></g>`},
+ restroomDoor(sc,P,id){return `<rect x="16" y="44" width="84" height="136" fill="#5d6268" stroke="#30353a" stroke-width="4"/><circle cx="88" cy="114" r="3" fill="#d2b45e"/>`},
+
 };
 const FG=['houndbig'];
 const OUTDOOR=['moor','sea','island','village'];
