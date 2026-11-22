@@ -302,7 +302,7 @@ const PROPS={
   return `<g transform="translate(262 132)"><path d="M-22 0 L22 0 L16 8 L-16 8Z" fill="${P.ink}"/><rect x="-1" y="-30" width="2" height="30" fill="${P.ink}"/><path d="M-14 -26 L14 -26 L12 -6 L-12 -6Z" fill="${P.ink}" opacity=".85"/></g>`;
  },
  palms(sc,P,id){return palm(54,214,1.15,1)+palm(352,218,1.3,-1)},
- flag(sc,P,id){return `<line x1="206" y1="84" x2="206" y2="58" stroke="${P.ink}" stroke-width="1.6"/><path d="M206 58 L226 62 L206 68Z" fill="#0a0a0a"/><circle cx="213" cy="62.4" r="1.4" fill="#fff"/>`,
+ flag(sc,P,id){return `<line x1="206" y1="84" x2="206" y2="58" stroke="${P.ink}" stroke-width="1.6"/><path d="M206 58 L226 62 L206 68Z" fill="#0a0a0a"/><circle cx="213" cy="62.4" r="1.4" fill="#fff"/>`},
  scanner(sc,P,id){return `<g transform="translate(195 190)"><rect x="-17" y="-16" width="34" height="25" rx="4" fill="#e8eef0" stroke="#53616b" stroke-width="2"/><rect x="-11" y="-11" width="22" height="11" rx="2" fill="#83b7ca"/><path d="M-12 9 Q0 18 12 9" fill="none" stroke="#53616b" stroke-width="3"/></g>`},
  car(sc,P,id){return `<g transform="translate(292 178)"><path d="M-62 12 Q-54 -10 -30 -14 L28 -14 Q52 -10 62 12Z" fill="#7c1f2a"/><path d="M-30 -13 L-17 -34 L21 -34 L36 -13Z" fill="#b8d6e8"/><circle cx="-35" cy="13" r="11" fill="#17191c"/><circle cx="37" cy="13" r="11" fill="#17191c"/></g>`},
  boxes(sc,P,id){return `<g><rect x="35" y="164" width="38" height="36" fill="#a87945" stroke="#5f3e23" stroke-width="2"/><path d="M54 164 V200 M35 178 H73" stroke="#6b4728" stroke-width="2"/><rect x="79" y="180" width="34" height="24" fill="#bc8c50" stroke="#6b4728" stroke-width="2"/></g>`},
