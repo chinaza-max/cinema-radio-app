@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "slug": "the-last-delivery",
+  "title": "The Last Delivery",
+  "synopsis": "On the night a small town loses power, a young delivery rider must get life-saving medicine across flooded streets before dawn, while an old mechanic and a frightened child help him find another way.",
+  "credit": "An original story created for Cinema Radio.",
+  "genre": "Drama",
+  "cover": {
+    "place": "street",
+    "time": "night",
+    "props": [
+      "phone",
+      "boxes"
+    ],
+    "characters": [
+      "sam:85",
+      "mama:315"
+    ],
+    "camera": "in"
+  },
+  "cast": {
+    "sam": {
+      "name": "Sam",
+      "role": "Delivery rider",
+      "model": "human",
+      "coat": "#245b73",
+      "trim": "#f0b84b",
+      "skin": "#7a4a30",
+      "hair": "#16110f",
+      "hat": "cap",
+      "sc": 0.9,
+      "pitch": 1.05,
+      "rate": 1
+    },
+    "mama": {
+      "name": "Mama Ada",
+      "role": "Mother",
+      "model": "human",
+      "coat": "#8a4f6b",
+      "trim": "#e9c46a",
+      "skin": "#6e432d",
+      "hair": "#241815",
+      "hairstyle": "long",
+      "sc": 0.86,
+      "pitch": 1.15,
+      "rate": 0.95
+    },
+    "daniel": {
+      "name": "Daniel",
+      "role": "Young boy",
+      "model": "human",
+      "coat": "#55764b",
+      "trim": "#d9d2a0",
+      "skin": "#8a5b3b",
+      "hair": "#171210",
+      "sc": 0.68,
+      "pitch": 1.3,
+      "rate": 1.05
+    },
+    "emeka": {
+      "name": "Emeka",
+      "role": "Old mechanic",
+      "model": "human",
+      "coat": "#6b4d38",
+      "trim": "#c89b5b",
+      "skin": "#70452f",
+      "hair": "#4b4039",
+      "beard": "#4b4039",
+      "sc": 0.88,
+      "pitch": 0.9,
+      "rate": 0.92
+    }
+  },
+  "episodes": [
+    {
+      "title": "The Call",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Rain had swallowed the streets by nightfall. Sam was preparing to finish his last delivery when his phone rang again.",
+          "place": "street",
+          "time": "night",
+          "props": [
+            "phone",
+            "boxes"
+          ],
+          "characters": [
+            "sam:190:think"
+          ],
+          "camera": "in"
+        },
+        {
+          "speaker": "mama",
+          "text": "Sam, please. Daniel needs the medicine tonight. The clinic closes before morning.",
+          "place": "apartment",
+          "time": "night",
+          "props": [
+            "phone"
+          ],
+          "characters": [
+            "mama:300:talk",
+            "daniel:190:sad"
+          ]
+        },
+        {
+          "speaker": "sam",
+          "text": "I am coming. Keep him warm and stay by the phone.",
+          "characters": [
+            "sam:190:talk"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Sam grabbed the small medicine box from his delivery bag and stepped back into the rain.",
+          "place": "street",
+          "time": "night",
+          "props": [
+            "boxes",
+            "phone"
+          ],
+          "characters": [
+            "sam:150:walk"
+          ],
+          "camera": "in"
+        },
+        {
+          "speaker": "narrator",
+          "text": "The main road was already underwater. A fallen sign blocked the bridge, and every route on Sam's phone ended in red lines.",
+          "place": "street",
+          "time": "night",
+          "props": [
+            "phone"
+          ],
+          "characters": [
+            "sam:190:shock"
+          ]
+        },
+        {
+          "speaker": "sam",
+          "text": "There has to be another way.",
+          "characters": [
+            "sam:190:think"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Long Way",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "Sam reached a tiny repair shop where one light was still burning. Inside, Emeka was closing for the night.",
+          "place": "office",
+          "time": "night",
+          "props": [
+            "table"
+          ],
+          "characters": [
+            "emeka:315",
+            "sam:90>190:walk"
+          ]
+        },
+        {
+          "speaker": "sam",
+          "text": "Uncle Emeka, do you know a road that is still open?",
+          "characters": [
+            "sam:180:talk",
+            "emeka:315:think"
+          ]
+        },
+        {
+          "speaker": "emeka",
+          "text": "The road is gone. But the old service path behind the workshop still reaches the clinic.",
+          "characters": [
+            "emeka:315:point",
+            "sam:180"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Emeka pulled an old map from a drawer and pointed toward the hills. The path was longer, but it avoided the flooded bridge.",
+          "place": "office",
+          "time": "night",
+          "props": [
+            "papers"
+          ],
+          "characters": [
+            "emeka:300:point",
+            "sam:150:think"
+          ]
+        },
+        {
+          "speaker": "sam",
+          "text": "Thank you. I will make it before midnight.",
+          "characters": [
+            "sam:150:cheer"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The rain grew heavier as Sam followed the narrow road beyond the town. His phone battery dropped to its final bar.",
+          "place": "street",
+          "time": "night",
+          "props": [
+            "phone",
+            "boxes"
+          ],
+          "characters": [
+            "sam:190:walk"
+          ],
+          "camera": "in"
+        },
+        {
+          "speaker": "sam",
+          "text": "Come on. Just a little farther.",
+          "characters": [
+            "sam:190:think"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Before Dawn",
+      "scenes": [
+        {
+          "speaker": "narrator",
+          "text": "At the end of the path, Sam found Daniel and Mama Ada waiting outside the clinic. The lights were still on.",
+          "place": "office",
+          "time": "night",
+          "props": [
+            "boxes"
+          ],
+          "characters": [
+            "mama:300",
+            "daniel:220",
+            "sam:90>190:run"
+          ],
+          "camera": "in"
+        },
+        {
+          "speaker": "mama",
+          "text": "You made it.",
+          "characters": [
+            "mama:300:shock",
+            "sam:190:cheer"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "Sam handed over the medicine. For the first time that night, Daniel smiled.",
+          "place": "office",
+          "time": "night",
+          "props": [
+            "boxes"
+          ],
+          "characters": [
+            "sam:190:point",
+            "mama:300:talk",
+            "daniel:220:cheer"
+          ]
+        },
+        {
+          "speaker": "daniel",
+          "text": "Thank you, Sam.",
+          "characters": [
+            "daniel:220:talk"
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "The storm finally began to weaken. Outside, the town was still dark, but a few windows started glowing one by one.",
+          "place": "street",
+          "time": "dawn",
+          "characters": [
+            "sam:190",
+            "mama:300",
+            "daniel:220"
+          ],
+          "camera": "out"
+        },
+        {
+          "speaker": "narrator",
+          "text": "Sam looked back at the flooded road and smiled. The longest delivery of his life had finally reached its destination.",
+          "place": "street",
+          "time": "dawn",
+          "characters": [
+            "sam:190:cheer"
+          ],
+          "camera": "in"
+        }
+      ]
+    }
+  ]
+}
