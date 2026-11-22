@@ -313,7 +313,8 @@ const PROPS={
  medbox(sc,P,id){return `<g transform="translate(198 188)"><rect x="-13" y="-12" width="26" height="22" rx="2" fill="#f7f5e9" stroke="#76928b" stroke-width="1.5"/><path d="M0 -8 V6 M-7 -1 H7" stroke="#d34f52" stroke-width="3"/></g>`},
  bridgeSign(sc,P,id){return `<g transform="translate(300 116) rotate(18)"><rect x="-3" y="-28" width="6" height="70" fill="#62472e"/><rect x="-34" y="-32" width="68" height="26" rx="2" fill="#d5b45f" stroke="#59472f" stroke-width="2"/><path d="M-22 -19 H22" stroke="#493a28" stroke-width="3"/></g>`},
  map(sc,P,id){return `<g transform="translate(198 158)"><rect x="-40" y="-20" width="80" height="44" fill="#e8dfc4" stroke="#7a674b" stroke-width="2"/><path d="M-30 10 L-10 -8 L8 5 L29 -12" stroke="#6b986c" stroke-width="3" fill="none"/><path d="M-28 -13 L28 14" stroke="#c58c58" stroke-width="2" fill="none"/></g>`},
- bike(sc,P,id){return `<g transform="translate(160 181)" stroke="#27343b" stroke-width="3" fill="none"><circle cx="-30" cy="10" r="20"/><circle cx="34" cy="10" r="20"/><path d="M-30 10 L-7 -20 L10 10 L-30 10 M-7 -20 L34 10 L10 10 M-13 -24 H0 M-7 -20 L-10 -30"/></g>`}}
+ bike(sc,P,id){return `<g transform="translate(160 181)" stroke="#27343b" stroke-width="3" fill="none"><circle cx="-30" cy="10" r="20"/><circle cx="34" cy="10" r="20"/><path d="M-30 10 L-7 -20 L10 10 L-30 10 M-7 -20 L34 10 L10 10 M-13 -24 H0 M-7 -20 L-10 -30"/></g>`}
+};
 const FG=['houndbig'];
 const OUTDOOR=['moor','sea','island','village'];
 
